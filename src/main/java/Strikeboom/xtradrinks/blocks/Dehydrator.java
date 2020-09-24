@@ -26,7 +26,7 @@ public class Dehydrator extends Block {
     public Dehydrator() {
         super(Material.IRON);
         setSoundType(SoundType.METAL);
-        setHardness(10.0F);
+        setHardness(8.0F);
         setResistance(100.0F);
         setHarvestLevel("pickaxe", 2);
     }
