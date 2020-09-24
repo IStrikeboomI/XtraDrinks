@@ -1,0 +1,27 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:juicer"
+    },
+	{
+		"item":"minecraft:potato"
+	},
+	
+		{
+		"item":"xtradrinks:drink_cup"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_potato_juice",
+        "count": 1
+    }
+}

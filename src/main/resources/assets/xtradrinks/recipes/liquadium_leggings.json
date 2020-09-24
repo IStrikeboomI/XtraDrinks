@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"WWW",
+	"W W",
+	"W W"
+    ],
+    "key":
+    {
+        "W":
+        {
+		            	  "type": "forge:ore_dict",
+				"ore": "ingotLiquadium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:liquadium_leggings",
+        "count": 1
+    }
+}

@@ -1,0 +1,30 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:juicer"
+    },
+	{
+		"item":"minecraft:milk_bucket"
+	},
+
+	{
+		"item":"xtradrinks:drink_thick"
+	},
+		{
+		"item":"xtradrinks:cinnamon"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_cinnamon_spice_thick",
+        "count": 1
+    }
+}

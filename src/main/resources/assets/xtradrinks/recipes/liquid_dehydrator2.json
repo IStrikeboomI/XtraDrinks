@@ -1,0 +1,22 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:dehydrator"
+    },
+	{
+		"item":"minecraft:bucket"
+	}
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:liquid_dehydrator",
+        "count": 1
+    }
+}

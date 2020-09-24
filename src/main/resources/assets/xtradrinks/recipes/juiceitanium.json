@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "SSS",
+    "SJI",
+    "III"
+  ],
+  "key":
+  {
+    "J":
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemDiamond"
+    },
+    "S":
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotFizzium"
+    },
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotLiquadium"
+    }
+  },
+  "result":
+  {
+    "item": "xtradrinks:jucetanium_ingot",
+    "count": 1
+  }
+}

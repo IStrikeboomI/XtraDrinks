@@ -1,0 +1,31 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:juicer"
+    },
+	{
+		"item":"xtradrinks:drink_cup"
+	},
+	
+		{
+		      "type": "forge:ore_dict",
+      "ore": "fruit"
+	},
+			{
+		      "item":"xtradrinks:citric_acid"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_sour_juice",
+        "count": 1
+    }
+}

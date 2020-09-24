@@ -1,0 +1,30 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:juicer"
+    },
+	{
+		"item":"xtradrinks:lemon"
+	},
+	
+		{
+		"item":"xtradrinks:drink_cup"
+	},
+			{
+		"item":"xtradrinks:citric_acid"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_lemon_juice",
+        "count": 1
+    }
+}

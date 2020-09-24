@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"   ",
+	"W W",
+	"W W"
+    ],
+    "key":
+    {
+        "W":
+        {
+		            	  "type": "forge:ore_dict",
+				"ore": "ingotJucetanium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:jucetanium_boots",
+        "count": 1
+    }
+}

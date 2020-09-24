@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"TTT",
+	"TTT",
+	"TTT"
+    ],
+    "key":
+    {
+        "T":
+        {
+		            	  "type": "forge:ore_dict",
+				"ore": "ingotLiquadium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:liquadium",
+        "count": 1
+    }
+}

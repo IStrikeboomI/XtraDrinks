@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "I I",
+    "III"
+  ],
+  "key":
+  {
+    "I":
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockGlass"
+    }
+  },
+  "result":
+  {
+    "item": "xtradrinks:drink_cup",
+    "count": 3
+  }
+}

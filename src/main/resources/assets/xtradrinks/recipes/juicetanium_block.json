@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"TTT",
+	"TTT",
+	"TTT"
+    ],
+    "key":
+    {
+        "T":
+        {
+		            	  "type": "forge:ore_dict",
+				"ore": "ingotJucetanium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:juicetanium",
+        "count": 1
+    }
+}

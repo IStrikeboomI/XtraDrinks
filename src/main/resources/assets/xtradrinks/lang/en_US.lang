@@ -1,0 +1,120 @@
+//Blocks
+tile.dehydrator.name=Dehydrator
+tile.liquid_dehydrator.name=Liquid Dehydrator
+tile.juicetanium.name=Block of Juicetanium
+tile.fizzium.name=Block of Fizzium
+tile.liquadium.name=Block of Liquadium
+tile.greenman_lure.name=Greenman Lure
+
+//Items
+item.pines.name=Pines
+item.cinnamon.name=Cinnamon
+item.juicer.name=Juicer
+item.pineapple.name=Pineapple
+item.lemon.name=Lemon
+item.lime.name=Lime
+item.carrot.name=Carrot
+item.pomegranate.name=Pomegranate
+item.grape.name=Grape
+item.cranberry.name=Cranberry
+item.blueberry.name=Blueberry
+item.blackberry.name=Blackberry
+item.orange.name=Orange
+item.coconut.name=Coconut
+item.dehydrated_pineapple.name=Dehydrated Pineapple
+item.dehydrated_lemon.name=Dehydrated Lemon
+item.dehydrated_lime.name=Dehydrated Lime
+item.dehydrated_carrot.name=Dehydrated Carrot
+item.dehydrated_pomegranate.name=Dehydrated Pomegranate
+item.dehydrated_grape.name=Dehydrated Grape
+item.dehydrated_cranberry.name=Dehydrated Cranberry
+item.dehydrated_blueberry.name=Dehydrated Blueberry
+item.dehydrated_blackberry.name=Dehydrated Blackberry
+item.dehydrated_apple.name=Dehydrated Apple
+item.dehydrated_orange.name=Dehydrated Orange
+item.dehydrated_coconut.name=Dehydrated Coconut
+item.dehydrated_carrot.name=Dehydrated Carrot
+item.dehydrated_potato.name=Dehydrated Potato
+item.dehydrated_beetroot.name=Dehydrated Beetroot
+item.dehydrated_pomegranate.name=Dehydrated Pomegranate
+item.fizzium_shard.name=Fizzium Shard
+item.liquadium_shard.name=Liquadium Shard
+item.fizzium_ingot.name=Fizzium Ingot
+item.liquadium_ingot.name=Liquadium Ingot
+item.jucetanium_ingot.name=Juicetanium Ingot
+item.fizzium_helmet.name=Fizzium Helmet
+item.fizzium_chestplate.name=Fizzium Chestplate
+item.fizzium_leggings.name=Fizzium Leggings
+item.fizzium_boots.name=Fizzium Boots
+item.liquadium_helmet.name=Liquadium Helmet
+item.liquadium_chestplate.name=Liquadium Chestplate
+item.liquadium_leggings.name=Liquadium Leggings
+item.liquadium_boots.name=Liquadium Boots
+item.jucetanium_helmet.name=Juicetanium Helmet
+item.jucetanium_chestplate.name=Juicetanium Chestplate
+item.jucetanium_leggings.name=Juicetanium Leggings
+item.jucetanium_boots.name=Juicetanium Boots
+item.citric_acid.name=Citric Acid
+item.drink_cup.name=Drink Cup
+item.drink_thick.name=Thick Drink Cup
+item.drink_apple_juice.name=Apple Juice
+item.drink_apple_thick.name=Apple Cider
+item.drink_beet_juice.name=Beet Juice
+item.drink_carrot_juice.name=Carrot Juice
+item.drink_carrot_thick.name=Carrot Smoothie
+item.drink_chocolate_milk_thick.name=Chocolate Milk
+item.drink_cinnamon_spice_thick.name=Cinnamon Spice
+item.drink_coconut_juice.name=Coconut Water
+item.drink_cranapple_juice.name=Cranapple
+item.drink_cranlemon_juice.name=Cranlemon
+item.drink_cranlime_juice.name=Cranlime
+item.drink_fizzium_thick.name=Fizzium Brew
+item.drink_fruit_punch_juice.name=Fruit Punch
+item.drink_grape_juice.name=Grape Juice
+item.drink_jucetanium_thick.name=Jucetanium Brew
+item.drink_lemon_juice.name=Lemon Juice
+item.drink_lime_juice.name=Lime Juice
+item.drink_liquadium_thick.name=Liquadium Brew
+item.drink_potato_juice.name=Potato Juice
+item.drink_sour_juice.name=Sour Juice
+item.drink_tropical_punch_juice.name=Tropical Punch
+
+//Fluids
+fluid.liquadium_fluid=Liquadium Fluid
+fluid.fizzium_fluid=Fizzuim Fluid
+
+//Creative Tabs
+itemGroup.xtradrinks=Xtra Drinks
+
+//Config
+xtradrinks.config.name=Xtra Drinks
+xtradrinks.config.blocks=Blocks
+xtradrinks.config.blocks.tooltip=Config setting for the blocks in Xtra Drinks
+xtradrinks.config.blocks.dehydrator_delay=Dehydrator Delay
+xtradrinks.config.blocks.dehydrator_delay.tooltip=Sets the delay time for the Dehydrator (in ticks)
+xtradrinks.config.blocks.liquid_dehydrator_delay=Liquid Dehydrator Delay
+xtradrinks.config.blocks.liquid_dehydrator_delay.tooltip=Sets the delay time for the Liquid Dehydrator (in ticks)
+
+//Tile Entities
+tileentity.xtradrinks.dehydrator.name=Dehydrator
+tileentity.xtradrinks.liquid_dehydrator.name=Liquid Dehydrator
+
+//Gui Elements
+gui.xtradrinks.drain.name=Drain
+
+//Materials
+material.xtradrinks.fizzium.name=Fizzium
+material.xtradrinks.liquadium.name=Liquadium
+
+//Advancements
+achievement.juicer=Obtain a Juicer!
+achievement.juicer.desc=Start the advancement tree by getting a Juicer!
+achievement.jucetanium=Juicetanium Ingot!
+achievement.jucetanium.desc=Obtain a Juicetanium ingot
+
+//Entities
+entity.greenman.name=Green Man
+
+//Jei info
+jei.xtradrinks.buckets_found=These buckets can be found inside of naturally spawning wells.
+jei.xtradrinks.buckets_liquid_dehydrator=Put the fluids into a Liquid Dehydrator to get the respective shards to turn into ingots.

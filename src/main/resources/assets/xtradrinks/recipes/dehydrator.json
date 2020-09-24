@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "SGS",
+    "IBI",
+    "III"
+  ],
+  "key":
+  {
+    "I":
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "G":
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockGlass"
+    },
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "stone"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result":
+  {
+    "item": "xtradrinks:dehydrator",
+    "count": 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"   ",
+	"WWW",
+	"W W"
+    ],
+    "key":
+    {
+        "W":
+        {
+		            	  "type": "forge:ore_dict",
+				"ore": "ingotJucetanium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:jucetanium_helmet",
+        "count": 1
+    }
+}

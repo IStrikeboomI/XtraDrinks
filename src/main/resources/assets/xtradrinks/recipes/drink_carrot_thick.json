@@ -1,0 +1,30 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:juicer"
+    },
+	{
+		"item":"minecraft:carrot"
+	},
+		{
+		"item":"minecraft:beetroot"
+	},
+
+		{
+		"item":"xtradrinks:drink_thick"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_carrot_thick",
+        "count": 1
+    }
+}
