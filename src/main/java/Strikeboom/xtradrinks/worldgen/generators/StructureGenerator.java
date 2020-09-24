@@ -29,7 +29,7 @@ public class StructureGenerator extends WorldGenerator {
 
 	private static final int VARIATION = 2;
 
-	private String structureName;
+	private final String structureName;
 
 	public StructureGenerator(String structureName) {
 		this.structureName = structureName;

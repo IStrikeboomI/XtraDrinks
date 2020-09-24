@@ -4,8 +4,6 @@ import Strikeboom.xtradrinks.XtraDrinks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.LoaderState;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;

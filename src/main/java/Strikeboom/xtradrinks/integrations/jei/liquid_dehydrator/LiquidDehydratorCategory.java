@@ -1,7 +1,6 @@
 package Strikeboom.xtradrinks.integrations.jei.liquid_dehydrator;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import Strikeboom.xtradrinks.blocks.LiquidDehydrator;
 import Strikeboom.xtradrinks.init.ModBlocks;
 import Strikeboom.xtradrinks.integrations.jei.XtraDrinksJeiIntegration;
 import mezz.jei.api.IGuiHelper;

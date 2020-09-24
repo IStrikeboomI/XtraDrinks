@@ -1,13 +1,11 @@
 package Strikeboom.xtradrinks.guis.container;
 
 import Strikeboom.xtradrinks.entity.EntityGreenman;
-import Strikeboom.xtradrinks.guis.tileentity.TileEntityDehydrator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;

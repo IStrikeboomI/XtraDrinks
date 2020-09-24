@@ -6,8 +6,6 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.Arrays;
-
 public class LiquidDehydratorRecipeWrapper implements IRecipeWrapper {
     ItemStack output;
     FluidStack input;

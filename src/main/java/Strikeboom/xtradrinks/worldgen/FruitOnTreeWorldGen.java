@@ -10,8 +10,6 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class FruitOnTreeWorldGen implements IWorldGenerator {

@@ -1,14 +1,12 @@
 package Strikeboom.xtradrinks.integrations.jei.dehydrator;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import Strikeboom.xtradrinks.guis.tileentity.TileEntityDehydrator;
 import Strikeboom.xtradrinks.init.ModBlocks;
 import Strikeboom.xtradrinks.integrations.jei.XtraDrinksJeiIntegration;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.*;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
-import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 

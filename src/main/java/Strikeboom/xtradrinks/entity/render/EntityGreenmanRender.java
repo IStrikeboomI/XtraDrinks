@@ -2,7 +2,6 @@ package Strikeboom.xtradrinks.entity.render;
 
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.entity.EntityGreenman;
-import net.minecraft.client.model.ModelOcelot;
 import net.minecraft.client.model.ModelVillager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;

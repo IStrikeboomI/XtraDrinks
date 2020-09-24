@@ -2,7 +2,6 @@ package Strikeboom.xtradrinks.handlers;
 
 import Strikeboom.xtradrinks.init.ModItems;
 import Strikeboom.xtradrinks.items.fruit.PlantableFruit;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;

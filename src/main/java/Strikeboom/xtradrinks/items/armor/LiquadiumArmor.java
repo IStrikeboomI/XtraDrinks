@@ -1,6 +1,5 @@
 package Strikeboom.xtradrinks.items.armor;
 
-import Strikeboom.xtradrinks.blocks.LiquidDehydrator;
 import Strikeboom.xtradrinks.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;

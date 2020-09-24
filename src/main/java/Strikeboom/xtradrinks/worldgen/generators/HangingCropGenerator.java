@@ -1,12 +1,10 @@
 package Strikeboom.xtradrinks.worldgen.generators;
 
-import Strikeboom.xtradrinks.XtraDrinks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 import java.util.Arrays;

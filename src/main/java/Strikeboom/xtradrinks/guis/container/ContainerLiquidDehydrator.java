@@ -1,6 +1,5 @@
 package Strikeboom.xtradrinks.guis.container;
 
-import Strikeboom.xtradrinks.guis.tileentity.TileEntityDehydrator;
 import Strikeboom.xtradrinks.guis.tileentity.TileEntityLiquidDehydrator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;

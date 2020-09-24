@@ -19,7 +19,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nullable;
 
 public class TileEntityDehydrator extends TileEntity implements ITickable {
-    private ItemStackHandler handler;
+    private final ItemStackHandler handler;
     private int coolDown;
     private int delay  = ConfigHandler.BLOCKS.dehydrator_delay_time;
 

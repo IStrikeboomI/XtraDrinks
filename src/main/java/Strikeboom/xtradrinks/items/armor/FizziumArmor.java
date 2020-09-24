@@ -1,16 +1,13 @@
 package Strikeboom.xtradrinks.items.armor;
 
-import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class FizziumArmor extends ItemArmor {
     public FizziumArmor(ArmorMaterial armorMaterial,int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {

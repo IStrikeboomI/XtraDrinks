@@ -3,8 +3,6 @@ package Strikeboom.xtradrinks.guis.tileentity.recipes.dehydrator;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.Objects;
-
 
 public class DehydratorRecipe {
     private final Item item;

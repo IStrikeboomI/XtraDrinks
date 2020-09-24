@@ -4,7 +4,6 @@ import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.guis.container.ContainerDehydrator;
 import Strikeboom.xtradrinks.guis.tileentity.TileEntityDehydrator;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 

@@ -22,8 +22,8 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nullable;
 
 public class TileEntityLiquidDehydrator extends TileEntity implements ITickable {
-    private ItemStackHandler handler;
-    private FluidTank tank;
+    private final ItemStackHandler handler;
+    private final FluidTank tank;
     private int coolDown;
     private int delay;
 

@@ -2,7 +2,6 @@ package Strikeboom.xtradrinks.worldgen;
 
 import Strikeboom.xtradrinks.init.ModBlocks;
 import Strikeboom.xtradrinks.worldgen.generators.CropGenerator;
-import net.minecraft.block.BlockCrops;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;

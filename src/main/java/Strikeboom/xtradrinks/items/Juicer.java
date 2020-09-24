@@ -1,6 +1,5 @@
 package Strikeboom.xtradrinks.items;
 
-import Strikeboom.xtradrinks.init.ModItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
