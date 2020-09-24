@@ -22,7 +22,6 @@ import java.util.List;
 
 public class ModItems {
     public static final List<Item> ITEMS = new LinkedList<>();
-    public static final String JUCETANIUM_LEGGINGS = "jucetanium_leggings";
 
     public static Item juicer;
     public static Item pomegranate;
@@ -137,7 +136,7 @@ public class ModItems {
         liquadium_boots = new LiquadiumArmor(ArmorMaterials.LIQUIDADIUM,1,EntityEquipmentSlot.FEET).setRegistryName("liquadium_boots").setUnlocalizedName("liquadium_boots");
         jucetanium_helmet = new JucetaniumArmor(ArmorMaterials.JUICEITANIUM,1,EntityEquipmentSlot.HEAD).setRegistryName("jucetanium_helmet").setUnlocalizedName("jucetanium_helmet");
         jucetanium_chestplate = new JucetaniumArmor(ArmorMaterials.JUICEITANIUM,1,EntityEquipmentSlot.CHEST).setRegistryName("jucetanium_chestplate").setUnlocalizedName("jucetanium_chestplate");
-        jucetanium_leggings = new JucetaniumArmor(ArmorMaterials.JUICEITANIUM,2,EntityEquipmentSlot.LEGS).setRegistryName(JUCETANIUM_LEGGINGS).setUnlocalizedName("jucetanium_leggings");
+        jucetanium_leggings = new JucetaniumArmor(ArmorMaterials.JUICEITANIUM,2,EntityEquipmentSlot.LEGS).setRegistryName("jucetanium_leggings").setUnlocalizedName("jucetanium_leggings");
         jucetanium_boots = new JucetaniumArmor(ArmorMaterials.JUICEITANIUM,1,EntityEquipmentSlot.FEET).setRegistryName("jucetanium_boots").setUnlocalizedName("jucetanium_boots");
 
         pineapple = new PlantableFruit(ModBlocks.pineapple).setRegistryName("pineapple").setUnlocalizedName("pineapple");
