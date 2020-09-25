@@ -38,7 +38,7 @@ public class GuiLiquidDehydrator extends GuiContainer {
     @Override
     public void initGui() {
         super.initGui();
-        this.buttonList.add(new GuiButton(1,this.guiLeft + 38,this.guiTop + 50,39,20, I18n.format("gui."+XtraDrinks.MOD_ID+".drain.name")));
+        this.buttonList.add(new GuiButton(1,this.guiLeft + 38,this.guiTop + 50,39,20, I18n.format("gui."+ XtraDrinks.MOD_ID+".drain.name")));
     }
 
     @Override

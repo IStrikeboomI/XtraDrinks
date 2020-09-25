@@ -10,9 +10,8 @@ import java.util.List;
 public class DehydratorRecipes {
     public static List<DehydratorRecipeWrapper> recipes() {
         List<DehydratorRecipeWrapper> recipeWrappers = new ArrayList<>();
-        for (DehydratorRecipe recipe: DehydratorRecipeHandler.getRecipes()) {
-            recipeWrappers.add(new DehydratorRecipeWrapper(new ItemStack(recipe.getItem()),new ItemStack(recipe.getStackItem(),recipe.getStackCount())));
-        }
+
+        DehydratorRecipeHandler.getRecipes().forEach(recipe -> recipeWrappers.add(new DehydratorRecipeWrapper(new ItemStack(recipe.getItem()),new ItemStack(recipe.getStackItem(),recipe.getStackCount()))));
         return recipeWrappers;
     }
 }

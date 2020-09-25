@@ -11,9 +11,8 @@ import java.util.List;
 public class LiquidDehydratorRecipes {
     public static List<LiquidDehydratorRecipeWrapper> recipes() {
         List<LiquidDehydratorRecipeWrapper> recipeWrappers = new ArrayList<>();
-        for (LiquidDehydratorRecipe recipe: LiquidDehydratorHandler.recipes()) {
-            recipeWrappers.add(new LiquidDehydratorRecipeWrapper(new ItemStack(recipe.getItem(),recipe.getCount(),recipe.getMetadata()),new FluidStack(recipe.getFluid(),recipe.getFluidCount())));
-        }
+
+        LiquidDehydratorHandler.recipes().forEach(recipe -> recipeWrappers.add(new LiquidDehydratorRecipeWrapper(new ItemStack(recipe.getItem(),recipe.getCount(),recipe.getMetadata()),new FluidStack(recipe.getFluid(),recipe.getFluidCount()))));
         return recipeWrappers;
     }
 }
