@@ -13,12 +13,14 @@
 	},
 	
 		{
-		      "type": "forge:ore_dict",
-      "ore": "fruit"
+          "item":"xtradrinks:lemon"
 	},
 			{
-		      "item":"xtradrinks:citric_acid"
-	}
+		      "item":"xtradrinks:lime"
+	},
+      {
+        "item":"xtradrinks:citric_acid"
+      }
     
     
     ],
