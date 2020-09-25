@@ -11,7 +11,7 @@
     "I":
     {
       "type": "forge:ore_dict",
-      "ore": "plankWood"
+      "ore": "blockGlass"
     },
     "S": {
       "item": "minecraft:wool",
