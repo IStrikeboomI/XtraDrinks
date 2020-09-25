@@ -110,12 +110,12 @@ public class TileEntityLiquidDehydrator extends TileEntity implements ITickable 
             delay = ConfigHandler.BLOCKS.liquid_dehydrator_delay_time;
             if (
                     handler.getStackInSlot(0).getCount() <= handler.getStackInSlot(0).getMaxStackSize()
-                            && tank.getFluid() != null
-                            && LiquidDehydratorHandler.doesFluidHaveRecipe(tank.getFluid().getFluid())
-                            && tank.getFluid().amount >= LiquidDehydratorHandler.getFluidStackRecipeAmountFromFluid(tank.getFluid().getFluid())
-                            && handler.getStackInSlot(0).getCount() + LiquidDehydratorHandler.getItemStackAmountFromFluidStack(tank.getFluid()) <= handler.getStackInSlot(0).getMaxStackSize()
-                            && (handler.getStackInSlot(0).isEmpty()
-                            || handler.getStackInSlot(0).getItem() == LiquidDehydratorHandler.getItemFromFluidStack(tank.getFluid()))) {
+                    && tank.getFluid() != null
+                    && LiquidDehydratorHandler.doesFluidHaveRecipe(tank.getFluid().getFluid())
+                    && tank.getFluid().amount >= LiquidDehydratorHandler.getFluidStackRecipeAmountFromFluid(tank.getFluid().getFluid())
+                    && handler.getStackInSlot(0).getCount() + LiquidDehydratorHandler.getItemStackAmountFromFluidStack(tank.getFluid()) <= handler.getStackInSlot(0).getMaxStackSize()
+                    && (handler.getStackInSlot(0).isEmpty()
+                        || handler.getStackInSlot(0).getItem() == LiquidDehydratorHandler.getItemFromFluidStack(tank.getFluid()))) {
                 coolDown++;
             } else {
                 coolDown = 0;
