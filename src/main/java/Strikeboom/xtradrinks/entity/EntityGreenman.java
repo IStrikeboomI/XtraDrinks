@@ -149,7 +149,7 @@ public class EntityGreenman extends EntityLiving {
                 }
         }
     }
-    @Mod.EventBusSubscriber
+    @Mod.EventBusSubscriber(modid = XtraDrinks.MOD_ID)
     public static class GreenmanEvents {
         //when greenman is spawned naturally
         @SubscribeEvent
