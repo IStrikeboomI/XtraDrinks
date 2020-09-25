@@ -40,9 +40,11 @@ public class XtraDrinksJeiIntegration implements IModPlugin {
     public void register(IModRegistry registry) {
         registry.addRecipes(DehydratorRecipes.recipes(),DEHYDRATOR_UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.dehydrator),DEHYDRATOR_UID);
+
         registry.addRecipes(LiquidDehydratorRecipes.recipes(),LIQUID_DEHYDRATOR_UID);
         registry.addRecipeCatalyst(new ItemStack(ModBlocks.liquid_dehydrator),LIQUID_DEHYDRATOR_UID);
         registry.getRecipeTransferRegistry().addRecipeTransferHandler(ContainerDehydrator.class,DEHYDRATOR_UID,0,1,0,36);
+
         registry.addIngredientInfo(Arrays.asList(FluidUtil.getFilledBucket(new FluidStack(ModFluids.liquadium_fluid,1000)),FluidUtil.getFilledBucket(new FluidStack(ModFluids.fizzium_fluid,1000))), VanillaTypes.ITEM,
                 I18n.format("jei."+XtraDrinks.MOD_ID+".buckets_found"),I18n.format("jei."+XtraDrinks.MOD_ID+".buckets_liquid_dehydrator"));
 
