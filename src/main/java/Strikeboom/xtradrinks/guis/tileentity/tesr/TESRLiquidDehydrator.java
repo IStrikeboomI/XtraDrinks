@@ -56,7 +56,6 @@ public class TESRLiquidDehydrator extends TileEntitySpecialRenderer<TileEntityLi
                 renderer.pos(1 - TANK_THICKNESS, topScale + TANK_THICKNESS + FLUID_HEIGHT, 1 - TANK_THICKNESS).tex(u2, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
                 renderer.pos(1 - TANK_THICKNESS, topScale + TANK_THICKNESS + FLUID_HEIGHT, TANK_THICKNESS).tex(u2, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
 
-
                 // Sides
                 renderer.pos(TANK_THICKNESS, topScale + TANK_THICKNESS + FLUID_HEIGHT, 1 - TANK_THICKNESS).tex(u1, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
                 renderer.pos(TANK_THICKNESS,    FLUID_HEIGHT   , 1 - TANK_THICKNESS).tex(u1, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
