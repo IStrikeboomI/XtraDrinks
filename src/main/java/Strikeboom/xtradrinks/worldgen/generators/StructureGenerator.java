@@ -30,9 +30,14 @@ public class StructureGenerator extends WorldGenerator {
 	private static final int VARIATION = 2;
 
 	private final String structureName;
+	private final boolean isFarm;
 
-	public StructureGenerator(String structureName) {
+	public StructureGenerator(String structureName,boolean isFarm) {
 		this.structureName = structureName;
+		this.isFarm = isFarm;
+	}
+	public StructureGenerator(String structureName) {
+		this(structureName,false);
 	}
 
 	@Override
@@ -40,17 +45,19 @@ public class StructureGenerator extends WorldGenerator {
 		WorldServer worldServer = (WorldServer) world;
 		MinecraftServer minecraftServer = world.getMinecraftServer();
 		TemplateManager templateManager = worldServer.getStructureTemplateManager();
-		Template template = templateManager.get(minecraftServer, new ResourceLocation(XtraDrinks.MOD_ID, this.structureName));
+		Template template = templateManager.get(minecraftServer,
+				new ResourceLocation(XtraDrinks.MOD_ID, this.structureName));
 
 		if (template == null) {
 			return false;
 		}
 
-		if (canSpawnHere(template, worldServer, position)) {
+		if (canSpawnHere(template, worldServer, position) || isFarm) {
 
 			Rotation rotation = Rotation.values()[rand.nextInt(3)];
 
-			PlacementSettings settings = new PlacementSettings().setMirror(Mirror.NONE).setRotation(rotation).setIgnoreStructureBlock(false);
+			PlacementSettings settings = new PlacementSettings().setMirror(Mirror.NONE).setRotation(rotation)
+					.setIgnoreStructureBlock(false);
 
 			template.addBlocksToWorld(world, position, settings);
 
@@ -65,11 +72,12 @@ public class StructureGenerator extends WorldGenerator {
 					IBlockState state = null;
 					if (data.length == 3)
 						state = block.getStateFromMeta(Integer.parseInt(data[2]));
-
 					else
 						state = block.getDefaultState();
-					for (Entry<IProperty<?>, Comparable<?>> entry2 : block.getDefaultState().getProperties().entrySet()) {
-						if (entry2.getKey().getValueClass().equals(EnumFacing.class) && entry2.getKey().getName().equals("facing")) {
+					for (Entry<IProperty<?>, Comparable<?>> entry2 : block.getDefaultState().getProperties()
+							.entrySet()) {
+						if (entry2.getKey().getValueClass().equals(EnumFacing.class)
+								&& entry2.getKey().getName().equals("facing")) {
 							state = state.withRotation(rotation.add(Rotation.CLOCKWISE_180));
 							break;
 						}
@@ -80,8 +88,9 @@ public class StructureGenerator extends WorldGenerator {
 						continue;
 					if (te instanceof TileEntityLockableLoot)
 						((TileEntityLockableLoot) te).setLootTable(new ResourceLocation(data[1]), rand.nextLong());
-				} catch (Exception ignored) {
+				} catch (Exception e) {
 
+					continue;
 				}
 			}
 			return true;
@@ -91,14 +100,19 @@ public class StructureGenerator extends WorldGenerator {
 	}
 
 
+
 	public static boolean canSpawnHere(Template template, World world, BlockPos pos) {
-		return isCornerValid(world, pos) && isCornerValid(world, pos.add(template.getSize().getX(), 0, 0)) && isCornerValid(world, pos.add(template.getSize().getX(), 0, template.getSize().getZ())) && isCornerValid(world, pos.add(0, 0, template.getSize().getZ()));
+		return isCornerValid(world, pos) && isCornerValid(world, pos.add(template.getSize().getX(), 0, 0))
+				&& isCornerValid(world, pos.add(template.getSize().getX(), 0, template.getSize().getZ()))
+				&& isCornerValid(world, pos.add(0, 0, template.getSize().getZ()));
 	}
+
 
 	public static boolean isCornerValid(World world, BlockPos pos) {
 		int groundY = getGroundFromAbove(world, pos.getX(), pos.getZ());
 		return groundY > pos.getY() - VARIATION && groundY < pos.getY() + VARIATION;
 	}
+
 
 	public static int getGroundFromAbove(World world, int x, int z) {
 		int y = 255;
@@ -110,7 +124,7 @@ public class StructureGenerator extends WorldGenerator {
 				break;
 			}
 			foundGround = block == Blocks.GRASS || block == Blocks.SAND || block == Blocks.SNOW
-					|| block == Blocks.SNOW_LAYER || block == Blocks.MYCELIUM || block == Blocks.STONE ;
+					|| block == Blocks.SNOW_LAYER || block == Blocks.MYCELIUM || block == Blocks.STONE;
 		}
 		return y;
 	}

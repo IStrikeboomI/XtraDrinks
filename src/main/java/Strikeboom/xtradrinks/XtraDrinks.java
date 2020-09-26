@@ -16,6 +16,7 @@ import Strikeboom.xtradrinks.init.ModSmelting;
 import Strikeboom.xtradrinks.integrations.Integrations;
 import Strikeboom.xtradrinks.worldgen.CropOnGrassWorldGen;
 import Strikeboom.xtradrinks.worldgen.FruitOnTreeWorldGen;
+import Strikeboom.xtradrinks.worldgen.StructureWorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -81,6 +82,7 @@ public class XtraDrinks
         PacketHandler.init();
         GameRegistry.registerWorldGenerator(new CropOnGrassWorldGen(),2);
         GameRegistry.registerWorldGenerator(new FruitOnTreeWorldGen(),2);
+        GameRegistry.registerWorldGenerator(new StructureWorldGen(),2);
         proxy.init();
         logger.info("Init");
     }
