@@ -80,9 +80,9 @@ public class XtraDrinks
         GameRegistry.registerTileEntity(TileEntityDehydrator.class,new ResourceLocation(XtraDrinks.MOD_ID, "dehydrator"));
         GameRegistry.registerTileEntity(TileEntityLiquidDehydrator.class,new ResourceLocation(XtraDrinks.MOD_ID, "liquid_dehydrator"));
         PacketHandler.init();
-        GameRegistry.registerWorldGenerator(new CropOnGrassWorldGen(),2);
-        GameRegistry.registerWorldGenerator(new FruitOnTreeWorldGen(),2);
         GameRegistry.registerWorldGenerator(new StructureWorldGen(),2);
+        GameRegistry.registerWorldGenerator(new CropOnGrassWorldGen(),2);
+        GameRegistry.registerWorldGenerator(new FruitOnTreeWorldGen(),3);
         proxy.init();
         logger.info("Init");
     }
