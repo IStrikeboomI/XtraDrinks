@@ -1,6 +1,5 @@
 package Strikeboom.xtradrinks.integrations.jei.dehydrator;
 
-import Strikeboom.xtradrinks.guis.tileentity.recipes.dehydrator.DehydratorRecipe;
 import Strikeboom.xtradrinks.guis.tileentity.recipes.dehydrator.DehydratorRecipeHandler;
 import net.minecraft.item.ItemStack;
 
