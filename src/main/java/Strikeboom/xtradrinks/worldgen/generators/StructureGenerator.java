@@ -69,7 +69,7 @@ public class StructureGenerator extends WorldGenerator {
 					if (data.length < 2)
 						continue;
 					Block block = Block.getBlockFromName(data[0]);
-					IBlockState state = null;
+					IBlockState state;
 					if (data.length == 3)
 						state = block.getStateFromMeta(Integer.parseInt(data[2]));
 					else
@@ -88,9 +88,8 @@ public class StructureGenerator extends WorldGenerator {
 						continue;
 					if (te instanceof TileEntityLockableLoot)
 						((TileEntityLockableLoot) te).setLootTable(new ResourceLocation(data[1]), rand.nextLong());
-				} catch (Exception e) {
+				} catch (Exception ignored) {
 
-					continue;
 				}
 			}
 			return true;
