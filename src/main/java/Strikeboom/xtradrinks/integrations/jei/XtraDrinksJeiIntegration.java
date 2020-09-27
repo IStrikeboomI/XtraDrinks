@@ -28,8 +28,6 @@ public class XtraDrinksJeiIntegration implements IModPlugin {
     public static final String DEHYDRATOR_UID = XtraDrinks.MOD_ID + ".dehydrator";
     public static final String LIQUID_DEHYDRATOR_UID = XtraDrinks.MOD_ID + ".liquid_dehydrator";
 
-
-    public XtraDrinksJeiIntegration() {}
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
         IGuiHelper guiHelper = registry.getJeiHelpers().getGuiHelper();
@@ -48,6 +46,8 @@ public class XtraDrinksJeiIntegration implements IModPlugin {
         registry.addIngredientInfo(Arrays.asList(FluidUtil.getFilledBucket(new FluidStack(ModFluids.liquadium_fluid,1000)),FluidUtil.getFilledBucket(new FluidStack(ModFluids.fizzium_fluid,1000))), VanillaTypes.ITEM,
                 I18n.format("jei."+XtraDrinks.MOD_ID+".buckets_found"),I18n.format("jei."+XtraDrinks.MOD_ID+".buckets_liquid_dehydrator"));
 
+        registry.addIngredientInfo(Arrays.asList(new FluidStack(ModFluids.liquadium_fluid,1000),new FluidStack(ModFluids.fizzium_fluid,1000)),VanillaTypes.FLUID,
+                I18n.format("jei."+XtraDrinks.MOD_ID+".buckets_found"),I18n.format("jei."+XtraDrinks.MOD_ID+".buckets_liquid_dehydrator"));
     }
 
 
