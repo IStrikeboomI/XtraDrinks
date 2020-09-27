@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 
 public class EntityGreenmanRender extends RenderLiving<EntityGreenman> {
     public EntityGreenmanRender(RenderManager RenderManagerIn) {
-        super(RenderManagerIn, new ModelVillager(0f), 1F);
+        super(RenderManagerIn, new ModelVillager(0f), .5f);
     }
     @Nullable
     @Override

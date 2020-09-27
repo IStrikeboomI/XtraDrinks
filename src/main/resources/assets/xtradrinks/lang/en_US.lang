@@ -115,6 +115,8 @@ achievement.jucetanium.desc=Obtain a Juicetanium ingot
 //Entities
 entity.greenman.name=Green Man
 
+//Tooltips
+tile.greenman_lure.tooltip.name=Place down to spawn a Greenman
 //Jei info
 jei.xtradrinks.buckets_found=These Fluids can be found inside of naturally spawning wells.
 jei.xtradrinks.buckets_liquid_dehydrator=Put the fluids into a Liquid Dehydrator to get the respective shards to turn into ingots.
