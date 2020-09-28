@@ -103,8 +103,10 @@ public class TileEntityDehydrator extends TileEntity implements ITickable {
                     && (handler.getStackInSlot(1).isEmpty()
                     || handler.getStackInSlot(1).getItem() == (DehydratorRecipeHandler.getItemFromRecipe(handler.getStackInSlot(0).getItem())))) {
                 coolDown++;
+                sendUpdates();
             } else {
                 coolDown = 0;
+                sendUpdates();
             }
             if (coolDown % this.delay == 0 && coolDown != 0) {
                 coolDown = 0;
@@ -114,11 +116,11 @@ public class TileEntityDehydrator extends TileEntity implements ITickable {
                     } else {
                         handler.getStackInSlot(1).grow(DehydratorRecipeHandler.getCountFromItem(handler.getStackInSlot(0).getItem()));
                     }
-
                     handler.getStackInSlot(0).shrink(1);
+                    sendUpdates();
                 }
             }
-            sendUpdates();
+
         }
     }
 

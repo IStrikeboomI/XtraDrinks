@@ -117,8 +117,10 @@ public class TileEntityLiquidDehydrator extends TileEntity implements ITickable 
                     && (handler.getStackInSlot(0).isEmpty()
                         || handler.getStackInSlot(0).getItem() == LiquidDehydratorHandler.getItemFromFluidStack(tank.getFluid()))) {
                 coolDown++;
+                sendUpdates();
             } else {
                 coolDown = 0;
+                sendUpdates();
             }
             if (coolDown % delay == 0 && coolDown != 0) {
                 coolDown = 0;
@@ -131,8 +133,8 @@ public class TileEntityLiquidDehydrator extends TileEntity implements ITickable 
                 if (tank.getFluid().amount == 0) {
                     tank.setFluid(null);
                 }
+                sendUpdates();
             }
-            sendUpdates();
         }
     }
 
