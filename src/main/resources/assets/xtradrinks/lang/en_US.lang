@@ -117,6 +117,9 @@ entity.greenman.name=Green Man
 
 //Tooltips
 tile.greenman_lure.tooltip.name=Place down to spawn a Greenman
+item.liquadium_armor.tooltip.name=Set bonus of Strength
+item.fizzium_armor.tooltip.name=Set bonus of Speed
+item.jucetanium_armor.tooltip.name=Set bonus of Strength, Speed, and Saturation
 //Jei info
 jei.xtradrinks.buckets_found=These Fluids can be found inside of naturally spawning wells.
 jei.xtradrinks.buckets_liquid_dehydrator=Put the fluids into a Liquid Dehydrator to get the respective shards to turn into ingots.

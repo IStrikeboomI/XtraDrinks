@@ -1,6 +1,8 @@
 package Strikeboom.xtradrinks.items.armor;
 
 import Strikeboom.xtradrinks.init.ModItems;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -9,9 +11,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class JucetaniumArmor extends ItemArmor {
     public JucetaniumArmor(ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
+    }
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(I18n.format("item.jucetanium_armor.tooltip.name"));
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
     @Override
