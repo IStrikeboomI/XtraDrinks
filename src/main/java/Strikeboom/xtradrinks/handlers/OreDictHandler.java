@@ -1,7 +1,7 @@
 package Strikeboom.xtradrinks.handlers;
 
 import Strikeboom.xtradrinks.init.ModItems;
-import Strikeboom.xtradrinks.items.fruit.PlantableFruit;
+import Strikeboom.xtradrinks.items.fruit.*;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
@@ -27,6 +27,9 @@ public class OreDictHandler {
         for (Item item:ModItems.ITEMS) {
             if (item instanceof PlantableFruit) {
                 OreDictionary.registerOre("fruit",item);
+            }
+            if (item instanceof DehydratedFruit) {
+                OreDictionary.registerOre("fruitDehydrated",item);
             }
         }
 
