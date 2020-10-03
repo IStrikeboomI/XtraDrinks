@@ -41,8 +41,6 @@ public class TESRLiquidDehydrator extends TileEntitySpecialRenderer<TileEntityLi
 
                 RenderHelper.disableStandardItemLighting();
 
-                int color = fluidStack.getFluid().getColor();
-
                 renderer.begin(GL11.GL_QUADS, DefaultVertexFormats.POSITION_TEX_COLOR);
 
                 float u1 = sprite.getMinU();
@@ -50,6 +48,7 @@ public class TESRLiquidDehydrator extends TileEntitySpecialRenderer<TileEntityLi
                 float u2 = sprite.getMaxU();
                 float v2 = sprite.getMaxV();
 
+                int color = fluidStack.getFluid().getColor();
                 float r = ((color >> 16) & 0xFF) / 255.0f;
                 float g = ((color >> 8) & 0xFF) / 255.0f;
                 float b = (color & 0xFF) / 255.0f;
