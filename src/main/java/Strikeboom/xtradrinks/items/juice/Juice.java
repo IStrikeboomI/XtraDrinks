@@ -22,6 +22,11 @@ public class Juice extends ItemFood {
     }
 
     @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 22;
+    }
+
+    @Override
     public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.DRINK;
     }

@@ -2,6 +2,8 @@ package Strikeboom.xtradrinks.handlers;
 
 import Strikeboom.xtradrinks.init.ModItems;
 import Strikeboom.xtradrinks.items.fruit.*;
+import Strikeboom.xtradrinks.items.juice.Juice;
+import Strikeboom.xtradrinks.items.juice.ThickJuice;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
@@ -30,6 +32,12 @@ public class OreDictHandler {
             }
             if (item instanceof DehydratedFruit) {
                 OreDictionary.registerOre("fruitDehydrated",item);
+            }
+            if (item instanceof Juice) {
+                OreDictionary.registerOre("juice",item);
+            }
+            if (item instanceof ThickJuice) {
+                OreDictionary.registerOre("juiceThick",item);
             }
         }
 

@@ -26,6 +26,10 @@ public class ThickJuice extends ItemFood {
     public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.DRINK;
     }
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 40;
+    }
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
