@@ -50,32 +50,37 @@ public class TESRLiquidDehydrator extends TileEntitySpecialRenderer<TileEntityLi
                 float u2 = sprite.getMaxU();
                 float v2 = sprite.getMaxV();
 
+                float r = ((color >> 16) & 0xFF) / 255.0f;
+                float g = ((color >> 8) & 0xFF) / 255.0f;
+                float b = (color & 0xFF) / 255.0f;
+                float a = ((color >> 24) & 0xFF) / 255.0f;
+
                 // Top
-                renderer.pos(TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u1, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u2, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
+                renderer.pos(TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u1, v2).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v2).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u2, v1).color(r,g,b,a).endVertex();
 
                 // Sides
-                renderer.pos(TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u1, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS,    FLUID_HEIGHT   , 1 - TANK_THICKNESS).tex(u1, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS,  FLUID_HEIGHT   , 1 - TANK_THICKNESS).tex(u2, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
+                renderer.pos(TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u1, v1).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS,    FLUID_HEIGHT   , 1 - TANK_THICKNESS).tex(u1, v2).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS,  FLUID_HEIGHT   , 1 - TANK_THICKNESS).tex(u2, v2).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v1).color(r,g,b,a).endVertex();
 
-                renderer.pos(1 - TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u2, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, FLUID_HEIGHT , TANK_THICKNESS).tex(u2, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS, FLUID_HEIGHT , TANK_THICKNESS).tex(u1, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u2, v1).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, FLUID_HEIGHT , TANK_THICKNESS).tex(u2, v2).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS, FLUID_HEIGHT , TANK_THICKNESS).tex(u1, v2).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(r,g,b,a).endVertex();
 
-                renderer.pos(1 - TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).tex(u2, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).tex(u1, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(1 - TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v1).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).tex(u2, v2).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).tex(u1, v2).color(r,g,b,a).endVertex();
+                renderer.pos(1 - TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(r,g,b,a).endVertex();
 
-                renderer.pos(TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).tex(u1, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).tex(u2, v2).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
-                renderer.pos(TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v1).color(((color >> 16) & 0xFF) / 255.0f,((color >> 8) & 0xFF) / 255.0f,(color & 0xFF) / 255.0f,((color >> 24) & 0xFF) / 255.0f).endVertex();
+                renderer.pos(TANK_THICKNESS, topScale , TANK_THICKNESS).tex(u1, v1).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).tex(u1, v2).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).tex(u2, v2).color(r,g,b,a).endVertex();
+                renderer.pos(TANK_THICKNESS, topScale , 1 - TANK_THICKNESS).tex(u2, v1).color(r,g,b,a).endVertex();
 
                 tessellator.draw();
 
