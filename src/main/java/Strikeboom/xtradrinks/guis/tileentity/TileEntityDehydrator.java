@@ -1,7 +1,7 @@
 package Strikeboom.xtradrinks.guis.tileentity;
 
-import Strikeboom.xtradrinks.guis.tileentity.customs.DehydratorItemHandler;
 import Strikeboom.xtradrinks.guis.tileentity.customs.DehydratorInsertOnlyItemHandler;
+import Strikeboom.xtradrinks.guis.tileentity.customs.DehydratorItemHandler;
 import Strikeboom.xtradrinks.guis.tileentity.recipes.dehydrator.DehydratorRecipeHandler;
 import Strikeboom.xtradrinks.handlers.ConfigHandler;
 import net.minecraft.entity.player.EntityPlayer;
