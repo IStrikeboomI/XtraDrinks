@@ -72,8 +72,5 @@ public class ContainerDehydrator extends Container {
 
         return this.te.isUsableByPlayer(playerIn);
     }
-    public void emptyFluidTank() {
-        ((FluidTank)this.te.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY,null)).setCapacity(0);
-    }
 
 }
