@@ -1,6 +1,7 @@
 package Strikeboom.xtradrinks.guis.tileentity;
 
 import Strikeboom.xtradrinks.guis.tileentity.customs.DehydratorItemHandler;
+import Strikeboom.xtradrinks.guis.tileentity.customs.DehydratorInsertOnlyItemHandler;
 import Strikeboom.xtradrinks.guis.tileentity.recipes.dehydrator.DehydratorRecipeHandler;
 import Strikeboom.xtradrinks.handlers.ConfigHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,11 +21,13 @@ import javax.annotation.Nullable;
 
 public class TileEntityDehydrator extends TileEntity implements ITickable {
     private final ItemStackHandler handler;
+    private final ItemStackHandler machineHandler;
     private int coolDown;
     private int delay  = ConfigHandler.BLOCKS.dehydrator_delay_time;
 
     public TileEntityDehydrator() {
         handler = new DehydratorItemHandler(2);
+        machineHandler = new DehydratorInsertOnlyItemHandler(handler);
         coolDown = 0;
     }
 
@@ -47,6 +50,9 @@ public class TileEntityDehydrator extends TileEntity implements ITickable {
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            if (facing != null) {
+                return (T)machineHandler;
+            }
             return (T) this.handler;
         }
 
@@ -103,10 +109,8 @@ public class TileEntityDehydrator extends TileEntity implements ITickable {
                     && (handler.getStackInSlot(1).isEmpty()
                     || handler.getStackInSlot(1).getItem() == (DehydratorRecipeHandler.getItemFromRecipe(handler.getStackInSlot(0).getItem())))) {
                 coolDown++;
-                sendUpdates();
             } else {
                 coolDown = 0;
-                sendUpdates();
             }
             if (coolDown % this.delay == 0 && coolDown != 0) {
                 coolDown = 0;
@@ -117,10 +121,9 @@ public class TileEntityDehydrator extends TileEntity implements ITickable {
                         handler.getStackInSlot(1).grow(DehydratorRecipeHandler.getCountFromItem(handler.getStackInSlot(0).getItem()));
                     }
                     handler.getStackInSlot(0).shrink(1);
-                    sendUpdates();
                 }
             }
-
+            sendUpdates();
         }
     }
 

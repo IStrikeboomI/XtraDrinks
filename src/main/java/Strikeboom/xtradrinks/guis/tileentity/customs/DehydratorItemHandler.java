@@ -7,10 +7,10 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 
 public class DehydratorItemHandler extends ItemStackHandler {
+
     public DehydratorItemHandler(int size) {
         super(size);
     }
-
 
     @Nonnull
     @Override
