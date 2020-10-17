@@ -35,7 +35,6 @@ public class ClientProxy implements IProxy{
     public void init() {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDehydrator.class,new TESRDehydrator());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLiquidDehydrator.class,new TESRLiquidDehydrator());
-        MinecraftForge.EVENT_BUS.register(ModelRegistry.class);
     }
     private static void registerFluidTexture(Fluid fluid) {
         ModelResourceLocation loc = new ModelResourceLocation(XtraDrinks.MOD_ID + ":" + fluid.getName(), "fluid");
