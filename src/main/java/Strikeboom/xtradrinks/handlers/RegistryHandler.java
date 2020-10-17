@@ -3,14 +3,12 @@ package Strikeboom.xtradrinks.handlers;
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.entity.EntityGreenman;
 import Strikeboom.xtradrinks.init.ModBlocks;
-import Strikeboom.xtradrinks.init.ModFluids;
 import Strikeboom.xtradrinks.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Biomes;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -42,9 +40,4 @@ public class RegistryHandler {
                                     .build());
     }
 
-    @SubscribeEvent
-    public static void ModelRegister(ModelRegistryEvent event) {
-        ModItems.ITEMS.forEach(item -> XtraDrinks.proxy.registerItemModel(item));
-        ModFluids.FLUIDS.forEach(fluid -> XtraDrinks.proxy.registerFluidTexture(fluid));
-    }
 }
