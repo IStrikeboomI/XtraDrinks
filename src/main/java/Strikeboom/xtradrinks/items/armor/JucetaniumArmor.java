@@ -26,17 +26,17 @@ public class JucetaniumArmor extends ItemArmor {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack Stack) {
-        int ArmourPeices = 0;
+        int ArmourPieces = 0;
 
         for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
             if (slot.getSlotType() == EntityEquipmentSlot.Type.ARMOR) {
                 if (player.getItemStackFromSlot(slot).getItem() instanceof JucetaniumArmor) {
-                    ArmourPeices++;
+                    ArmourPieces++;
                 }
             }
         }
 
-        if (ArmourPeices == 4) {
+        if (ArmourPieces == 4) {
             player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 40, 1));
             player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 40, 2));
             player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 240, 0));
