@@ -31,7 +31,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = XtraDrinks.MOD_ID, name = "Xtra Drinks", version ="1.1",acceptedMinecraftVersions ="[1.12]")
+@Mod(modid = XtraDrinks.MOD_ID, name = "Xtra Drinks", version ="1.2",acceptedMinecraftVersions ="[1.12]")
 public class XtraDrinks
 {
     public static final String MOD_ID = "xtradrinks";
