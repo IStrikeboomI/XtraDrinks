@@ -17,7 +17,7 @@ public class CropGenerator extends WorldGenerator {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        if (worldIn.isAirBlock(position) && worldIn.getBlockState(position.down()) == Blocks.GRASS.getDefaultState()) {
+        if (worldIn.isAirBlock(position) && worldIn.getBlockState(position.down()).getBlock() == Blocks.GRASS) {
             worldIn.setBlockState(position, this.crop.getStateFromMeta(7), 1);
         }
         return true;
