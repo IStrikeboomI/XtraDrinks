@@ -1,0 +1,24 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+	{
+		"item":"xtradrinks:drink_fruit_punch_juice"
+	},
+
+	{
+		 "item":"xtradrinks:citric_acid"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_sour_juice",
+        "count": 1
+    }
+}

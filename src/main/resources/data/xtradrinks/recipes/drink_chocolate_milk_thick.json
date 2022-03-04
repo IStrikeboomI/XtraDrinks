@@ -1,0 +1,30 @@
+     
+{ 
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients": 
+    [
+ 
+    {
+      "item": "xtradrinks:juicer"
+    },
+	{
+		"item":"minecraft:milk_bucket"
+	},
+		{
+		"item":"minecraft:cocoa_beans"
+	},
+
+		{
+		"item":"xtradrinks:thick_cup"
+	}
+    
+    
+    ],
+ 
+    "result": 
+    {
+        "item": "xtradrinks:drink_chocolate_milk_thick",
+        "count": 1
+    }
+}

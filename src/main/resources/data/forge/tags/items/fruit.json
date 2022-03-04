@@ -1,0 +1,19 @@
+ {
+  "replace": false,
+  "values": [
+    "minecraft:apple",
+    "minecraft:melon",
+    "minecraft:chorus_fruit",
+    "minecraft:popped_chorus_fruit",
+    "xtradrinks:orange",
+    "xtradrinks:coconut",
+    "xtradrinks:pineapple",
+    "xtradrinks:lemon",
+    "xtradrinks:lime",
+    "xtradrinks:pomegranate",
+    "xtradrinks:grape",
+    "xtradrinks:cranberry",
+    "xtradrinks:blueberry",
+    "xtradrinks:blackberry"
+  ]
+}
