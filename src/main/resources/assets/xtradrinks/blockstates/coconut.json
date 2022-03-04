@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal":{ "model": "xtradrinks:crops/coconut" }
+        "":{ "model": "xtradrinks:block/crops/coconut" }
     }
 }

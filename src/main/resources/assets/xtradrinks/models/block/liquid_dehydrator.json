@@ -1,10 +1,10 @@
 {
 	"textures": {
-		"0": "minecraft:blocks/glass",
-		"1": "minecraft:blocks/iron_block",
-		"2": "minecraft:blocks/furnace_side",
-		"3": "xtradrinks:blocks/liquid_dehydrator_top",
-		"particle": "minecraft:blocks/iron_block"
+		"0": "minecraft:block/glass",
+		"1": "minecraft:block/iron_block",
+		"2": "minecraft:block/furnace_side",
+		"3": "xtradrinks:block/liquid_dehydrator_top",
+		"particle": "minecraft:block/iron_block"
 	},
 	"display": {
 		"gui": {

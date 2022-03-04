@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal":{ "model": "xtradrinks:greenman_lure" }
+        "":{ "model": "xtradrinks:block/greenman_lure" }
     }
 }

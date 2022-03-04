@@ -1,6 +1,6 @@
 {
     "parent": "block/crop",
     "textures": {
-        "crop": "xtradrinks:blocks/crops/stage_6"
+        "crop": "xtradrinks:block/crops/stage_6"
     }
 }

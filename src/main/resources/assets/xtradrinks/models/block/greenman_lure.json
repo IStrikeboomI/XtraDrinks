@@ -1,12 +1,12 @@
 {
     "parent": "block/cube",
     "textures": {
-        "particle": "xtradrinks:blocks/greenman_lure_north",
-        "up":"xtradrinks:blocks/greenman_lure_up",
-        "down":"xtradrinks:blocks/greenman_lure_down",
-        "east":"xtradrinks:blocks/greenman_lure_east",
-        "west":"xtradrinks:blocks/greenman_lure_west",
-        "north":"xtradrinks:blocks/greenman_lure_north",
-        "south":"xtradrinks:blocks/greenman_lure_south"
+        "particle": "xtradrinks:block/greenman_lure_north",
+        "up":"xtradrinks:block/greenman_lure_up",
+        "down":"xtradrinks:block/greenman_lure_down",
+        "east":"xtradrinks:block/greenman_lure_east",
+        "west":"xtradrinks:block/greenman_lure_west",
+        "north":"xtradrinks:block/greenman_lure_north",
+        "south":"xtradrinks:block/greenman_lure_south"
     }
 }

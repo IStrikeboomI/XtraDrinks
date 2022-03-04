@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "xtradrinks:items/pines"
+        "cross": "xtradrinks:item/pines"
     }
 }

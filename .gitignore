@@ -20,8 +20,6 @@ build
 # other
 eclipse
 run
-/changelog.txt
-/CREDITS.txt
-/LICENSE-Paulscode IBXM Library.txt
-/LICENSE-Paulscode SoundSystem CodecIBXM.txt
-/README.txt
+
+# Files from Forge MDK
+forge*changelog.txt

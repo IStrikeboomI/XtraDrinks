@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-        "cross": "xtradrinks:blocks/crops/coconut"
+        "cross": "xtradrinks:block/crops/coconut"
     }
 }

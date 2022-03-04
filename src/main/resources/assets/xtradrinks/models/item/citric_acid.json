@@ -1,6 +1,6 @@
 {
    "parent": "item/generated",
    "textures": {
-       "layer0": "xtradrinks:items/citric_acid"
+       "layer0": "xtradrinks:item/citric_acid"
    }
 }

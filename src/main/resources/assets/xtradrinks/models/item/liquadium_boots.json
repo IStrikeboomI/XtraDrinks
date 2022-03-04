@@ -1,6 +1,6 @@
 {
    "parent": "item/generated",
    "textures": {
-       "layer0": "xtradrinks:items/liquadium_boots"
+       "layer0": "xtradrinks:item/liquadium_boots"
    }
 }

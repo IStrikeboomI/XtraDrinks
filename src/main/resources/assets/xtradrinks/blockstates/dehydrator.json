@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal":{ "model": "xtradrinks:dehydrator" }
+        "":{ "model": "xtradrinks:block/dehydrator" }
     }
 }

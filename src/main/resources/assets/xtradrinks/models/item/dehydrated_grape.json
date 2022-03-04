@@ -1,6 +1,6 @@
 {
    "parent": "item/generated",
    "textures": {
-       "layer0": "xtradrinks:items/dehydrated_grape"
+       "layer0": "xtradrinks:item/dehydrated_grape"
    }
 }
