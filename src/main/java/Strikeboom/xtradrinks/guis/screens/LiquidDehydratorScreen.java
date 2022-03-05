@@ -1,11 +1,10 @@
 package Strikeboom.xtradrinks.guis.screens;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import Strikeboom.xtradrinks.guis.menus.DehydratorMenu;
 import Strikeboom.xtradrinks.guis.menus.LiquidDehydratorMenu;
 import Strikeboom.xtradrinks.init.XtraDrinksPackets;
 import Strikeboom.xtradrinks.network.ServerboundDrainPacket;
-import Strikeboom.xtradrinks.util.ClientUtil;
+import Strikeboom.xtradrinks.client.util.ClientUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.Button;

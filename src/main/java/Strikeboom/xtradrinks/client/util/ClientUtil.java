@@ -1,4 +1,4 @@
-package Strikeboom.xtradrinks.util;
+package Strikeboom.xtradrinks.client.util;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
@@ -93,12 +93,6 @@ public class ClientUtil {
                     && mouseY > yPos && mouseY < yPos + height ) {
                 gui.renderTooltip(pPoseStack,new TextComponent(fluidStack.getDisplayName().getString() + " " + fluidStack.getAmount() + " mB"), mouseX, mouseY);
             }
-        }
-    }
-    public static void drawEnergyTooltip(int mouseX, int mouseY, int xPos, int yPos, int width, int height, AbstractContainerScreen<?> gui, PoseStack pPoseStack, int energy) {
-        if (mouseX > xPos && mouseX < xPos + width
-                && mouseY > yPos && mouseY < yPos + height ) {
-            gui.renderTooltip(pPoseStack,new TextComponent(energy + " RF/FE") , mouseX, mouseY);
         }
     }
 }

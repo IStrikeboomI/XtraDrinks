@@ -1,4 +1,4 @@
-package Strikeboom.xtradrinks.guis.blockentities.render;
+package Strikeboom.xtradrinks.client.render;
 
 import Strikeboom.xtradrinks.guis.blockentities.LiquidDehydratorBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;

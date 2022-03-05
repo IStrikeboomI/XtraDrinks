@@ -1,21 +1,16 @@
 package Strikeboom.xtradrinks.setup;
 
-import Strikeboom.xtradrinks.guis.blockentities.render.DehydratorBlockEntityRenderer;
-import Strikeboom.xtradrinks.guis.blockentities.render.LiquidDehydratorBlockEntityRenderer;
+import Strikeboom.xtradrinks.client.render.DehydratorBlockEntityRenderer;
+import Strikeboom.xtradrinks.client.render.LiquidDehydratorBlockEntityRenderer;
 import Strikeboom.xtradrinks.guis.screens.DehydratorScreen;
 import Strikeboom.xtradrinks.guis.screens.LiquidDehydratorScreen;
 import Strikeboom.xtradrinks.init.XtraDrinksBlockEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksBlocks;
 import Strikeboom.xtradrinks.init.XtraDrinksMenus;
-import Strikeboom.xtradrinks.init.XtraDrinksTags;
-import Strikeboom.xtradrinks.recipes.dehydrator.DehydratorRecipeHandler;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.texture.TextureAtlas;
-import net.minecraftforge.client.event.TextureStitchEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientSetup {
