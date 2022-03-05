@@ -44,7 +44,13 @@ public class LiquidDehydratorBlockEntity extends BlockEntity {
             }
         };
         ITEM_STACK_HANDLER_LAZY_OPTIONAL = LazyOptional.of(() -> ITEM_STACK_HANDLER);
-        FLUID_TANK = new FluidTank(FluidAttributes.BUCKET_VOLUME * 10);
+        FLUID_TANK = new FluidTank(FluidAttributes.BUCKET_VOLUME * 10) {
+            @Override
+            protected void onContentsChanged() {
+                setChanged();
+                level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),Block.UPDATE_ALL);
+            }
+        };
         FLUID_TANK_LAZY_OPTIONAL = LazyOptional.of(() -> FLUID_TANK);
         delay = XtraDrinksConfig.LIQUID_DEHYDRATOR_DELAY.get();
     }
