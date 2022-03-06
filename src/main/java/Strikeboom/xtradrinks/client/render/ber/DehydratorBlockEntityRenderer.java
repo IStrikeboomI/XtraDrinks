@@ -1,4 +1,4 @@
-package Strikeboom.xtradrinks.client.render;
+package Strikeboom.xtradrinks.client.render.ber;
 
 import Strikeboom.xtradrinks.guis.blockentities.DehydratorBlockEntity;
 import com.mojang.blaze3d.systems.RenderSystem;

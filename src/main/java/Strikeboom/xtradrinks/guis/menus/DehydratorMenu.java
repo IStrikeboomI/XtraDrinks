@@ -1,6 +1,5 @@
 package Strikeboom.xtradrinks.guis.menus;
 
-import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.guis.blockentities.DehydratorBlockEntity;
 import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.DehydratorItemHandler;
 import Strikeboom.xtradrinks.init.XtraDrinksBlocks;

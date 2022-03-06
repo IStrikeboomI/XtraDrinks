@@ -2,6 +2,7 @@ package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.guis.menus.DehydratorMenu;
+import Strikeboom.xtradrinks.guis.menus.GreenmanMenu;
 import Strikeboom.xtradrinks.guis.menus.LiquidDehydratorMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -16,4 +17,7 @@ public class XtraDrinksMenus {
             () -> IForgeMenuType.create((windowId, inv, data) -> new DehydratorMenu(windowId, data.readBlockPos(), inv, inv.player)));
     public static final RegistryObject<MenuType<LiquidDehydratorMenu>> LIQUID_DEHYDRATOR_MENU = MENUS.register("liquid_dehydrator",
             () -> IForgeMenuType.create((windowId, inv, data) -> new LiquidDehydratorMenu(windowId, data.readBlockPos(), inv, inv.player)));
+    public static final RegistryObject<MenuType<GreenmanMenu>> GREENMAN_MENU = MENUS.register("greenman",
+            () -> IForgeMenuType.create((windowId, inv, data) -> new GreenmanMenu(windowId,null,inv)));
+
 }
