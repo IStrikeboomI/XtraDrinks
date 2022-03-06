@@ -50,6 +50,11 @@ public class LiquidDehydratorBlockEntity extends BlockEntity {
                 setChanged();
                 level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),Block.UPDATE_ALL);
             }
+
+            @Override
+            public boolean isFluidValid(FluidStack stack) {
+                return LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(stack);
+            }
         };
         FLUID_TANK_LAZY_OPTIONAL = LazyOptional.of(() -> FLUID_TANK);
         delay = XtraDrinksConfig.LIQUID_DEHYDRATOR_DELAY.get();
