@@ -1,9 +1,6 @@
 package Strikeboom.xtradrinks.guis.menus;
 
 import Strikeboom.xtradrinks.entity.GreenmanEntity;
-import Strikeboom.xtradrinks.guis.blockentities.DehydratorBlockEntity;
-import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.DehydratorItemHandler;
-import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.OutputOnlyItemHandler;
 import Strikeboom.xtradrinks.init.XtraDrinksMenus;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -34,20 +31,20 @@ public class GreenmanMenu extends AbstractContainerMenu {
                 }
             });
         }
-            int xPos = 8;
-            int yPos = 84;
+        int xPos = 8;
+        int yPos = 84;
 
-            //draws hotbar
+        //draws hotbar
+        for (int x = 0; x < 9; x++) {
+            addSlot(new Slot(playerInventory, x, xPos + x * 18, yPos + 58));
+        }
+
+        //draws the 27 main slots
+        for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 9; x++) {
-                addSlot(new Slot(playerInventory, x, xPos + x * 18, yPos + 58));
+                addSlot(new Slot(playerInventory, x + y * 9 + 9, xPos + x * 18, yPos + y * 18));
             }
-
-            //draws the 27 main slots
-            for (int y = 0; y < 3; y++) {
-                for (int x = 0; x < 9; x++) {
-                    addSlot(new Slot(playerInventory, x + y * 9 + 9, xPos + x * 18, yPos + y * 18));
-                }
-            }
+        }
 
     }
     @Override
@@ -79,6 +76,6 @@ public class GreenmanMenu extends AbstractContainerMenu {
     }
     @Override
     public boolean stillValid(Player pPlayer) {
-        return entity.mayInteract(pPlayer.level,pPlayer.getOnPos());
+        return entity == null || entity.mayInteract(pPlayer.level,pPlayer.getOnPos());
     }
 }
