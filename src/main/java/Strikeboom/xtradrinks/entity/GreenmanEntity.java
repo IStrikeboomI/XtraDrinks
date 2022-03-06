@@ -209,7 +209,7 @@ public class GreenmanEntity extends PathfinderMob {
     public static class GreenmanSpawn {
         @SubscribeEvent
         public static void onBiomeLoad(BiomeLoadingEvent event) {
-            event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 6, 1, 1));
+            event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 4, 1, 1));
         }
         @SubscribeEvent
         public static void onSpawn(EntityJoinWorldEvent event) {
