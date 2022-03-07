@@ -1,7 +1,7 @@
 package Strikeboom.xtradrinks;
 
 import Strikeboom.xtradrinks.init.*;
-import Strikeboom.xtradrinks.setup.ClientSetup;
+import Strikeboom.xtradrinks.client.render.setup.ClientSetup;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;

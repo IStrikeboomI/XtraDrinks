@@ -1,11 +1,11 @@
-package Strikeboom.xtradrinks.setup;
+package Strikeboom.xtradrinks.client.render.setup;
 
 import Strikeboom.xtradrinks.client.render.ber.DehydratorBlockEntityRenderer;
 import Strikeboom.xtradrinks.client.render.ber.LiquidDehydratorBlockEntityRenderer;
 import Strikeboom.xtradrinks.client.render.entity.GreenmanRenderer;
-import Strikeboom.xtradrinks.guis.screens.DehydratorScreen;
-import Strikeboom.xtradrinks.guis.screens.GreenmanScreen;
-import Strikeboom.xtradrinks.guis.screens.LiquidDehydratorScreen;
+import Strikeboom.xtradrinks.client.render.screens.DehydratorScreen;
+import Strikeboom.xtradrinks.client.render.screens.GreenmanScreen;
+import Strikeboom.xtradrinks.client.render.screens.LiquidDehydratorScreen;
 import Strikeboom.xtradrinks.init.XtraDrinksBlockEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksBlocks;
 import Strikeboom.xtradrinks.init.XtraDrinksEntities;

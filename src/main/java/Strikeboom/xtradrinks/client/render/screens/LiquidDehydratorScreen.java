@@ -1,4 +1,4 @@
-package Strikeboom.xtradrinks.guis.screens;
+package Strikeboom.xtradrinks.client.render.screens;
 
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.guis.menus.LiquidDehydratorMenu;
