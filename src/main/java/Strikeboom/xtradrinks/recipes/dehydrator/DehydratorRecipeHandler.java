@@ -30,7 +30,7 @@ public class DehydratorRecipeHandler {
 
     public static boolean doesItemHaveRecipe(ItemStack item) {
         for (DehydratorRecipe recipe:RECIPES) {
-            if (recipe.getInput().sameItem(item)) {
+            if (recipe.input().sameItem(item)) {
                 return true;
             }
         }
@@ -38,8 +38,8 @@ public class DehydratorRecipeHandler {
     }
     public static ItemStack getItemStackOutputFromInput(ItemStack item) {
         for (DehydratorRecipe recipe:RECIPES) {
-            if (recipe.getInput().sameItem(item)) {
-                return recipe.getOutput();
+            if (recipe.input().sameItem(item)) {
+                return recipe.output();
             }
         }
         return ItemStack.EMPTY;

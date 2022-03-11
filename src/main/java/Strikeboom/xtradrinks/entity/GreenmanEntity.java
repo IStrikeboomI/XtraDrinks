@@ -7,6 +7,8 @@ import Strikeboom.xtradrinks.init.XtraDrinksEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Registry;
+import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -46,6 +48,9 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GreenmanEntity extends PathfinderMob {
     private final ItemStackHandler HANDLER;
@@ -134,7 +139,7 @@ public class GreenmanEntity extends PathfinderMob {
 
     @Override
     public boolean mayInteract(Level pLevel, BlockPos pPos) {
-        return pPos.distSqr(getX(),getY(),getZ(),true) <= 64;
+        return pPos.distSqr(new Vec3i(getX(),getY(),getZ())) <= 64;
     }
 
     @Override
@@ -168,9 +173,11 @@ public class GreenmanEntity extends PathfinderMob {
     public void randomizeHandler() {
         if (!level.isClientSide()) {
             getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(iItemHandler -> {
+                List<Item> fruits = new ArrayList<>();
+                Registry.ITEM.getTagOrEmpty(XtraDrinksTags.FRUIT).forEach(itemHolder -> fruits.add(itemHolder.value()));
                 ItemStackHandler handler = (ItemStackHandler) iItemHandler;
                 for (int i = 0;i < handler.getSlots();i++) {
-                    Item fruit = XtraDrinksTags.FRUIT.getRandomElement(random);
+                    Item fruit = fruits.get(random.nextInt(fruits.size()));
                     if (random.nextBoolean()) {
                         handler.setStackInSlot(i,new ItemStack(fruit,random.nextInt(13) + 3));
                     }

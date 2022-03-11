@@ -1,4 +1,4 @@
-package Strikeboom.xtradrinks.client.render.setup;
+package Strikeboom.xtradrinks.client.setup;
 
 import Strikeboom.xtradrinks.client.render.ber.DehydratorBlockEntityRenderer;
 import Strikeboom.xtradrinks.client.render.ber.LiquidDehydratorBlockEntityRenderer;

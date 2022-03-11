@@ -4,15 +4,21 @@ import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.init.XtraDrinksBlocks;
 import Strikeboom.xtradrinks.integrations.jei.XtraDrinksJeiPlugin;
 import Strikeboom.xtradrinks.recipes.dehydrator.DehydratorRecipe;
+import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipe;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -27,16 +33,24 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
         final IDrawableStatic STATIC_PROGRESS_BAR = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"),176,0,24,17);
         ARROW = gui.createAnimatedDrawable(STATIC_PROGRESS_BAR, 50, IDrawableAnimated.StartDirection.LEFT,false);
         BACKGROUND = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"),4,15,150,60);
-        ICON = gui.createDrawableIngredient(new ItemStack(XtraDrinksBlocks.DEHYDRATOR.get()));
-    }
-    @Override
-    public ResourceLocation getUid() {
-        return XtraDrinksJeiPlugin.DEHYDRATOR;
+        ICON = gui.createDrawableIngredient(VanillaTypes.ITEM,new ItemStack(XtraDrinksBlocks.DEHYDRATOR.get()));
     }
 
     @Override
+    public RecipeType<DehydratorRecipe> getRecipeType() {
+        return XtraDrinksJeiPlugin.DEHYDRATOR;
+    }
+
+    @SuppressWarnings("removal")
+    @Override
+    public ResourceLocation getUid() {
+        return getRecipeType().getUid();
+    }
+
+    @SuppressWarnings("removal")
+    @Override
     public Class<? extends DehydratorRecipe> getRecipeClass() {
-        return DehydratorRecipe.class;
+        return getRecipeType().getRecipeClass();
     }
 
     @Override
@@ -55,22 +69,15 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
     }
 
     @Override
-    public void draw(DehydratorRecipe recipe, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, stack, mouseX, mouseY);
+    public void draw(DehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
         ARROW.draw(stack,75,20);
     }
 
     @Override
-    public void setIngredients(DehydratorRecipe recipe, IIngredients ingredients) {
-        ingredients.setInput(VanillaTypes.ITEM,recipe.input());
-        ingredients.setOutput(VanillaTypes.ITEM,recipe.output());
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayout recipeLayout, DehydratorRecipe recipe, IIngredients ingredients) {
-        IGuiItemStackGroup stacks = recipeLayout.getItemStacks();
-        stacks.init(0,true,50,19);
-        stacks.init(1,false,111,19);
-        stacks.set(ingredients);
+    public void setRecipe(IRecipeLayoutBuilder builder, DehydratorRecipe recipe, IFocusGroup focuses) {
+        IRecipeCategory.super.setRecipe(builder, recipe, focuses);
+        builder.addSlot(RecipeIngredientRole.INPUT,51,20).addItemStack(recipe.input());
+        builder.addSlot(RecipeIngredientRole.OUTPUT,112,20).addItemStack(recipe.output());
     }
 }

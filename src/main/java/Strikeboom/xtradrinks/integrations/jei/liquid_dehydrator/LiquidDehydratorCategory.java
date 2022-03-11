@@ -6,14 +6,15 @@ import Strikeboom.xtradrinks.integrations.jei.XtraDrinksJeiPlugin;
 import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipe;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.drawable.IDrawableStatic;
-import mezz.jei.api.gui.ingredient.IGuiFluidStackGroup;
-import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -28,16 +29,24 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
         final IDrawableStatic STATIC_PROGRESS_BAR = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),176,0,24,17);
         ARROW = gui.createAnimatedDrawable(STATIC_PROGRESS_BAR, 50, IDrawableAnimated.StartDirection.LEFT,false);
         BACKGROUND = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),4,15,150,60);
-        ICON = gui.createDrawableIngredient(new ItemStack(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get()));
-    }
-    @Override
-    public ResourceLocation getUid() {
-        return XtraDrinksJeiPlugin.LIQUID_DEHYDRATOR;
+        ICON = gui.createDrawableIngredient(VanillaTypes.ITEM,new ItemStack(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get()));
     }
 
     @Override
+    public RecipeType<LiquidDehydratorRecipe> getRecipeType() {
+        return XtraDrinksJeiPlugin.LIQUID_DEHYDRATOR;
+    }
+
+    @SuppressWarnings("removal")
+    @Override
+    public ResourceLocation getUid() {
+        return getRecipeType().getUid();
+    }
+
+    @SuppressWarnings("removal")
+    @Override
     public Class<? extends LiquidDehydratorRecipe> getRecipeClass() {
-        return LiquidDehydratorRecipe.class;
+        return getRecipeType().getRecipeClass();
     }
 
     @Override
@@ -56,25 +65,15 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     }
 
     @Override
-    public void draw(LiquidDehydratorRecipe recipe, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, stack, mouseX, mouseY);
+    public void draw(LiquidDehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
         ARROW.draw(stack,45,17);
     }
 
     @Override
-    public void setIngredients(LiquidDehydratorRecipe recipe, IIngredients ingredients) {
-        ingredients.setInput(VanillaTypes.FLUID ,recipe.getInput());
-        ingredients.setOutput(VanillaTypes.ITEM,recipe.getOutput());
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayout recipeLayout, LiquidDehydratorRecipe recipe, IIngredients ingredients) {
-        IGuiItemStackGroup stacks = recipeLayout.getItemStacks();
-        stacks.init(0,false,81,17);
-        stacks.set(ingredients);
-
-        IGuiFluidStackGroup fluidStackGroup = recipeLayout.getFluidStacks();
-        fluidStackGroup.init(0,true,4,0,24,60,10000,true,null);
-        fluidStackGroup.set(ingredients);
+    public void setRecipe(IRecipeLayoutBuilder builder, LiquidDehydratorRecipe recipe, IFocusGroup focuses) {
+        IRecipeCategory.super.setRecipe(builder, recipe, focuses);
+        builder.addSlot(RecipeIngredientRole.INPUT,4,0).addIngredient(VanillaTypes.FLUID,recipe.input()).setFluidRenderer(5000,true,24,60);
+        builder.addSlot(RecipeIngredientRole.OUTPUT,82,18).addItemStack(recipe.output());
     }
 }
