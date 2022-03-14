@@ -32,6 +32,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -216,7 +217,11 @@ public class GreenmanEntity extends PathfinderMob {
     public static class GreenmanSpawn {
         @SubscribeEvent
         public static void onBiomeLoad(BiomeLoadingEvent event) {
-            event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 4, 1, 1));
+            if (event.getCategory() != Biome.BiomeCategory.NETHER && event.getCategory() != Biome.BiomeCategory.THEEND) {
+                if (event.getCategory() != Biome.BiomeCategory.OCEAN && event.getCategory() != Biome.BiomeCategory.RIVER && event.getCategory() != Biome.BiomeCategory.SWAMP && event.getCategory() != Biome.BiomeCategory.BEACH) {
+                    event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 5, 1, 1));
+                }
+            }
         }
         @SubscribeEvent
         public static void onSpawn(EntityJoinWorldEvent event) {

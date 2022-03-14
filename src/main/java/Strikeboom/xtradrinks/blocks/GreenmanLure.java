@@ -2,6 +2,7 @@ package Strikeboom.xtradrinks.blocks;
 
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.entity.GreenmanEntity;
+import Strikeboom.xtradrinks.init.XtraDrinksConfig;
 import Strikeboom.xtradrinks.init.XtraDrinksEntities;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -31,10 +32,12 @@ public class GreenmanLure extends Block {
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         if (!pLevel.isClientSide()) {
-            pLevel.destroyBlock(pPos,false);
-            GreenmanEntity entity = new GreenmanEntity(XtraDrinksEntities.GREENMAN.get(),pLevel);
-            entity.setPos(pPos.getX(),pPos.getY(),pPos.getZ());
-            pLevel.addFreshEntity(entity);
+            if (XtraDrinksConfig.GREENMAN_LURE_ENABLED.get()) {
+                pLevel.destroyBlock(pPos, false);
+                GreenmanEntity entity = new GreenmanEntity(XtraDrinksEntities.GREENMAN.get(), pLevel);
+                entity.setPos(pPos.getX(), pPos.getY(), pPos.getZ());
+                pLevel.addFreshEntity(entity);
+            }
         }
     }
 }
