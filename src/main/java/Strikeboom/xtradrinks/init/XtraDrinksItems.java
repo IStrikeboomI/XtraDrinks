@@ -18,6 +18,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -60,9 +61,9 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> CRANBERRY = ITEMS.register("cranberry",() -> new PlantableFruit(XtraDrinksBlocks.CRANBERRY.get()));
     public static final RegistryObject<Item> BLUEBERRY = ITEMS.register("blueberry",() -> new PlantableFruit(XtraDrinksBlocks.BLUEBERRY.get()));
     public static final RegistryObject<Item> BLACKBERRY = ITEMS.register("blackberry",() -> new PlantableFruit(XtraDrinksBlocks.BLACKBERRY.get()));
-    public static final RegistryObject<Item> ORANGE = ITEMS.register("orange",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> COCONUT = ITEMS.register("coconut",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> PINES = ITEMS.register("pines",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> ORANGE = ITEMS.register("orange",() -> new ItemNameBlockItem(XtraDrinksBlocks.ORANGE.get(),new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> COCONUT = ITEMS.register("coconut",() -> new ItemNameBlockItem(XtraDrinksBlocks.COCONUT.get(),new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> PINES = ITEMS.register("pines",() -> new ItemNameBlockItem(XtraDrinksBlocks.PINES.get(),new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
     public static final RegistryObject<Item> CINNAMON = ITEMS.register("cinnamon",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
     public static final RegistryObject<Item> DEHYDRATED_GRAPE = ITEMS.register("dehydrated_grape", DehydratedFruit::new);
