@@ -25,6 +25,6 @@ public class CropPlacements {
     public final static Holder<PlacedFeature> BLUEBERRY = register("blueberry",CropFeatures.BLUEBERRY);
     
     private static  Holder<PlacedFeature> register(String name,  Holder<? extends ConfiguredFeature<?, ?>> feature) {
-        return PlacementUtils.register(XtraDrinks.MOD_ID + name,feature, RarityFilter.onAverageOnceEvery(8), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(),BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.matchesBlock(Blocks.AIR, BlockPos.ZERO),BlockPredicate.matchesBlocks(List.of(Blocks.GRASS_BLOCK,Blocks.DIRT,Blocks.COARSE_DIRT),new BlockPos(0,-1,0)))));
+        return PlacementUtils.register(XtraDrinks.MOD_ID + name,feature, RarityFilter.onAverageOnceEvery(10), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome(),BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.matchesBlock(Blocks.AIR, BlockPos.ZERO),BlockPredicate.matchesBlocks(List.of(Blocks.GRASS_BLOCK,Blocks.DIRT,Blocks.COARSE_DIRT),new BlockPos(0,-1,0)))));
     }
 }
