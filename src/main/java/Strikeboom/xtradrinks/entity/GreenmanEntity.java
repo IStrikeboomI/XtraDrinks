@@ -3,6 +3,7 @@ package Strikeboom.xtradrinks.entity;
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.OutputOnlyItemHandler;
 import Strikeboom.xtradrinks.guis.menus.GreenmanMenu;
+import Strikeboom.xtradrinks.init.XtraDrinksConfig;
 import Strikeboom.xtradrinks.init.XtraDrinksEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksTags;
 import net.minecraft.core.BlockPos;
@@ -173,17 +174,19 @@ public class GreenmanEntity extends PathfinderMob {
 
     public void randomizeHandler() {
         if (!level.isClientSide()) {
-            getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(iItemHandler -> {
-                List<Item> fruits = new ArrayList<>();
-                Registry.ITEM.getTagOrEmpty(XtraDrinksTags.FRUIT).forEach(itemHolder -> fruits.add(itemHolder.value()));
-                ItemStackHandler handler = (ItemStackHandler) iItemHandler;
-                for (int i = 0;i < handler.getSlots();i++) {
-                    Item fruit = fruits.get(random.nextInt(fruits.size()));
-                    if (random.nextBoolean()) {
-                        handler.setStackInSlot(i,new ItemStack(fruit,random.nextInt(13) + 3));
+            if (XtraDrinksConfig.GREENMAN_ITEMS_ENABLED.get()) {
+                getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(iItemHandler -> {
+                    List<Item> fruits = new ArrayList<>();
+                    Registry.ITEM.getTagOrEmpty(XtraDrinksTags.FRUIT).forEach(itemHolder -> fruits.add(itemHolder.value()));
+                    ItemStackHandler handler = (ItemStackHandler) iItemHandler;
+                    for (int i = 0; i < handler.getSlots(); i++) {
+                        Item fruit = fruits.get(random.nextInt(fruits.size()));
+                        if (random.nextBoolean()) {
+                            handler.setStackInSlot(i, new ItemStack(fruit, random.nextInt(XtraDrinksConfig.GREENMAN_ITEMS_MAX .get()- 3) + 3));
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
