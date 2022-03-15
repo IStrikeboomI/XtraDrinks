@@ -100,6 +100,8 @@
   "item.xtradrinks.tooltip.liquadium_armor":"Set bonus of Strength 2",
   "item.xtradrinks.tooltip.fizzium_armor":"Set bonus of Speed 2",
   "item.xtradrinks.tooltip.juicetanium_armor":"Set bonus of Strength 3, Speed 3, and Saturation",
+  "item.xtradrinks.tooltip.crop":"Can be found around the world growing on grass!",
+  "item.xtradrinks.tooltip.hanging_crop":"Can be found around the world growing under leaves!",
 
   "jei.xtradrinks.buckets_found":"These Fluids can be found inside of naturally spawning wells.",
   "jei.xtradrinks.buckets_liquid_dehydrator":"Put the fluids into a Liquid Dehydrator to get the respective shards to turn into ingots.",
