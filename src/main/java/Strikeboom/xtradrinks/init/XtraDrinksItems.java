@@ -9,6 +9,7 @@ import Strikeboom.xtradrinks.items.armor.armormaterials.FizziumArmorMaterial;
 import Strikeboom.xtradrinks.items.armor.armormaterials.JuicetaniumArmorMaterial;
 import Strikeboom.xtradrinks.items.armor.armormaterials.LiquadiumArmorMaterial;
 import Strikeboom.xtradrinks.items.fruit.DehydratedFruit;
+import Strikeboom.xtradrinks.items.fruit.HangingFruit;
 import Strikeboom.xtradrinks.items.fruit.PlantableFruit;
 import Strikeboom.xtradrinks.items.juice.Juice;
 import Strikeboom.xtradrinks.items.juice.ThickJuice;
@@ -61,9 +62,9 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> CRANBERRY = ITEMS.register("cranberry",() -> new PlantableFruit(XtraDrinksBlocks.CRANBERRY.get()));
     public static final RegistryObject<Item> BLUEBERRY = ITEMS.register("blueberry",() -> new PlantableFruit(XtraDrinksBlocks.BLUEBERRY.get()));
     public static final RegistryObject<Item> BLACKBERRY = ITEMS.register("blackberry",() -> new PlantableFruit(XtraDrinksBlocks.BLACKBERRY.get()));
-    public static final RegistryObject<Item> ORANGE = ITEMS.register("orange",() -> new ItemNameBlockItem(XtraDrinksBlocks.ORANGE.get(),new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> COCONUT = ITEMS.register("coconut",() -> new ItemNameBlockItem(XtraDrinksBlocks.COCONUT.get(),new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> PINES = ITEMS.register("pines",() -> new ItemNameBlockItem(XtraDrinksBlocks.PINES.get(),new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> ORANGE = ITEMS.register("orange",() -> new HangingFruit(XtraDrinksBlocks.ORANGE.get()));
+    public static final RegistryObject<Item> COCONUT = ITEMS.register("coconut",() -> new HangingFruit(XtraDrinksBlocks.COCONUT.get()));
+    public static final RegistryObject<Item> PINES = ITEMS.register("pines",() -> new HangingFruit(XtraDrinksBlocks.PINES.get()));
     public static final RegistryObject<Item> CINNAMON = ITEMS.register("cinnamon",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
     public static final RegistryObject<Item> DEHYDRATED_GRAPE = ITEMS.register("dehydrated_grape", DehydratedFruit::new);
