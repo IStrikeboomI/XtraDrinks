@@ -27,12 +27,12 @@ import net.minecraftforge.registries.RegistryObject;
 public class XtraDrinksItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, XtraDrinks.MOD_ID);
 
-    public static final RegistryObject<Item> FIZZIUM_SHARD = ITEMS.register("fizzium_shard",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> LIQUADIUM_SHARD = ITEMS.register("liquadium_shard",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> FIZZIUM_SHARD = ITEMS.register("fizzium_shard",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> LIQUADIUM_SHARD = ITEMS.register("liquadium_shard",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
-    public static final RegistryObject<Item> FIZZIUM_INGOT = ITEMS.register("fizzium_ingot",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> LIQUADIUM_INGOT = ITEMS.register("liquadium_ingot",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> JUICETANIUM_INGOT = ITEMS.register("juicetanium_ingot",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> FIZZIUM_INGOT = ITEMS.register("fizzium_ingot",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> LIQUADIUM_INGOT = ITEMS.register("liquadium_ingot",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> JUICETANIUM_INGOT = ITEMS.register("juicetanium_ingot",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
     public static final ArmorMaterial FIZZIUM_ARMOR_MATERIAL = new FizziumArmorMaterial();
     public static final RegistryObject<Item> FIZZIUM_HELMET = ITEMS.register("fizzium_helmet",() -> new FizziumArmor(FIZZIUM_ARMOR_MATERIAL, EquipmentSlot.HEAD));
@@ -52,7 +52,7 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> JUICETANIUM_LEGGINGS = ITEMS.register("juicetanium_leggings",() -> new JuicetaniumArmor(JUICETANIUM_ARMOR_MATERIAL,EquipmentSlot.LEGS));
     public static final RegistryObject<Item> JUICETANIUM_BOOTS = ITEMS.register("juicetanium_boots",() -> new JuicetaniumArmor(JUICETANIUM_ARMOR_MATERIAL,EquipmentSlot.FEET));
     
-    public static final RegistryObject<Item> JUICER = ITEMS.register("juicer",() -> new Juicer(new Item.Properties().durability(0).stacksTo(1).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> JUICER = ITEMS.register("juicer",() -> new Juicer(new Item.Properties().stacksTo(1).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
     public static final RegistryObject<Item> PINEAPPLE = ITEMS.register("pineapple",() -> new PlantableFruit(XtraDrinksBlocks.PINEAPPLE.get()));
     public static final RegistryObject<Item> LEMON = ITEMS.register("lemon",() -> new PlantableFruit(XtraDrinksBlocks.LEMON.get()));
@@ -65,7 +65,7 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> ORANGE = ITEMS.register("orange",() -> new HangingFruit(XtraDrinksBlocks.ORANGE.get()));
     public static final RegistryObject<Item> COCONUT = ITEMS.register("coconut",() -> new HangingFruit(XtraDrinksBlocks.COCONUT.get()));
     public static final RegistryObject<Item> PINES = ITEMS.register("pines",() -> new HangingFruit(XtraDrinksBlocks.PINES.get()));
-    public static final RegistryObject<Item> CINNAMON = ITEMS.register("cinnamon",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> CINNAMON = ITEMS.register("cinnamon",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
     public static final RegistryObject<Item> DEHYDRATED_GRAPE = ITEMS.register("dehydrated_grape", DehydratedFruit::new);
     public static final RegistryObject<Item> DEHYDRATED_PINEAPPLE = ITEMS.register("dehydrated_pineapple",DehydratedFruit::new);
@@ -82,10 +82,10 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> DEHYDRATED_BEETROOT = ITEMS.register("dehydrated_beetroot",DehydratedFruit::new);
     public static final RegistryObject<Item> DEHYDRATED_POMEGRANATE = ITEMS.register("dehydrated_pomegranate",DehydratedFruit::new);
 
-    public static final RegistryObject<Item> CITRIC_ACID = ITEMS.register("citric_acid",() -> new Item(new Item.Properties().durability(0).stacksTo(64).food(new FoodProperties.Builder().nutrition(1).saturationMod(.4f).fast().build()).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> CITRIC_ACID = ITEMS.register("citric_acid",() -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationMod(.4f).fast().build()).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
-    public static final RegistryObject<Item> DRINK_CUP = ITEMS.register("drink_cup",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
-    public static final RegistryObject<Item> THICK_CUP = ITEMS.register("thick_cup",() -> new Item(new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> DRINK_CUP = ITEMS.register("drink_cup",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> THICK_CUP = ITEMS.register("thick_cup",() -> new Item(new Item.Properties().tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
     public static final RegistryObject<Item> DRINK_APPLE_JUICE = ITEMS.register("drink_apple_juice",() -> new Juice(new MobEffectInstance(MobEffects.MOVEMENT_SPEED,200)));
     public static final RegistryObject<Item> DRINK_APPLE_THICK = ITEMS.register("drink_apple_thick", () -> new ThickJuice(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 240, 1)));
