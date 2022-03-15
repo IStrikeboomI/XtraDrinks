@@ -18,8 +18,8 @@ public class ServerboundDrainPacket{
     public void handle(Supplier<NetworkEvent.Context> contextSupplier) {
         contextSupplier.get().enqueueWork(() -> {
             AbstractContainerMenu menu = contextSupplier.get().getSender().containerMenu;
-            if (menu instanceof LiquidDehydratorMenu) {
-                ((LiquidDehydratorMenu) menu).blockEntity.drain();
+            if (menu instanceof LiquidDehydratorMenu liquidDehydratorMenu) {
+                liquidDehydratorMenu.blockEntity.drain();
             }
         });
         contextSupplier.get().setPacketHandled(true);
