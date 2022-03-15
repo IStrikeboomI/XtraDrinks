@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 public class DehydratedFruit extends Item {
     public DehydratedFruit() {
         super(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(1f).build()).tab(XtraDrinks.CREATIVE_MODE_TAB));
-        ComposterBlock.
+        ComposterBlock.COMPOSTABLES.put(this,.9f);
     }
 
     @Override
