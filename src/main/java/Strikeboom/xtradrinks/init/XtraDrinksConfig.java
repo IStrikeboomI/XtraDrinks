@@ -18,8 +18,10 @@ public class XtraDrinksConfig {
     public static final ForgeConfigSpec.BooleanValue STRUCTURES_ENABLED;
     public static final ForgeConfigSpec.BooleanValue COCONUT_FARM_ENABLED;
     public static final ForgeConfigSpec.BooleanValue ORANGE_FARM_ENABLED;
-    public static final ForgeConfigSpec.BooleanValue CROP_FARM_ENABLED;
     public static final ForgeConfigSpec.BooleanValue PINES_FARM_ENABLED;
+    public static final ForgeConfigSpec.BooleanValue TROPICAL_FARM_ENABLED;
+    public static final ForgeConfigSpec.BooleanValue BERRY_FARM_ENABLED;
+    public static final ForgeConfigSpec.BooleanValue POMEGRANATE_FARM_ENABLED;
     public static final ForgeConfigSpec.BooleanValue FIZZIUM_WELL_ENABLED;
     public static final ForgeConfigSpec.BooleanValue LARGE_FIZZIUM_WELL_ENABLED;
     public static final ForgeConfigSpec.BooleanValue LIQUADIUM_WELL_ENABLED;
@@ -27,8 +29,10 @@ public class XtraDrinksConfig {
 
     public static final ForgeConfigSpec.IntValue COCONUT_FARM_HEIGHT;
     public static final ForgeConfigSpec.IntValue ORANGE_FARM_HEIGHT;
-    public static final ForgeConfigSpec.IntValue CROP_FARM_HEIGHT;
     public static final ForgeConfigSpec.IntValue PINES_FARM_HEIGHT;
+    public static final ForgeConfigSpec.IntValue TROPICAL_FARM_HEIGHT;
+    public static final ForgeConfigSpec.IntValue BERRY_FARM_HEIGHT;
+    public static final ForgeConfigSpec.IntValue POMEGRANATE_FARM_HEIGHT;
     static {
         final ForgeConfigSpec.Builder common = new ForgeConfigSpec.Builder();
         common.push("Dehydrator");
@@ -67,14 +71,24 @@ public class XtraDrinksConfig {
         ORANGE_FARM_HEIGHT = common.comment("Orange Farm Enabled").defineInRange("orange_farm_height",100,70,200);
         common.pop();
 
-        common.push("Crop Farm");
-        CROP_FARM_ENABLED = common.comment("crop Farm Enabled").define("crop_farm_enabled",true);
-        CROP_FARM_HEIGHT = common.comment("crop Farm Enabled").defineInRange("crop_farm_height",100,70,200);
-        common.pop();
-
         common.push("Pines Farm");
         PINES_FARM_ENABLED = common.comment("Pines Farm Enabled").define("pines_farm_enabled",true);
         PINES_FARM_HEIGHT = common.comment("Pines Farm Enabled").defineInRange("pines_farm_height",100,70,200);
+        common.pop();
+
+        common.push("Tropical Farm");
+        TROPICAL_FARM_ENABLED = common.comment("Tropical Farm Enabled").define("tropical_farm_enabled",true);
+        TROPICAL_FARM_HEIGHT = common.comment("Tropical Farm Enabled").defineInRange("tropical_farm_height",100,70,200);
+        common.pop();
+
+        common.push("Berry Farm");
+        BERRY_FARM_ENABLED = common.comment("Berry Farm Enabled").define("berry_farm_enabled",true);
+        BERRY_FARM_HEIGHT = common.comment("Berry Farm Enabled").defineInRange("berry_farm_height",100,70,200);
+        common.pop();
+
+        common.push("Pomegranate Farm");
+        POMEGRANATE_FARM_ENABLED = common.comment("Pomegranate Farm Enabled").define("pomegranate_farm_enabled",true);
+        POMEGRANATE_FARM_HEIGHT = common.comment("Pomegranate Farm Enabled").defineInRange("pomegranate_farm_height",100,70,200);
         common.pop();
 
         common.push("Fizzium Well");
