@@ -1,0 +1,12 @@
+{
+  "type": "xtradrinks:orange_farm",
+  "config": {
+    "start_pool": "xtradrinks:orange_farm/start_pool",
+    "size": 7
+  },
+
+  "biomes": "#xtradrinks:has_structure/farm",
+  "adapt_noise": true,
+  "spawn_overrides": {
+  }
+}

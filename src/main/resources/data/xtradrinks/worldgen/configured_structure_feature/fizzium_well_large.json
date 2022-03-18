@@ -1,0 +1,12 @@
+{
+  "type": "xtradrinks:fizzium_well_large",
+  "config": {
+    "start_pool": "xtradrinks:fizzium_well_large/start_pool",
+    "size": 7
+  },
+
+  "biomes": "#xtradrinks:has_structure/well",
+  "adapt_noise": true,
+  "spawn_overrides": {
+  }
+}

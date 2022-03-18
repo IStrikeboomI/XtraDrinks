@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "xtradrinks:tropical_farm",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1832912011,
+    "spacing": 16,
+    "separation": 8,
+    "type": "minecraft:random_spread"
+  }
+}

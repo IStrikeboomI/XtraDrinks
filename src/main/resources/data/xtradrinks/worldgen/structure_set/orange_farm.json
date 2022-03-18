@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "xtradrinks:orange_farm",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1534324481,
+    "spacing": 16,
+    "separation": 8,
+    "type": "minecraft:random_spread"
+  }
+}

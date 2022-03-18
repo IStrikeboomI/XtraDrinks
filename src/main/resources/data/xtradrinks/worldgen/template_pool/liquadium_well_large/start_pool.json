@@ -1,0 +1,16 @@
+{
+  "name": "xtradrinks:liquadium_well_large/start_pool",
+  "fallback": "minecraft:empty",
+
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "xtradrinks:liquadium_well_large",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

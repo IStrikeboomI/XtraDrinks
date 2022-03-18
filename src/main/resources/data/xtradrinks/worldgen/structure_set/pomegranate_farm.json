@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "xtradrinks:pomegranate_farm",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1824511081,
+    "spacing": 16,
+    "separation": 8,
+    "type": "minecraft:random_spread"
+  }
+}
