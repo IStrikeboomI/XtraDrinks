@@ -28,7 +28,7 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     public LiquidDehydratorCategory(IGuiHelper gui) {
         final IDrawableStatic STATIC_PROGRESS_BAR = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),176,0,24,17);
         ARROW = gui.createAnimatedDrawable(STATIC_PROGRESS_BAR, 50, IDrawableAnimated.StartDirection.LEFT,false);
-        BACKGROUND = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),4,15,150,60);
+        BACKGROUND = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),4,5,125,74);
         ICON = gui.createDrawableIngredient(VanillaTypes.ITEM,new ItemStack(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get()));
     }
 
@@ -67,13 +67,13 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     @Override
     public void draw(LiquidDehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
         IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
-        ARROW.draw(stack,45,17);
+        ARROW.draw(stack,45,27);
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, LiquidDehydratorRecipe recipe, IFocusGroup focuses) {
         IRecipeCategory.super.setRecipe(builder, recipe, focuses);
-        builder.addSlot(RecipeIngredientRole.INPUT,4,0).addIngredient(VanillaTypes.FLUID,recipe.input()).setFluidRenderer(5000,true,24,60);
-        builder.addSlot(RecipeIngredientRole.OUTPUT,82,18).addItemStack(recipe.output());
+        builder.addSlot(RecipeIngredientRole.INPUT,4,3).addIngredient(VanillaTypes.FLUID,recipe.input()).setFluidRenderer(1000,true,24,66);
+        builder.addSlot(RecipeIngredientRole.OUTPUT,82,28).addItemStack(recipe.output());
     }
 }
