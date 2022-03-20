@@ -222,7 +222,7 @@ public class GreenmanEntity extends PathfinderMob {
         public static void onBiomeLoad(BiomeLoadingEvent event) {
             if (event.getCategory() != Biome.BiomeCategory.NETHER && event.getCategory() != Biome.BiomeCategory.THEEND) {
                 if (event.getCategory() != Biome.BiomeCategory.OCEAN && event.getCategory() != Biome.BiomeCategory.RIVER && event.getCategory() != Biome.BiomeCategory.SWAMP && event.getCategory() != Biome.BiomeCategory.BEACH) {
-                    event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 5, 1, 1));
+                    event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 10, 1, 1));
                 }
             }
         }
