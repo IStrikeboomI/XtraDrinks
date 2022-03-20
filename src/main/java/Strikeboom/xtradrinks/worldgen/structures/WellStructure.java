@@ -37,7 +37,7 @@ public class WellStructure extends StructureFeature<JigsawConfiguration> {
 
         BlockState topBlock = columnOfBlocks.getBlock(landHeight);
 
-        return topBlock.getFluidState().isEmpty() && XtraDrinksConfig.STRUCTURES_ENABLED.get();
+        return topBlock.getFluidState().isEmpty() && XtraDrinksConfig.STRUCTURES_ENABLED.get() && XtraDrinksConfig.WELLS_ENABLED.get();
     }
 
     @Override

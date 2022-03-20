@@ -6,7 +6,7 @@
   },
 
   "biomes": "#xtradrinks:has_structure/farm",
-  "adapt_noise": true,
+  "adapt_noise": false,
   "spawn_overrides": {
   }
 }

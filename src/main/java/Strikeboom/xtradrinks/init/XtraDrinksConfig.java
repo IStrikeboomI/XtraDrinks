@@ -16,6 +16,8 @@ public class XtraDrinksConfig {
     public static final ForgeConfigSpec.BooleanValue HANGING_CROP_GENERATION_ENABLED;
 
     public static final ForgeConfigSpec.BooleanValue STRUCTURES_ENABLED;
+    public static final ForgeConfigSpec.BooleanValue WELLS_ENABLED;
+    public static final ForgeConfigSpec.BooleanValue FARMS_ENABLED;
 
     public static final ForgeConfigSpec.IntValue FARM_MIN_HEIGHT;
     static {
@@ -46,8 +48,16 @@ public class XtraDrinksConfig {
         STRUCTURES_ENABLED = common.comment("Structures Enabled").define("structures_enabled",true);
         common.pop();
 
+        common.push("Wells");
+        WELLS_ENABLED = common.comment("Wells Enabled").define("wells_enabled",true);
+        common.pop();
+
         common.push("Farms");
-        FARM_MIN_HEIGHT = common.comment("Farm Minimum Height").defineInRange("coconut_farm_height",100,70,300);
+        FARMS_ENABLED = common.comment("Farms Enabled").define("farms_enabled",true);
+        common.pop();
+
+        common.push("Farms");
+        FARM_MIN_HEIGHT = common.comment("Farm Minimum Height").defineInRange("farm_height",100,70,300);
         common.pop();
 
         COMMON = common.build();
