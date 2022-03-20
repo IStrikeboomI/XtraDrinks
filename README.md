@@ -45,7 +45,7 @@ Growable
 * Blueberries
 * Blackberries
 
-### Pomegratate
+### Pomegranate
 Growable
 
 ### Pines, Oranges, & Coconuts
