@@ -2,7 +2,7 @@
 ### A Minecraft Mod made with Java for Forge
 
 #### Venture into a new world with XtraDrinks, made by [IStrikeboomI](https://github.com/IStrikeboomI) and [ChauhanSai](https://github.com/ChauhanSai).  
-This mod adds new materials into the game with a new mechanic, dehydration. Dehydrate new fruits and blocks to make new foods and items. This mod adds 3 new sets of armor, each with their own effects. Explore new structures around the world. With XtraDrinks you can become the master liquidor, no can tell you what you can or cannot do. 
+This mod adds new materials into the game with a new mechanic, dehydration. Dehydrate new fruits and blocks to make new foods and items. This mod adds 3 new sets of armor, each with their own effects. Explore new structures around the world. With XtraDrinks you can become the master liquidor
 
 Recommended with use of [JEI(Just Enough Items)](https://www.curseforge.com/minecraft/mc-mods/jei)
 For Minecraft Java Version **1.18.2**
@@ -17,7 +17,7 @@ For Minecraft Java Version **1.18.2**
 Dehydrates fruits and vegetables for better hunger saturation
 
 ### Liquad Dehydrator
-Converts Molten Fizzium and Liquadium Buckets (Found in naturally generating wells) into Fizzium and Liquadium shards
+Converts Molten Fizzium and Molten Liquadium (Found in naturally generating wells) into Fizzium and Liquadium shards
 
 ## New Items:
 ### Fizzium Set
@@ -32,7 +32,7 @@ Created by combining fizzium and liquadium ingots
 * Effects a set bonus of Speed III, Strength III, & Saturation
 
 ## Fruits:
-Generate in sky farms
+Can generate in sky farms
 ### Topical Fruits
 Growable
 * Pineapples
@@ -51,12 +51,13 @@ Growable
 ### Pines, Oranges, & Coconuts
 * Pines: Can be found on spruce trees
 * Oranges: Can be found on forest trees
-* Coconuts: Can be found on jungle and savanna trees
+* Coconuts: Can be found on jungle trees
 
-### Dehydrated Vanilla
+### Dehydrated Vanilla Crops
 * Dehydrated carrots, potatos, beetroots
 
 ### Citric Acid
+* Made from any citric fruit and can be used to make drinks
 
 ## New Drinks:
 * Apple Juice
