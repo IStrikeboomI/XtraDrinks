@@ -1,4 +1,4 @@
-# Cobblestone Semantics
+# XtraDrinks
 ### A Minecraft Mod made with Java for Forge
 
 #### Venture into a new world with XtraDrinks, made by [IStrikeboomI](https://github.com/IStrikeboomI) and [ChauhanSai](https://github.com/ChauhanSai).  
