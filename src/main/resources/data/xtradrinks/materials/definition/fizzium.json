@@ -1,0 +1,9 @@
+{
+  "craftable": false,
+  "tier": 3,
+  "sortOrder": 5,
+  "fluid": "xtradrinks:molten_fizzium",
+  "fluidPerUnit": 144,
+  "temperature": 950,
+  "textColor": "#e8a31a"
+}

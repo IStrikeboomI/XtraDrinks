@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "xtradrinks:molten_fizzium",
+    "xtradrinks:molten_fizzium_flowing",
+    "xtradrinks:molten_liquadium",
+    "xtradrinks:molten_liquadium_flowing",
+    "xtradrinks:molten_juicetanium",
+    "xtradrinks:molten_juicetanium_flowing"
+  ]
+}

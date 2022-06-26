@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "output": "xtradrinks:juicetanium",
+  "fluid": {
+    "name":"xtradrinks:molten_juicetanium",
+    "amount": 144
+  },
+  "temperature": 600
+}

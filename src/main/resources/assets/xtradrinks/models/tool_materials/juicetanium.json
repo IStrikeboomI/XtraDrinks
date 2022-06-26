@@ -1,0 +1,5 @@
+{
+  "texture": "xtradrinks:block/juicetanium_block",
+  "fallbacks": ["metal"],
+  "color": "19ff57"
+}

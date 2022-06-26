@@ -1,0 +1,5 @@
+{
+  "texture": "xtradrinks:block/fizzium_block",
+  "fallbacks": ["metal"],
+  "color": "e8a31a"
+}

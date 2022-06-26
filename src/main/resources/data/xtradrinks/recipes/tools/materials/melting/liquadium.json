@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "xtradrinks:liquadium",
+  "temperature": 1000,
+  "result": {
+    "fluid": "xtradrinks:molten_liquadium",
+    "amount": 144
+  }
+}

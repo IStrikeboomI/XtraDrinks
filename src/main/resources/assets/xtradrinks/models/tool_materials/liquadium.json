@@ -1,0 +1,5 @@
+{
+  "texture": "xtradrinks:block/liquadium_block",
+  "fallbacks": ["metal"],
+  "color": "1ae8e5"
+}

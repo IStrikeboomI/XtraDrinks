@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:ingots/liquadium"
+  },
+  "result": {
+    "fluid": "xtradrinks:molten_liquadium",
+    "amount": 144
+  },
+  "temperature": 600,
+  "time": 55
+}

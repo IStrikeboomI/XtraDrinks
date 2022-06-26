@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "output": "xtradrinks:fizzium",
+  "fluid": {
+    "name":"xtradrinks:molten_fizzium",
+    "amount": 144
+  },
+  "temperature": 600
+}

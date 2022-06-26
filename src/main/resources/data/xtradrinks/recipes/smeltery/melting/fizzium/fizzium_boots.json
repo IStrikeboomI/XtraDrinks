@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "ingredient": {
+    "item": "xtradrinks:fizzium_boots"
+  },
+  "result": {
+    "fluid": "xtradrinks:molten_fizzium",
+    "amount": 576
+  },
+  "temperature": 600,
+  "time": 55
+}
