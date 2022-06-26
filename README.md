@@ -1,13 +1,13 @@
 # XtraDrinks
 ### A Minecraft Mod made with Java for Forge
 
-#### Venture into a new world with XtraDrinks, made by [IStrikeboomI](https://github.com/IStrikeboomI) and [ChauhanSai](https://github.com/ChauhanSai).  
+#### Venture into a new world with XtraDrinks, made by [IStrikeboomI](https://github.com/IStrikeboomI) and [ChauhanSai](https://github.com/ChauhanSai).
 This mod adds new materials into the game with a new mechanic, dehydration. Dehydrate new fruits and blocks to make new foods and items. This mod adds 3 new sets of armor, each with their own effects. Explore new structures around the world. With XtraDrinks you can become the master liquidor
 
-Recommended with use of [JEI(Just Enough Items)](https://www.curseforge.com/minecraft/mc-mods/jei)
-For Minecraft Java Version **1.18.2**
+Recommended with use of [JEI(Just Enough Items)](https://www.curseforge.com/minecraft/mc-mods/jei) and [Tinkers Construct]("https://www.curseforge.com/minecraft/mc-mods/tinkers-construct")
+For Minecraft Java Version **1.16.5**
 
-### Check out the [Bedrock Pack](https://chauhansaimc.wixsite.com/chauhan-sai-mc/post/xtradrinks-minecraft-addon-download) 
+### Check out the [Bedrock Pack](https://chauhansaimc.wixsite.com/chauhan-sai-mc/post/xtradrinks-minecraft-addon-download)
 
 <img src="/images/blocks.png" width="99%"/>
 <img src="/images/items.png" width="99%"/>
