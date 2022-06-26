@@ -9,8 +9,8 @@ For Minecraft Java Version **1.18.2**
 
 ### Check out the [Bedrock Pack](https://chauhansaimc.wixsite.com/chauhan-sai-mc/post/xtradrinks-minecraft-addon-download) 
 
-<img src="/images/blocks.png" width="99%"/>
-<img src="/images/items.png" width="99%"/>
+![image](https://user-images.githubusercontent.com/60586926/175797251-577e1bbc-e0fa-45d3-a54c-a6edbefa63af.png)
+![image](https://user-images.githubusercontent.com/60586926/175797260-c55934e1-223d-4b61-a341-a729a25dd0f9.png)
 
 ## New Blocks:
 ### Dehydrator
