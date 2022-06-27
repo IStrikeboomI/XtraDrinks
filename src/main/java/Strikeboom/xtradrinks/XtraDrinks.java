@@ -1,6 +1,10 @@
 package Strikeboom.XtraDrinks;
 
 import Strikeboom.XtraDrinks.client.setup.ClientSetup;
+import Strikeboom.XtraDrinks.init.XtraDrinksBlocks;
+import Strikeboom.XtraDrinks.init.XtraDrinksConfig;
+import Strikeboom.XtraDrinks.init.XtraDrinksFluids;
+import Strikeboom.XtraDrinks.init.XtraDrinksItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -20,28 +24,28 @@ public class XtraDrinks {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "xtradrinks";
 
-    //public static final ItemGroup CREATIVE_MODE_TAB = new ItemGroup(MOD_ID) {
-    //    @Override
-    //    public ItemStack makeIcon() {
-    //        return new ItemStack(XtraDrinksItems.JUICETANIUM_INGOT.get());
-    //    }
-    //};
+    public static final ItemGroup CREATIVE_MODE_TAB = new ItemGroup(MOD_ID) {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(XtraDrinksItems.JUICETANIUM_INGOT.get());
+        }
+    };
 
     public XtraDrinks() {
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        //XtraDrinksFluids.FLUIDS.register(modbus);
-        //XtraDrinksBlocks.BLOCKS.register(modbus);
-        //XtraDrinksItems.ITEMS.register(modbus);
-        //XtraDrinksBlockEntities.BLOCK_ENTITIES.register(modbus);
-        //XtraDrinksMenus.MENUS.register(modbus);
+        XtraDrinksFluids.FLUIDS.register(modbus);
+        XtraDrinksBlocks.BLOCKS.register(modbus);
+        XtraDrinksItems.ITEMS.register(modbus);
+        //XtraDrinksTileEntities.TILE_ENTITIES.register(modbus);
+        //XtraDrinksContainers.CONTAINERS.register(modbus);
         //XtraDrinksEntities.ENTITIES.register(modbus);
         //XtraDrinksStructures.STRUCTURES.register(modbus);
 
         modbus.addListener(this::init);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
-        //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, XtraDrinksConfig.COMMON);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, XtraDrinksConfig.COMMON);
     }
     private void init(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
