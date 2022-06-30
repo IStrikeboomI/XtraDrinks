@@ -79,6 +79,6 @@ public class GreenmanContainer extends Container {
     @Override
     public boolean stillValid(PlayerEntity pPlayer) {
         Vector3d pos = pPlayer.position();
-        return entity == null || entity.mayInteract(pPlayer.level,new BlockPos(pos.x,pos.y,pos.z));
+        return entity == null || entity.mayInteract(new BlockPos(pos.x,pos.y,pos.z));
     }
 }

@@ -75,7 +75,7 @@ public class WellStructure extends Structure<NoFeatureConfig> {
                     this.pieces,
                     this.random,
                     false,
-                    false);
+                    true);
 
             this.pieces.forEach(piece -> piece.move(0, -1, 0));
 

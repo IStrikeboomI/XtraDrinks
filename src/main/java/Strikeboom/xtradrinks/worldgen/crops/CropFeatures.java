@@ -2,6 +2,7 @@ package Strikeboom.XtraDrinks.worldgen.crops;
 
 import Strikeboom.XtraDrinks.XtraDrinks;
 import Strikeboom.XtraDrinks.init.XtraDrinksBlocks;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,9 +17,7 @@ import net.minecraft.world.gen.placement.Placement;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Collections;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 public class CropFeatures {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, XtraDrinks.MOD_ID);
@@ -39,7 +38,7 @@ public class CropFeatures {
         return block.defaultBlockState();
     }
     private static ConfiguredFeature<?, ?> register(Block crop) {
-        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(getMaxAgeState(crop), Stream.of(Blocks.GRASS_BLOCK,Blocks.DIRT,Blocks.COARSE_DIRT).map(Block::defaultBlockState).collect(Collectors.toList()), Collections.emptyList(), Collections.emptyList())).range(115).count(1).chance(10).decorated(Placement.TOP_SOLID_HEIGHTMAP.configured(IPlacementConfig.NONE));
+        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(getMaxAgeState(crop), Arrays.asList(Blocks.GRASS_BLOCK.defaultBlockState(),Blocks.DIRT.defaultBlockState(),Blocks.COARSE_DIRT.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()))).range(512).count(100).chance(1).decorated(Placement.HEIGHTMAP_WORLD_SURFACE.configured(IPlacementConfig.NONE));
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,crop.getRegistryName(),f);
         return f;
     }

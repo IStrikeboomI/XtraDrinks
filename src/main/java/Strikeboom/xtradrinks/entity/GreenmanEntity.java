@@ -125,7 +125,7 @@ public class GreenmanEntity extends CreatureEntity {
         }
     }
 
-    public boolean mayInteract(World pLevel, BlockPos pPos) {
+    public boolean mayInteract(BlockPos pPos) {
         return pPos.distSqr(new Vector3i(getX(),getY(),getZ())) <= 64;
     }
 

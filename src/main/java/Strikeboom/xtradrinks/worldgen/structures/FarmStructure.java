@@ -74,7 +74,7 @@ public class FarmStructure extends Structure<NoFeatureConfig> {
                     this.pieces,
                     this.random,
                     false,
-                    true);
+                    false);
 
             Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
             int xOffset = centerPos.getX() - structureCenter.getX();

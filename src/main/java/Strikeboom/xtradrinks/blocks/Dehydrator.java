@@ -14,6 +14,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -50,9 +51,7 @@ public class Dehydrator extends Block {
     public void appendHoverText(ItemStack pStack, @Nullable IBlockReader pLevel, List<ITextComponent> pTooltip, ITooltipFlag pFlag) {
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
         if (pStack.hasTag()) {
-            if (pStack.getTag().contains("BlockEntityTag")) {
-                pTooltip.add(new TranslationTextComponent("block." + XtraDrinks.MOD_ID + ".tooltip.saved").withStyle(TextFormatting.GREEN));
-            }
+            pTooltip.add(new TranslationTextComponent("block." + XtraDrinks.MOD_ID + ".tooltip.saved").withStyle(TextFormatting.GREEN));
         }
     }
 
@@ -63,7 +62,7 @@ public class Dehydrator extends Block {
             ItemStack stack = new ItemStack(this);
 
             if (pBlockEntity != null) {
-                pBlockEntity.save(stack.getOrCreateTag());
+                stack.setTag(pBlockEntity.save(new CompoundNBT()));
             }
 
             ItemEntity itementity = new ItemEntity(pLevel, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 0.5D, (double)pPos.getZ() + 0.5D, stack);
@@ -76,12 +75,10 @@ public class Dehydrator extends Block {
     public void setPlacedBy(World pWorld, BlockPos pPos, BlockState pState, LivingEntity pPlacer, ItemStack pStack) {
         if (!pWorld.isClientSide) {
             if (pStack.hasTag()) {
-                if (pStack.getTag().contains("BlockEntityTag")) {
-                    pStack.getTag().putInt("x",pPos.getX());
-                    pStack.getTag().putInt("y",pPos.getY());
-                    pStack.getTag().putInt("z",pPos.getZ());
-                    pWorld.getBlockEntity(pPos).load(pState,pStack.getTag());
-                }
+                pStack.getTag().putInt("x",pPos.getX());
+                pStack.getTag().putInt("y",pPos.getY());
+                pStack.getTag().putInt("z",pPos.getZ());
+                pWorld.getBlockEntity(pPos).load(pState,pStack.getTag());
             }
         }
     }
