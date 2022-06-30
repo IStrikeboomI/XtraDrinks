@@ -1,6 +1,5 @@
 package Strikeboom.XtraDrinks.init;
 
-import Strikeboom.XtraDrinks.XtraDrinks;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
@@ -20,9 +19,5 @@ public class XtraDrinksTags {
     public static final Tags.IOptionalNamedTag<Item> FRUIT = ItemTags.createOptional(new ResourceLocation("forge","fruit"));
     public static final Tags.IOptionalNamedTag<Item> FRUIT_CITRIC = ItemTags.createOptional(new ResourceLocation("forge","fruit_citric"));
     public static final Tags.IOptionalNamedTag<Item> FRUIT_TROPICAL = ItemTags.createOptional(new ResourceLocation("forge","fruit_tropical"));
-
-    public static final Tags.IOptionalNamedTag<Block> ORANGE_CAN_SPAWN_ON = BlockTags.createOptional(new ResourceLocation(XtraDrinks.MOD_ID,"orange_can_spawn_on"));
-    public static final Tags.IOptionalNamedTag<Block> COCONUT_CAN_SPAWN_ON = BlockTags.createOptional(new ResourceLocation(XtraDrinks.MOD_ID,"coconut_can_spawn_on"));
-    public static final Tags.IOptionalNamedTag<Block> PINES_CAN_SPAWN_ON = BlockTags.createOptional(new ResourceLocation(XtraDrinks.MOD_ID,"pines_can_spawn_on"));
 
 }

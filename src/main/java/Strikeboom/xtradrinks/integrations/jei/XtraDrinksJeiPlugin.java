@@ -22,7 +22,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @JeiPlugin
@@ -41,9 +41,9 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
         registration.addRecipes(DehydratorRecipeHandler.getRecipes(), DEHYDRATOR);
         registration.addRecipes(LiquidDehydratorRecipeHandler.getRecipes(), LIQUID_DEHYDRATOR);
 
-        registration.addIngredientInfo(List.of(new FluidStack(XtraDrinksFluids.MOLTEN_FIZZIUM.get(),1000),new FluidStack(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(),1000)), VanillaTypes.FLUID,
+        registration.addIngredientInfo(Arrays.asList(new FluidStack(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), 1000), new FluidStack(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), 1000)), VanillaTypes.FLUID,
                 new TranslationTextComponent("jei."+XtraDrinks.MOD_ID+".buckets_found"),new TranslationTextComponent("jei."+XtraDrinks.MOD_ID+".buckets_liquid_dehydrator"));
-        registration.addIngredientInfo(List.of(new ItemStack(XtraDrinksFluids.MOLTEN_FIZZIUM_BUCKET.get()),new ItemStack(XtraDrinksFluids.MOLTEN_LIQUADIUM_BUCKET.get())), VanillaTypes.ITEM,
+        registration.addIngredientInfo(Arrays.asList(new ItemStack(XtraDrinksFluids.MOLTEN_FIZZIUM_BUCKET.get()),new ItemStack(XtraDrinksFluids.MOLTEN_LIQUADIUM_BUCKET.get())), VanillaTypes.ITEM,
                 new TranslationTextComponent("jei."+XtraDrinks.MOD_ID+".buckets_found"),new TranslationTextComponent("jei."+XtraDrinks.MOD_ID+".buckets_liquid_dehydrator"));
         registration.addIngredientInfo(XtraDrinksTags.FRUIT.getValues().stream().map(ItemStack::new).collect(Collectors.toList()), VanillaTypes.ITEM,
                 new TranslationTextComponent("jei."+XtraDrinks.MOD_ID+".fruit"));

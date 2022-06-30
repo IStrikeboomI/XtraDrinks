@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class Juice extends Item {
     List<EffectInstance> effects = new ArrayList<>();
     public Juice(EffectInstance... effects) {
         super(new Properties().durability(0).stacksTo(1).food(new Food.Builder().nutrition(4).saturationMod(.4f).alwaysEat().build()).tab(XtraDrinks.CREATIVE_MODE_TAB));
-        this.effects.addAll(List.of(effects));
+        this.effects.addAll(Arrays.asList(effects));
     }
 
     @Override

@@ -213,8 +213,8 @@ public class GreenmanEntity extends CreatureEntity {
         @SubscribeEvent
         public static void onSpawn(EntityJoinWorldEvent event) {
             if (!event.getWorld().isClientSide()) {
-                if (event.getEntity() instanceof GreenmanEntity entity) {
-                    entity.randomizeHandler();
+                if (event.getEntity() instanceof GreenmanEntity) {
+                    ((GreenmanEntity) event.getEntity()).randomizeHandler();
                 }
             }
         }

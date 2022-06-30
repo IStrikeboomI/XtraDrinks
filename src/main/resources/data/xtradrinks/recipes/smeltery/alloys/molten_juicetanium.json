@@ -2,11 +2,11 @@
   "type": "tconstruct:alloy",
   "inputs": [
     {
-      "tag": "xtradrinks:molten_fizzium",
+      "name": "xtradrinks:molten_fizzium",
       "amount": 144
     },
     {
-      "tag": "xtradrinks:molten_liquadium",
+      "name": "xtradrinks:molten_liquadium",
       "amount": 144
     }
   ],

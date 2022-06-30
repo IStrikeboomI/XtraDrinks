@@ -1,10 +1,7 @@
 package Strikeboom.XtraDrinks;
 
 import Strikeboom.XtraDrinks.client.setup.ClientSetup;
-import Strikeboom.XtraDrinks.init.XtraDrinksBlocks;
-import Strikeboom.XtraDrinks.init.XtraDrinksConfig;
-import Strikeboom.XtraDrinks.init.XtraDrinksFluids;
-import Strikeboom.XtraDrinks.init.XtraDrinksItems;
+import Strikeboom.XtraDrinks.init.*;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,7 +18,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(XtraDrinks.MOD_ID)
 public class XtraDrinks {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "xtradrinks";
 
     public static final ItemGroup CREATIVE_MODE_TAB = new ItemGroup(MOD_ID) {
@@ -37,10 +34,10 @@ public class XtraDrinks {
         XtraDrinksFluids.FLUIDS.register(modbus);
         XtraDrinksBlocks.BLOCKS.register(modbus);
         XtraDrinksItems.ITEMS.register(modbus);
-        //XtraDrinksTileEntities.TILE_ENTITIES.register(modbus);
-        //XtraDrinksContainers.CONTAINERS.register(modbus);
-        //XtraDrinksEntities.ENTITIES.register(modbus);
-        //XtraDrinksStructures.STRUCTURES.register(modbus);
+        XtraDrinksTileEntities.TILE_ENTITIES.register(modbus);
+        XtraDrinksContainers.CONTAINERS.register(modbus);
+        XtraDrinksEntities.ENTITIES.register(modbus);
+        XtraDrinksStructures.STRUCTURES.register(modbus);
 
         modbus.addListener(this::init);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
@@ -49,9 +46,11 @@ public class XtraDrinks {
     }
     private void init(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            //XtraDrinksDehydratorRecipeRegister.init();
-            //XtraDrinksLiquidDehydratorRecipeRegister.init();
-            //XtraDrinksPackets.init();
+            XtraDrinksDehydratorRecipeRegister.init();
+            XtraDrinksLiquidDehydratorRecipeRegister.init();
+            XtraDrinksPackets.init();
+            XtraDrinksStructures.setupStructures();
+            XtraDrinksStructureFeatures.registerConfiguredStructures();
         });
     }
 }

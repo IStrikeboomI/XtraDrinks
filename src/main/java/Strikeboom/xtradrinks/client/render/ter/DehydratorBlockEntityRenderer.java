@@ -2,17 +2,20 @@ package Strikeboom.XtraDrinks.client.render.ter;
 
 import Strikeboom.XtraDrinks.guis.tileentities.DehydratorTileEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
 import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.model.BakedQuad;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.vector.Quaternion;
+import net.minecraftforge.client.extensions.IForgeBakedModel;
+import net.minecraftforge.client.model.data.EmptyModelData;
 import net.minecraftforge.items.CapabilityItemHandler;
 
+import java.util.List;
 import java.util.Random;
 
 public class DehydratorBlockEntityRenderer extends TileEntityRenderer<DehydratorTileEntity> {
@@ -34,8 +37,8 @@ public class DehydratorBlockEntityRenderer extends TileEntityRenderer<Dehydrator
 
                 ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 
-                var model = itemRenderer.getItemModelShaper().getItemModel(stack);
-                var quads = model.getQuads(null, null, new Random());
+                IForgeBakedModel model = itemRenderer.getItemModelShaper().getItemModel(stack);
+                List<BakedQuad> quads = model.getQuads(null, null, new Random(), EmptyModelData.INSTANCE);
 
                 if (!quads.isEmpty()) {
                     pPoseStack.scale(0.5f, 0.5f, 0.5f);
