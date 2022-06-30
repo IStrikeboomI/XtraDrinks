@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "item": "forge:ingots/juicetanium"
+    "tag": "forge:ingots/juicetanium"
   },
   "value": 1,
   "needed": 1,

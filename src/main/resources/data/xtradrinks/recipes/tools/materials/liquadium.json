@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "item": "forge:ingots/liquadium"
+    "tag": "forge:ingots/liquadium"
   },
   "value": 1,
   "needed": 1,
