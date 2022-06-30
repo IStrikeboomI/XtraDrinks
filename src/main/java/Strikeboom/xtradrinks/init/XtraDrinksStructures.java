@@ -33,16 +33,16 @@ public class XtraDrinksStructures {
     public static final RegistryObject<Structure<NoFeatureConfig>> PINES_FARM_STRUCTURE = STRUCTURES.register("pines_farm", () -> new FarmStructure("pines_farm"));
 
     public static void setupStructures() {
-        setupMapSpacingAndLand(FIZZIUM_WELL_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 253467201));
-        setupMapSpacingAndLand(FIZZIUM_WELL_LARGE_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 258467201));
-        setupMapSpacingAndLand(LIQUADIUM_WELL_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 253126201));
-        setupMapSpacingAndLand(LIQUADIUM_WELL_LARGE_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 3743222));
-        setupMapSpacingAndLand(BERRY_FARM_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 6234127));
-        setupMapSpacingAndLand(TROPICAL_FARM_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 29013356));
-        setupMapSpacingAndLand(POMEGRANATE_FARM_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 12732125));
-        setupMapSpacingAndLand(ORANGE_FARM_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 282572723));
-        setupMapSpacingAndLand(COCONUT_FARM_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 34526789));
-        setupMapSpacingAndLand(PINES_FARM_STRUCTURE.get(), new StructureSeparationSettings(10, 5, 1290878934));
+        setupMapSpacingAndLand(FIZZIUM_WELL_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 253467201));
+        setupMapSpacingAndLand(FIZZIUM_WELL_LARGE_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 258467201));
+        setupMapSpacingAndLand(LIQUADIUM_WELL_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 253126201));
+        setupMapSpacingAndLand(LIQUADIUM_WELL_LARGE_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 3743222));
+        setupMapSpacingAndLand(BERRY_FARM_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 6234127));
+        setupMapSpacingAndLand(TROPICAL_FARM_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 29013356));
+        setupMapSpacingAndLand(POMEGRANATE_FARM_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 12732125));
+        setupMapSpacingAndLand(ORANGE_FARM_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 282572723));
+        setupMapSpacingAndLand(COCONUT_FARM_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 34526789));
+        setupMapSpacingAndLand(PINES_FARM_STRUCTURE.get(), new StructureSeparationSettings(100, 5, 1290878934));
 
     }
     public static <F extends Structure<?>> void setupMapSpacingAndLand(F structure, StructureSeparationSettings settings)  {

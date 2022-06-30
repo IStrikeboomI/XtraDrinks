@@ -19,26 +19,24 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientSetup {
     public static void init(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.PINEAPPLE.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.LEMON.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.LIME.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.POMEGRANATE.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.GRAPE.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.CRANBERRY.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.BLUEBERRY.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.BLACKBERRY.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.ORANGE.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.COCONUT.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.PINES.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.DEHYDRATOR.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get(), RenderType.cutout());
-            ScreenManager.register(XtraDrinksContainers.DEHYDRATOR_CONTAINER.get(), DehydratorScreen::new);
-            ScreenManager.register(XtraDrinksContainers.LIQUID_DEHYDRATOR_CONTAINER.get(), LiquidDehydratorScreen::new);
-            ScreenManager.register(XtraDrinksContainers.GREENMAN_CONTAINER.get(), GreenmanScreen::new);
-            ClientRegistry.bindTileEntityRenderer(XtraDrinksTileEntities.DEHYDRATOR_TILE_ENTITY.get(), DehydratorBlockEntityRenderer::new);
-            ClientRegistry.bindTileEntityRenderer(XtraDrinksTileEntities.LIQUID_DEHYDRATOR_TILE_ENTITY.get(), LiquidDehydratorBlockEntityRenderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(XtraDrinksEntities.GREENMAN.get(), GreenmanRenderer::new);
-        });
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.PINEAPPLE.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.LEMON.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.LIME.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.POMEGRANATE.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.GRAPE.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.CRANBERRY.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.BLUEBERRY.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.BLACKBERRY.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.ORANGE.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.COCONUT.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.PINES.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.DEHYDRATOR.get(), RenderType.cutout());
+        RenderTypeLookup.setRenderLayer(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get(), RenderType.cutout());
+        ScreenManager.register(XtraDrinksContainers.DEHYDRATOR_CONTAINER.get(), DehydratorScreen::new);
+        ScreenManager.register(XtraDrinksContainers.LIQUID_DEHYDRATOR_CONTAINER.get(), LiquidDehydratorScreen::new);
+        ScreenManager.register(XtraDrinksContainers.GREENMAN_CONTAINER.get(), GreenmanScreen::new);
+        ClientRegistry.bindTileEntityRenderer(XtraDrinksTileEntities.DEHYDRATOR_TILE_ENTITY.get(), DehydratorBlockEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(XtraDrinksTileEntities.LIQUID_DEHYDRATOR_TILE_ENTITY.get(), LiquidDehydratorBlockEntityRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(XtraDrinksEntities.GREENMAN.get(), GreenmanRenderer::new);
     }
 }

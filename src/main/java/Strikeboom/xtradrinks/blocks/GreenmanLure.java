@@ -7,6 +7,7 @@ import Strikeboom.XtraDrinks.init.XtraDrinksEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -30,7 +31,7 @@ public class GreenmanLure extends Block {
     }
 
     @Override
-    public void onPlace(BlockState pState, World pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+    public void setPlacedBy(World pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
         if (!pLevel.isClientSide()) {
             if (XtraDrinksConfig.GREENMAN_LURE_ENABLED.get()) {
                 pLevel.destroyBlock(pPos, false);

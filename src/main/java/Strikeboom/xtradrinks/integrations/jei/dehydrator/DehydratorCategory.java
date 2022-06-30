@@ -66,9 +66,9 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
     }
     @Override
     public void setRecipe(IRecipeLayout builder, DehydratorRecipe recipe, IIngredients ingredients) {
-        builder.getItemStacks().init(0,true,8,12);
+        builder.getItemStacks().init(0,true,7,11);
         builder.getItemStacks().set(0,recipe.input());
-        builder.getItemStacks().init(1, false,69,12);
+        builder.getItemStacks().init(1, false,68,11);
         builder.getItemStacks().set(1,recipe.output());
     }
 }

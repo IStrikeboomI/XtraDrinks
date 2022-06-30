@@ -1,6 +1,7 @@
 package Strikeboom.XtraDrinks.worldgen.structures;
 
 import Strikeboom.XtraDrinks.XtraDrinks;
+import Strikeboom.XtraDrinks.init.XtraDrinksConfig;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
 import net.minecraft.util.math.BlockPos;
@@ -13,6 +14,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.provider.BiomeProvider;
 import net.minecraft.world.gen.ChunkGenerator;
 import net.minecraft.world.gen.GenerationStage;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
 import net.minecraft.world.gen.feature.structure.*;
@@ -41,8 +43,10 @@ public class FarmStructure extends Structure<NoFeatureConfig> {
     }
 
     public class Start extends StructureStart<NoFeatureConfig> {
+        long seed;
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
+            this.seed = seedIn;
         }
 
         @Override
@@ -51,13 +55,17 @@ public class FarmStructure extends Structure<NoFeatureConfig> {
             int x = chunkX * 16;
             int z = chunkZ * 16;
 
-            BlockPos centerPos = new BlockPos(x, 0, z);
+            int topLandY = chunkGenerator.getFirstFreeHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
+            SharedSeedRandom random = new SharedSeedRandom();
+            random.setLargeFeatureSeed(seed, x, z);
+            topLandY += random.nextInt(300 - XtraDrinksConfig.FARM_MIN_HEIGHT.get() - topLandY) + XtraDrinksConfig.FARM_MIN_HEIGHT.get() - topLandY;
+
+            BlockPos centerPos = new BlockPos(x, topLandY, z);
 
             JigsawManager.addPieces(
                     dynamicRegistryManager,
                     new VillageConfig(() -> dynamicRegistryManager.registryOrThrow(Registry.TEMPLATE_POOL_REGISTRY)
                             .get(new ResourceLocation(XtraDrinks.MOD_ID, name + "/start_pool")),
-
                             10),
                     AbstractVillagePiece::new,
                     chunkGenerator,
@@ -66,7 +74,7 @@ public class FarmStructure extends Structure<NoFeatureConfig> {
                     this.pieces,
                     this.random,
                     false,
-                    false);
+                    true);
 
             Vector3i structureCenter = this.pieces.get(0).getBoundingBox().getCenter();
             int xOffset = centerPos.getX() - structureCenter.getX();

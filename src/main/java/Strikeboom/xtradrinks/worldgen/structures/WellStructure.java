@@ -1,7 +1,6 @@
 package Strikeboom.XtraDrinks.worldgen.structures;
 
 import Strikeboom.XtraDrinks.XtraDrinks;
-import Strikeboom.XtraDrinks.init.XtraDrinksConfig;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SharedSeedRandom;
@@ -52,10 +51,8 @@ public class WellStructure extends Structure<NoFeatureConfig> {
     }
 
     public class Start extends StructureStart<NoFeatureConfig> {
-        long seed;
         public Start(Structure<NoFeatureConfig> structureIn, int chunkX, int chunkZ, MutableBoundingBox mutableBoundingBox, int referenceIn, long seedIn) {
             super(structureIn, chunkX, chunkZ, mutableBoundingBox, referenceIn, seedIn);
-            this.seed = seedIn;
         }
 
         @Override
@@ -63,12 +60,7 @@ public class WellStructure extends Structure<NoFeatureConfig> {
 
             int x = chunkX * 16;
             int z = chunkZ * 16;
-            int topLandY = chunkGenerator.getFirstFreeHeight(x, z, Heightmap.Type.WORLD_SURFACE_WG);
-            SharedSeedRandom random = new SharedSeedRandom();
-            random.setLargeFeatureSeed(seed, x, z);
-            topLandY += random.nextInt(300 - topLandY - XtraDrinksConfig.FARM_MIN_HEIGHT.get() - topLandY) + XtraDrinksConfig.FARM_MIN_HEIGHT.get() - topLandY;
-
-            BlockPos centerPos = new BlockPos(x, topLandY, z);
+            BlockPos centerPos = new BlockPos(x, 0, z);
 
             JigsawManager.addPieces(
                     dynamicRegistryManager,
@@ -83,7 +75,7 @@ public class WellStructure extends Structure<NoFeatureConfig> {
                     this.pieces,
                     this.random,
                     false,
-                    true);
+                    false);
 
             this.pieces.forEach(piece -> piece.move(0, -1, 0));
 

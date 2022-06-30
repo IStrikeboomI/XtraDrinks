@@ -72,7 +72,7 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     public void setRecipe(IRecipeLayout builder, LiquidDehydratorRecipe recipe, IIngredients ingredients) {
         builder.getFluidStacks().init(0,true, 4, 3, 24, 66,1000, true, null);
         builder.getFluidStacks().set(0, recipe.input());
-        builder.getItemStacks().init(0,false,82,28);
+        builder.getItemStacks().init(0,false,81,27);
         builder.getItemStacks().set(0, recipe.output());
     }
 }
