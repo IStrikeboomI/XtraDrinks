@@ -4,8 +4,6 @@ import Strikeboom.XtraDrinks.XtraDrinks;
 import Strikeboom.XtraDrinks.entity.GreenmanEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -18,5 +16,4 @@ public class XtraDrinksEntities {
             .clientTrackingRange(10)
             .setShouldReceiveVelocityUpdates(false)
             .build("greenman"));
-    public static final RegistryObject<Item> GREENMAN_EGG = XtraDrinksItems.ITEMS.register("greenman_spawn_egg", () -> new ForgeSpawnEggItem(GREENMAN, 0x004700,0x004d8e, new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 }

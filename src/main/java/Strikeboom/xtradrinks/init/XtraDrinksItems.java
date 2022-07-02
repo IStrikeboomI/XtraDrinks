@@ -13,12 +13,15 @@ import Strikeboom.XtraDrinks.items.fruit.HangingFruit;
 import Strikeboom.XtraDrinks.items.fruit.PlantableFruit;
 import Strikeboom.XtraDrinks.items.juice.Juice;
 import Strikeboom.XtraDrinks.items.juice.ThickJuice;
+import net.minecraft.block.Block;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Food;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -108,24 +111,16 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> DRINK_SOUR_JUICE = ITEMS.register("drink_sour_juice", () -> new Juice(new EffectInstance(Effects.ABSORPTION, 400,2),new EffectInstance(Effects.MOVEMENT_SPEED, 200)));
     public static final RegistryObject<Item> DRINK_TROPICAL_PUNCH_JUICE= ITEMS.register("drink_tropical_punch_juice", () -> new Juice(new EffectInstance(Effects.MOVEMENT_SPEED, 200),new EffectInstance(Effects.NIGHT_VISION, 200)));
 
+    public static final RegistryObject<Item> GREENMAN_EGG = ITEMS.register("greenman_spawn_egg", () -> new ForgeSpawnEggItem(XtraDrinksEntities.GREENMAN, 0x004700,0x004d8e, new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
+    public static final RegistryObject<Item> DEHYDRATOR_ITEM = fromBlock(XtraDrinksBlocks.DEHYDRATOR);
+    public static final RegistryObject<Item> LIQUID_DEHYDRATOR_ITEM = fromBlock(XtraDrinksBlocks.LIQUID_DEHYDRATOR);
+    public static final RegistryObject<Item> GREENMAN_LURE_ITEM = fromBlock(XtraDrinksBlocks.GREENMAN_LURE);
+    public static final RegistryObject<Item> FIZZIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.FIZZIUM_BLOCK);
+    public static final RegistryObject<Item> LIQUADIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.LIQUADIUM_BLOCK);
+    public static final RegistryObject<Item> JUICETANIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.JUICETANIUM_BLOCK);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {
+        return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    }
 }
