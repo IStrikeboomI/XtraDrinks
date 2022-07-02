@@ -39,11 +39,11 @@ public class DehydratorRecipeSerializer extends ForgeRegistryEntry<IRecipeSerial
         JsonElement jsonelement = JSONUtils.isArrayNode(pJson, "input") ? JSONUtils.getAsJsonArray(pJson, "input") : JSONUtils.getAsJsonObject(pJson, "input");
         Ingredient ingredient = Ingredient.fromJson(jsonelement);
 
-        if (!pJson.has("output")) throw new com.google.gson.JsonSyntaxException("Missing result, expected to find a string or object");
+        if (!pJson.has("result")) throw new com.google.gson.JsonSyntaxException("Missing result, expected to find a string or object");
         ItemStack itemstack;
-        if (pJson.get("output").isJsonObject()) itemstack = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(pJson, "output"));
+        if (pJson.get("result").isJsonObject()) itemstack = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(pJson, "output"));
         else {
-            String s1 = JSONUtils.getAsString(pJson, "output");
+            String s1 = JSONUtils.getAsString(pJson, "result");
             ResourceLocation resourcelocation = new ResourceLocation(s1);
             itemstack = new ItemStack(Registry.ITEM.getOptional(resourcelocation).orElseThrow(() -> new IllegalStateException("Item: " + s1 + " does not exist")));
         }

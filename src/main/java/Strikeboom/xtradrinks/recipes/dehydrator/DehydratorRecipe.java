@@ -68,4 +68,8 @@ public final class DehydratorRecipe implements IRecipe<IInventory> {
         return new ItemStack(XtraDrinksBlocks.DEHYDRATOR.get());
     }
 
+    @Override
+    public boolean isSpecial() {
+        return true;
+    }
 }
