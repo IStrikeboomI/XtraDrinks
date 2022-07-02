@@ -3,5 +3,5 @@
   "input": {
     "item": "minecraft:apple"
   },
-  "output": "xtradrinks:dehydrated_apple"
+  "result": "xtradrinks:dehydrated_apple"
 }

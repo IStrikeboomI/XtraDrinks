@@ -3,5 +3,5 @@
   "input": {
     "item": "xtradrinks:coconut"
   },
-  "output": "xtradrinks:dehydrated_coconut"
+  "result": "xtradrinks:dehydrated_coconut"
 }
