@@ -4,7 +4,7 @@ import Strikeboom.XtraDrinks.guis.tileentities.itemhandlers.DehydratorInsertOnly
 import Strikeboom.XtraDrinks.guis.tileentities.itemhandlers.DehydratorItemHandler;
 import Strikeboom.XtraDrinks.init.XtraDrinksConfig;
 import Strikeboom.XtraDrinks.init.XtraDrinksTileEntities;
-import Strikeboom.XtraDrinks.recipes.dehydrator.DehydratorRecipeHandler;
+import Strikeboom.XtraDrinks.recipes.dehydrator.DehydratorRecipeSerializer;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
@@ -128,34 +128,36 @@ public class DehydratorTileEntity extends TileEntity implements ITickableTileEnt
 
     @Override
     public void tick() {
-        delay = XtraDrinksConfig.DEHYDRATOR_DELAY.get();
-        boolean shouldUpdate = false;
-        if (
-                !ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty() &&
-                        DehydratorRecipeHandler.doesItemHaveRecipe(ITEM_STACK_HANDLER.getStackInSlot(0))
-                        && ITEM_STACK_HANDLER.getStackInSlot(1).getCount() + DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0)).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(1).getMaxStackSize()
-                        && (ITEM_STACK_HANDLER.getStackInSlot(1).isEmpty()
-                        || ITEM_STACK_HANDLER.getStackInSlot(1).sameItem(DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0))))) {
-            cooldown++;
-            shouldUpdate = true;
-        } else {
-            if (cooldown != 0) {
-                cooldown = 0;
+        if (hasLevel() && !level.isClientSide) {
+            delay = XtraDrinksConfig.DEHYDRATOR_DELAY.get();
+            boolean shouldUpdate = false;
+            if (
+                    !ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty() &&
+                            DehydratorRecipeSerializer.doesItemHaveRecipe(ITEM_STACK_HANDLER.getStackInSlot(0),level)
+                            && ITEM_STACK_HANDLER.getStackInSlot(1).getCount() + DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0), level).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(1).getMaxStackSize()
+                            && (ITEM_STACK_HANDLER.getStackInSlot(1).isEmpty()
+                            || ITEM_STACK_HANDLER.getStackInSlot(1).sameItem(DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0),level)))) {
+                cooldown++;
                 shouldUpdate = true;
-            }
-        }
-        if (cooldown % this.delay == 0 && cooldown != 0) {
-            cooldown = 0;
-            if (ITEM_STACK_HANDLER.getStackInSlot(1).isEmpty()) {
-                ITEM_STACK_HANDLER.setStackInSlot(1,DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0)).copy());
             } else {
-                ITEM_STACK_HANDLER.getStackInSlot(1).grow(DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0)).getCount());
+                if (cooldown != 0) {
+                    cooldown = 0;
+                    shouldUpdate = true;
+                }
             }
-            ITEM_STACK_HANDLER.getStackInSlot(0).shrink(1);
-        }
-        if (shouldUpdate) {
-            setChanged();
-            this.level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
+            if (cooldown % this.delay == 0 && cooldown != 0) {
+                cooldown = 0;
+                if (ITEM_STACK_HANDLER.getStackInSlot(1).isEmpty()) {
+                    ITEM_STACK_HANDLER.setStackInSlot(1, DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0), level).copy());
+                } else {
+                    ITEM_STACK_HANDLER.getStackInSlot(1).grow(DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0), level).getCount());
+                }
+                ITEM_STACK_HANDLER.getStackInSlot(0).shrink(1);
+            }
+            if (shouldUpdate) {
+                setChanged();
+                this.level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+            }
         }
     }
 

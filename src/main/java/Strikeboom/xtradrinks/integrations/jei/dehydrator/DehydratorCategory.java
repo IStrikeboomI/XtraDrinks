@@ -61,14 +61,14 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
     }
     @Override
     public void setIngredients(DehydratorRecipe recipe, IIngredients ingredients) {
-        ingredients.setInput(VanillaTypes.ITEM, recipe.input());
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.output());
+        ingredients.setInput(VanillaTypes.ITEM, recipe.getIngredients().get(0).getItems()[0]);
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
     }
     @Override
     public void setRecipe(IRecipeLayout builder, DehydratorRecipe recipe, IIngredients ingredients) {
         builder.getItemStacks().init(0,true,7,11);
-        builder.getItemStacks().set(0,recipe.input());
+        builder.getItemStacks().set(0,ingredients.getInputs(VanillaTypes.ITEM).get(0));
         builder.getItemStacks().init(1, false,68,11);
-        builder.getItemStacks().set(1,recipe.output());
+        builder.getItemStacks().set(1,ingredients.getOutputs(VanillaTypes.ITEM).get(0));
     }
 }

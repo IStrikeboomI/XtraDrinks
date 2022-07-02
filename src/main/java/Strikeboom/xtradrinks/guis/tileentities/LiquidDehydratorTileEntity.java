@@ -149,35 +149,37 @@ public class LiquidDehydratorTileEntity extends TileEntity implements ITickableT
     }
     @Override
     public void tick() {
-        delay = XtraDrinksConfig.LIQUID_DEHYDRATOR_DELAY.get();
-        boolean shouldUpdate = false;
-        if (
-                LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(FLUID_TANK.getFluid())
-                        && !FLUID_TANK.isEmpty()
-                        && FLUID_TANK.getFluid().getAmount() >= LiquidDehydratorRecipeHandler.getFluidStackFromFluidStackInput(FLUID_TANK.getFluid()).getAmount()
-                        && ITEM_STACK_HANDLER.getStackInSlot(0).getCount() + LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(0).getMaxStackSize()
-                        && (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()
-                        || ITEM_STACK_HANDLER.getStackInSlot(0).sameItem(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid())))) {
-            cooldown++;
-            shouldUpdate = true;
-        } else {
-            if (cooldown != 0) {
-                cooldown = 0;
+        if (!level.isClientSide) {
+            delay = XtraDrinksConfig.LIQUID_DEHYDRATOR_DELAY.get();
+            boolean shouldUpdate = false;
+            if (
+                    LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(FLUID_TANK.getFluid())
+                            && !FLUID_TANK.isEmpty()
+                            && FLUID_TANK.getFluid().getAmount() >= LiquidDehydratorRecipeHandler.getFluidStackFromFluidStackInput(FLUID_TANK.getFluid()).getAmount()
+                            && ITEM_STACK_HANDLER.getStackInSlot(0).getCount() + LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(0).getMaxStackSize()
+                            && (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()
+                            || ITEM_STACK_HANDLER.getStackInSlot(0).sameItem(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid())))) {
+                cooldown++;
                 shouldUpdate = true;
-            }
-        }
-        if (cooldown % delay == 0 && cooldown != 0) {
-            cooldown = 0;
-            if (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()) {
-                ITEM_STACK_HANDLER.setStackInSlot(0, LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).copy());
             } else {
-                ITEM_STACK_HANDLER.getStackInSlot(0).grow(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount());
+                if (cooldown != 0) {
+                    cooldown = 0;
+                    shouldUpdate = true;
+                }
             }
-            FLUID_TANK.getFluid().shrink(LiquidDehydratorRecipeHandler.getFluidStackFromItemStack(ITEM_STACK_HANDLER.getStackInSlot(0)).getAmount());
-        }
-        if (shouldUpdate) {
-            setChanged();
-            this.level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
+            if (cooldown % delay == 0 && cooldown != 0) {
+                cooldown = 0;
+                if (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()) {
+                    ITEM_STACK_HANDLER.setStackInSlot(0, LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).copy());
+                } else {
+                    ITEM_STACK_HANDLER.getStackInSlot(0).grow(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount());
+                }
+                FLUID_TANK.getFluid().shrink(LiquidDehydratorRecipeHandler.getFluidStackFromItemStack(ITEM_STACK_HANDLER.getStackInSlot(0)).getAmount());
+            }
+            if (shouldUpdate) {
+                setChanged();
+                this.level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
+            }
         }
     }
 }

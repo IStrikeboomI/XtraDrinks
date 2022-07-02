@@ -1,44 +1,71 @@
 package Strikeboom.XtraDrinks.recipes.dehydrator;
 
+import Strikeboom.XtraDrinks.init.XtraDrinksBlocks;
+import Strikeboom.XtraDrinks.init.XtraDrinksRecipes;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.IRecipeSerializer;
+import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
-import java.util.Objects;
+public final class DehydratorRecipe implements IRecipe<IInventory> {
+    private final ResourceLocation ID;
+    private final Ingredient INPUT;
+    private final ItemStack OUTPUT;
 
-public final class DehydratorRecipe {
-    private final ItemStack input;
-    private final ItemStack output;
-
-    DehydratorRecipe(ItemStack input, ItemStack output) {
-        this.input = input;
-        this.output = output;
-    }
-
-    public ItemStack input() {
-        return input;
-    }
-
-    public ItemStack output() {
-        return output;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        DehydratorRecipe that = (DehydratorRecipe) obj;
-        return Objects.equals(this.input, that.input) &&
-                Objects.equals(this.output, that.output);
+    DehydratorRecipe(ResourceLocation id, Ingredient input, ItemStack output) {
+        this.ID = id;
+        this.INPUT = input;
+        this.OUTPUT = output;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(input, output);
+    public boolean matches(IInventory pInv, World pLevel) {
+        return INPUT.test(pInv.getItem(0));
     }
 
     @Override
-    public String toString() {
-        return "DehydratorRecipe[" +
-                "input=" + input + ", " +
-                "output=" + output + ']';
+    public ItemStack assemble(IInventory pInv) {
+        return OUTPUT.copy();
     }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return pWidth == 1 && pHeight == 1;
+    }
+
+    @Override
+    public ItemStack getResultItem() {
+        return OUTPUT.copy();
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return NonNullList.of(INPUT,INPUT);
+    }
+
+    @Override
+    public ResourceLocation getId() {
+        return ID;
+    }
+
+    @Override
+    public IRecipeSerializer<?> getSerializer() {
+        return XtraDrinksRecipes.DEHYDRATOR.get();
+    }
+
+    @Override
+    public IRecipeType<?> getType() {
+        return XtraDrinksRecipes.DEHYDRATOR_TYPE;
+    }
+
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(XtraDrinksBlocks.DEHYDRATOR.get());
+    }
+
 }

@@ -38,6 +38,7 @@ public class XtraDrinks {
         XtraDrinksContainers.CONTAINERS.register(modbus);
         XtraDrinksEntities.ENTITIES.register(modbus);
         XtraDrinksStructures.STRUCTURES.register(modbus);
+        XtraDrinksRecipes.RECIPES.register(modbus);
 
         modbus.addListener(this::init);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
@@ -46,7 +47,6 @@ public class XtraDrinks {
     }
     private void init(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            XtraDrinksDehydratorRecipeRegister.init();
             XtraDrinksLiquidDehydratorRecipeRegister.init();
             XtraDrinksPackets.init();
             XtraDrinksStructures.setupStructures();

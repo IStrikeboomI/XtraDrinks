@@ -1,0 +1,7 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "input": {
+    "item": "xtradrinks:blackberry"
+  },
+  "output": "xtradrinks:dehydrated_blackberry"
+}
