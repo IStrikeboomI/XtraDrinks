@@ -1,6 +1,5 @@
 package Strikeboom.XtraDrinks.worldgen.crops;
 
-import Strikeboom.XtraDrinks.XtraDrinks;
 import Strikeboom.XtraDrinks.init.XtraDrinksBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
@@ -12,15 +11,11 @@ import net.minecraft.util.registry.WorldGenRegistries;
 import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.placement.IPlacementConfig;
-import net.minecraft.world.gen.placement.Placement;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.gen.feature.Features;
 
 import java.util.Arrays;
 
 public class CropFeatures {
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, XtraDrinks.MOD_ID);
     public static final ConfiguredFeature<?, ?> POMEGRANATE = register(XtraDrinksBlocks.POMEGRANATE.get());
     public static final ConfiguredFeature<?, ?> GRAPE = register(XtraDrinksBlocks.GRAPE.get());
     public static final ConfiguredFeature<?, ?> PINEAPPLE = register(XtraDrinksBlocks.PINEAPPLE.get());
@@ -38,7 +33,7 @@ public class CropFeatures {
         return block.defaultBlockState();
     }
     private static ConfiguredFeature<?, ?> register(Block crop) {
-        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(getMaxAgeState(crop), Arrays.asList(Blocks.GRASS_BLOCK.defaultBlockState(),Blocks.DIRT.defaultBlockState(),Blocks.COARSE_DIRT.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()))).range(512).count(100).chance(1).decorated(Placement.HEIGHTMAP_WORLD_SURFACE.configured(IPlacementConfig.NONE));
+        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(getMaxAgeState(crop), Arrays.asList(Blocks.GRASS_BLOCK.defaultBlockState(),Blocks.DIRT.defaultBlockState(),Blocks.COARSE_DIRT.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()))).range(256).count(40).chance(1).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE);
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,crop.getRegistryName(),f);
         return f;
     }
