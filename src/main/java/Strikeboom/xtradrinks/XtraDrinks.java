@@ -47,6 +47,7 @@ public class XtraDrinks {
     }
     private void init(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
+            XtraDrinksRecipes.register();
             XtraDrinksLiquidDehydratorRecipeRegister.init();
             XtraDrinksPackets.init();
             XtraDrinksStructures.setupStructures();
