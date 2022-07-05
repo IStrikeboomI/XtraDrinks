@@ -205,8 +205,8 @@ public class GreenmanEntity extends CreatureEntity {
         @SubscribeEvent
         public static void onBiomeLoad(BiomeLoadingEvent event) {
             if (event.getCategory() != Biome.Category.NETHER && event.getCategory() != Biome.Category.THEEND) {
-                if (event.getCategory() != Biome.Category.OCEAN && event.getCategory() != Biome.Category.RIVER && event.getCategory() != Biome.Category.SWAMP && event.getCategory() != Biome.Category.BEACH) {
-                    event.getSpawns().addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(XtraDrinksEntities.GREENMAN.get(), 75, 1, 1));
+                if (event.getCategory() != Biome.Category.OCEAN && event.getCategory() != Biome.Category.RIVER && event.getCategory() != Biome.Category.SWAMP && event.getCategory() != Biome.Category.BEACH && event.getCategory() != Biome.Category.DESERT) {
+                    event.getSpawns().addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(XtraDrinksEntities.GREENMAN.get(), 15, 1, 1));
                 }
             }
         }
