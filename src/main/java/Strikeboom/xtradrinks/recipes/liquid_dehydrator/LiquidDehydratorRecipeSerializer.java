@@ -54,8 +54,13 @@ public class LiquidDehydratorRecipeSerializer extends ForgeRegistryEntry<IRecipe
     public LiquidDehydratorRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
         ResourceLocation fluidResourceLocation = ResourceLocation.of(JSONUtils.getAsString(pJson.get("input").getAsJsonObject(), "fluid", "minecraft:empty"), ':');
         int fluidAmount = JSONUtils.getAsInt(pJson.get("input").getAsJsonObject(), "amount", 0);
+        if (fluidResourceLocation.getPath().equals("empty") || !ForgeRegistries.FLUIDS.containsKey(fluidResourceLocation)) {
+            throw new com.google.gson.JsonSyntaxException("Missing or invalid fluid, expected to find a string or object");
+        }
+        if (fluidAmount <= 0) {
+            throw new com.google.gson.JsonSyntaxException("Missing fluid amount, expected to find an int");
+        }
         FluidStack fluidStack = new FluidStack(ForgeRegistries.FLUIDS.getValue(fluidResourceLocation), fluidAmount);
-
         if (!pJson.has("result")) throw new com.google.gson.JsonSyntaxException("Missing result, expected to find a string or object");
         ItemStack itemstack;
         if (pJson.get("result").isJsonObject()) itemstack = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(pJson, "result"));
