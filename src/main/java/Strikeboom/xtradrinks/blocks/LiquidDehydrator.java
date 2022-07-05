@@ -21,6 +21,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
@@ -35,6 +38,15 @@ import java.util.List;
 public class LiquidDehydrator extends Block {
     public LiquidDehydrator(Properties p_49795_) {
         super(p_49795_);
+    }
+
+    //makes the top transparent and not xray the world
+    @Override
+    public VoxelShape getShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext pContext) {
+        if (pLevel.getBlockState(pPos).is(this)) {
+            return super.getShape(pState, pLevel, pPos, pContext);
+        }
+        return VoxelShapes.empty();
     }
 
     @Nullable
