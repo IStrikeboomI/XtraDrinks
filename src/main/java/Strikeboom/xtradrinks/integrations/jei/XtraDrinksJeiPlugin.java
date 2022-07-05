@@ -8,7 +8,6 @@ import Strikeboom.XtraDrinks.init.XtraDrinksRecipes;
 import Strikeboom.XtraDrinks.init.XtraDrinksTags;
 import Strikeboom.XtraDrinks.integrations.jei.dehydrator.DehydratorCategory;
 import Strikeboom.XtraDrinks.integrations.jei.liquid_dehydrator.LiquidDehydratorCategory;
-import Strikeboom.XtraDrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipeHandler;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
@@ -42,7 +41,7 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
         if (Minecraft.getInstance().level != null) {
             final World world = Minecraft.getInstance().level;
             registration.addRecipes(world.getRecipeManager().getAllRecipesFor(XtraDrinksRecipes.DEHYDRATOR_TYPE), DEHYDRATOR);
-            registration.addRecipes(LiquidDehydratorRecipeHandler.getRecipes(), LIQUID_DEHYDRATOR);
+            registration.addRecipes(world.getRecipeManager().getAllRecipesFor(XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE), LIQUID_DEHYDRATOR);
 
             registration.addIngredientInfo(Arrays.asList(new FluidStack(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), 1000), new FluidStack(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), 1000)), VanillaTypes.FLUID,
                     new TranslationTextComponent("jei." + XtraDrinks.MOD_ID + ".buckets_found"), new TranslationTextComponent("jei." + XtraDrinks.MOD_ID + ".buckets_liquid_dehydrator"));

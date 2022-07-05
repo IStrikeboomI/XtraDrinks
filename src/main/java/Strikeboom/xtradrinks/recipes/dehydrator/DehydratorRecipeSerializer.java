@@ -41,7 +41,7 @@ public class DehydratorRecipeSerializer extends ForgeRegistryEntry<IRecipeSerial
 
         if (!pJson.has("result")) throw new com.google.gson.JsonSyntaxException("Missing result, expected to find a string or object");
         ItemStack itemstack;
-        if (pJson.get("result").isJsonObject()) itemstack = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(pJson, "output"));
+        if (pJson.get("result").isJsonObject()) itemstack = ShapedRecipe.itemFromJson(JSONUtils.getAsJsonObject(pJson, "result"));
         else {
             String s1 = JSONUtils.getAsString(pJson, "result");
             ResourceLocation resourcelocation = new ResourceLocation(s1);

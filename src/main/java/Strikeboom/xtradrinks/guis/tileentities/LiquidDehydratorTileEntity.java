@@ -3,7 +3,7 @@ package Strikeboom.XtraDrinks.guis.tileentities;
 import Strikeboom.XtraDrinks.guis.tileentities.itemhandlers.OutputOnlyItemHandler;
 import Strikeboom.XtraDrinks.init.XtraDrinksConfig;
 import Strikeboom.XtraDrinks.init.XtraDrinksTileEntities;
-import Strikeboom.XtraDrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipeHandler;
+import Strikeboom.XtraDrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipeSerializer;
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
@@ -48,11 +48,6 @@ public class LiquidDehydratorTileEntity extends TileEntity implements ITickableT
             protected void onContentsChanged() {
                 setChanged();
                 level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
-            }
-
-            @Override
-            public boolean isFluidValid(FluidStack stack) {
-                return LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(stack);
             }
         };
         FLUID_TANK_LAZY_OPTIONAL = LazyOptional.of(() -> FLUID_TANK);
@@ -153,12 +148,12 @@ public class LiquidDehydratorTileEntity extends TileEntity implements ITickableT
             delay = XtraDrinksConfig.LIQUID_DEHYDRATOR_DELAY.get();
             boolean shouldUpdate = false;
             if (
-                    LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(FLUID_TANK.getFluid())
+                    LiquidDehydratorRecipeSerializer.doesFluidStackHaveRecipe(FLUID_TANK.getFluid(), level)
                             && !FLUID_TANK.isEmpty()
-                            && FLUID_TANK.getFluid().getAmount() >= LiquidDehydratorRecipeHandler.getFluidStackFromFluidStackInput(FLUID_TANK.getFluid()).getAmount()
-                            && ITEM_STACK_HANDLER.getStackInSlot(0).getCount() + LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(0).getMaxStackSize()
+                            && FLUID_TANK.getFluid().getAmount() >= LiquidDehydratorRecipeSerializer.getFluidStackFromFluidStackInput(FLUID_TANK.getFluid(), level).getAmount()
+                            && ITEM_STACK_HANDLER.getStackInSlot(0).getCount() + LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(), level).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(0).getMaxStackSize()
                             && (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()
-                            || ITEM_STACK_HANDLER.getStackInSlot(0).sameItem(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid())))) {
+                            || ITEM_STACK_HANDLER.getStackInSlot(0).sameItem(LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(), level)))) {
                 cooldown++;
                 shouldUpdate = true;
             } else {
@@ -170,11 +165,11 @@ public class LiquidDehydratorTileEntity extends TileEntity implements ITickableT
             if (cooldown % delay == 0 && cooldown != 0) {
                 cooldown = 0;
                 if (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()) {
-                    ITEM_STACK_HANDLER.setStackInSlot(0, LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).copy());
+                    ITEM_STACK_HANDLER.setStackInSlot(0, LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(), level).copy());
                 } else {
-                    ITEM_STACK_HANDLER.getStackInSlot(0).grow(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount());
+                    ITEM_STACK_HANDLER.getStackInSlot(0).grow(LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(), level).getCount());
                 }
-                FLUID_TANK.getFluid().shrink(LiquidDehydratorRecipeHandler.getFluidStackFromItemStack(ITEM_STACK_HANDLER.getStackInSlot(0)).getAmount());
+                FLUID_TANK.getFluid().shrink(LiquidDehydratorRecipeSerializer.getFluidStackFromItemStack(ITEM_STACK_HANDLER.getStackInSlot(0), level).getAmount());
             }
             if (shouldUpdate) {
                 setChanged();
