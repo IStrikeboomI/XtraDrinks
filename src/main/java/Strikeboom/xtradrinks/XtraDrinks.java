@@ -39,6 +39,7 @@ public class XtraDrinks {
         XtraDrinksEntities.ENTITIES.register(modbus);
         XtraDrinksStructures.STRUCTURES.register(modbus);
         XtraDrinksRecipes.RECIPES.register(modbus);
+        XtraDrinksFeatures.FEATURES.register(modbus);
 
         modbus.addListener(this::init);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));

@@ -33,7 +33,7 @@ public class CropFeatures {
         return block.defaultBlockState();
     }
     private static ConfiguredFeature<?, ?> register(Block crop) {
-        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(getMaxAgeState(crop), Arrays.asList(Blocks.GRASS_BLOCK.defaultBlockState(),Blocks.DIRT.defaultBlockState(),Blocks.COARSE_DIRT.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()))).range(256).count(40).chance(1).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE);
+        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(getMaxAgeState(crop), Arrays.asList(Blocks.GRASS_BLOCK.defaultBlockState(),Blocks.DIRT.defaultBlockState(),Blocks.COARSE_DIRT.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()), ImmutableList.of(Blocks.AIR.defaultBlockState()))).range(256).count(15).chance(1).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE);
         Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,crop.getRegistryName(),f);
         return f;
     }

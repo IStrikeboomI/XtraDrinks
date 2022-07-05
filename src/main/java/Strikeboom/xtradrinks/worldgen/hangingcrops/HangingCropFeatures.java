@@ -1,27 +1,27 @@
 package Strikeboom.XtraDrinks.worldgen.hangingcrops;
 
 import Strikeboom.XtraDrinks.init.XtraDrinksBlocks;
-import net.minecraft.block.Block;
+import Strikeboom.XtraDrinks.init.XtraDrinksFeatures;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;
-import net.minecraft.world.gen.feature.BlockWithContextConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.Features;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HangingCropFeatures {
-    public static final ConfiguredFeature<?, ?> ORANGE = register(XtraDrinksBlocks.ORANGE.get(), Arrays.asList(Blocks.OAK_LEAVES,Blocks.BIRCH_LEAVES,Blocks.DARK_OAK_LEAVES));
-    public static final ConfiguredFeature<?, ?> COCONUT = register(XtraDrinksBlocks.COCONUT.get(), Collections.singletonList(Blocks.JUNGLE_LEAVES));
-    public static final ConfiguredFeature<?, ?> PINES = register(XtraDrinksBlocks.PINES.get(), Collections.singletonList(Blocks.SPRUCE_LEAVES));
 
-    private static ConfiguredFeature<?, ?> register(Block crop, List<Block> spawnUnder) {
-        ConfiguredFeature<?, ?> f = Feature.SIMPLE_BLOCK.configured(new BlockWithContextConfig(crop.defaultBlockState(), Collections.emptyList(), Collections.emptyList(),spawnUnder.stream().map(Block::defaultBlockState).collect(Collectors.toList()))).range(110).count(1).chance(10);
-        Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,crop.getRegistryName(),f);
+    public static final ConfiguredFeature<?, ?> ORANGE = register(XtraDrinksBlocks.ORANGE.get().defaultBlockState(), Arrays.asList(Blocks.OAK_LEAVES.defaultBlockState(),Blocks.BIRCH_LEAVES.defaultBlockState(),Blocks.DARK_OAK_LEAVES.defaultBlockState()));
+    public static final ConfiguredFeature<?, ?> COCONUT = register(XtraDrinksBlocks.COCONUT.get().defaultBlockState(), Collections.singletonList(Blocks.JUNGLE_LEAVES.defaultBlockState()));
+    public static final ConfiguredFeature<?, ?> PINES = register(XtraDrinksBlocks.PINES.get().defaultBlockState(), Collections.singletonList(Blocks.SPRUCE_LEAVES.defaultBlockState()));
+
+    private static ConfiguredFeature<?, ?> register(BlockState crop, List<BlockState> toPlaceUnder) {
+        ConfiguredFeature<?, ?> f = XtraDrinksFeatures.HANGING_CROP.get().configured(new HangingCropConfig(crop,toPlaceUnder)).range(128).count(128).chance(1).decorated(Features.Placements.TOP_SOLID_HEIGHTMAP_SQUARE);
+        Registry.register(WorldGenRegistries.CONFIGURED_FEATURE,crop.getBlock().getRegistryName(),f);
         return f;
     }
 }
