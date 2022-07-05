@@ -64,15 +64,15 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
 
     @Override
     public void setIngredients(LiquidDehydratorRecipe recipe, IIngredients ingredients) {
-        ingredients.setInput(VanillaTypes.FLUID, recipe.input());
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.output());
+        ingredients.setInput(VanillaTypes.FLUID, recipe.getInput());
+        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
     }
 
     @Override
     public void setRecipe(IRecipeLayout builder, LiquidDehydratorRecipe recipe, IIngredients ingredients) {
         builder.getFluidStacks().init(0,true, 4, 3, 24, 66,1000, true, null);
-        builder.getFluidStacks().set(0, recipe.input());
+        builder.getFluidStacks().set(0, recipe.getInput());
         builder.getItemStacks().init(0,false,81,27);
-        builder.getItemStacks().set(0, recipe.output());
+        builder.getItemStacks().set(0, recipe.getResultItem());
     }
 }
