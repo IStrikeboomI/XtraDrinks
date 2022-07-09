@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "xtradrinks:block/greenman_lure_north",
+        "up":"xtradrinks:block/greenman_lure_up",
+        "down":"xtradrinks:block/greenman_lure_down",
+        "east":"xtradrinks:block/greenman_lure_east",
+        "west":"xtradrinks:block/greenman_lure_west",
+        "north":"xtradrinks:block/greenman_lure_north",
+        "south":"xtradrinks:block/greenman_lure_south"
+    }
+}

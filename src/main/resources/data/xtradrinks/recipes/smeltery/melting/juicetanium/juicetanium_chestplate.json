@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "ingredient": {
+    "item": "xtradrinks:juicetanium_chestplate"
+  },
+  "result": {
+    "fluid": "xtradrinks:molten_juicetanium",
+    "amount": 1152
+  },
+  "temperature": 600,
+  "time": 55
+}

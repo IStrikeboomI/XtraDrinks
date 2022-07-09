@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"WWW",
+	"W W",
+	"W W"
+    ],
+    "key":
+    {
+        "W":
+        {
+          "tag":"forge:ingots/liquadium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:liquadium_leggings",
+        "count": 1
+    }
+}

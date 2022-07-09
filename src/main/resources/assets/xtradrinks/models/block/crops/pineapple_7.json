@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "xtradrinks:block/crops/pineapple_7"
+    }
+}

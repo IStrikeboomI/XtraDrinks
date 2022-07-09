@@ -1,0 +1,7 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "input": {
+    "item": "minecraft:potato"
+  },
+  "result": "xtradrinks:dehydrated_potato"
+}

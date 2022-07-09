@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "output": "xtradrinks:liquadium",
+  "fluid": {
+    "name":"xtradrinks:molten_liquadium",
+    "amount": 144
+  },
+  "temperature": 600
+}

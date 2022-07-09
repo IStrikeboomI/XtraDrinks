@@ -1,0 +1,7 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "input": {
+    "item": "xtradrinks:pineapple"
+  },
+  "result": "xtradrinks:dehydrated_pineapple"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:storage_blocks/juicetanium"
+  },
+  "result": {
+    "fluid": "xtradrinks:molten_juicetanium",
+    "amount": 144
+  },
+  "temperature": 600,
+  "time": 55
+}

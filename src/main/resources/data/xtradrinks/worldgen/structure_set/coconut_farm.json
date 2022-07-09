@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "xtradrinks:coconut_farm",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1534728981,
+    "spacing": 64,
+    "separation": 12,
+    "type": "minecraft:random_spread"
+  }
+}

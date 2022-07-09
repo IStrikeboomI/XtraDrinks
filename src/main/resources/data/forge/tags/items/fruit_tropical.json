@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "xtradrinks:lemon",
+    "xtradrinks:lime",
+    "xtradrinks:orange",
+    "xtradrinks:pomegranate",
+    "xtradrinks:coconut",
+    "xtradrinks:pineapple"
+  ]
+}

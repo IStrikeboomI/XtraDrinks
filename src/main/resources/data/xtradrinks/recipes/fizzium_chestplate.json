@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+	"W W",
+	"WWW",
+	"WWW"
+    ],
+    "key":
+    {
+        "W":
+        {
+          "tag":"forge:ingots/fizzium"
+        }
+    },
+    "result":
+    {
+        "item": "xtradrinks:fizzium_chestplate",
+        "count": 1
+    }
+}

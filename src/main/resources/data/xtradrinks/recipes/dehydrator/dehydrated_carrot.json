@@ -1,0 +1,7 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "input": {
+    "item": "minecraft:carrot"
+  },
+  "result": "xtradrinks:dehydrated_carrot"
+}

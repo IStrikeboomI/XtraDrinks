@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "xtradrinks:liquadium_shard"
+  },
+  "result": "xtradrinks:liquadium_ingot",
+  "experience": 0.3,
+  "cookingtime": 200
+}

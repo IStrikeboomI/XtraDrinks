@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "xtradrinks:fizzium_shard"
+  },
+  "result": {
+    "fluid": "xtradrinks:molten_fizzium",
+    "amount": 144
+  },
+  "temperature": 600,
+  "time": 55
+}

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "":{ "model": "xtradrinks:block/liquid_dehydrator" }
+    }
+}

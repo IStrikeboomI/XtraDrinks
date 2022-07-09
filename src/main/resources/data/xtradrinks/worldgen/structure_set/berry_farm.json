@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "xtradrinks:berry_farm",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 1834718081,
+    "spacing": 64,
+    "separation": 12,
+    "type": "minecraft:random_spread"
+  }
+}

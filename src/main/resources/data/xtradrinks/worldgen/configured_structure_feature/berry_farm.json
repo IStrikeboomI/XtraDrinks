@@ -1,0 +1,12 @@
+{
+  "type": "xtradrinks:berry_farm",
+  "config": {
+    "start_pool": "xtradrinks:berry_farm/start_pool",
+    "size": 7
+  },
+
+  "biomes": "#xtradrinks:has_structure/farm",
+  "adapt_noise": false,
+  "spawn_overrides": {
+  }
+}
