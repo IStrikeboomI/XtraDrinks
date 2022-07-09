@@ -1,6 +1,0 @@
-{
-   "parent": "item/generated",
-   "textures": {
-       "layer0": "xtradrinks:item/drink_fruit_punch_juice"
-   }
-}
