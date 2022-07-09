@@ -1,6 +1,9 @@
 package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
+import Strikeboom.xtradrinks.blocks.Dehydrator;
+import Strikeboom.xtradrinks.blocks.GreenmanLure;
+import Strikeboom.xtradrinks.blocks.LiquidDehydrator;
 import Strikeboom.xtradrinks.items.Juicer;
 import Strikeboom.xtradrinks.items.armor.FizziumArmor;
 import Strikeboom.xtradrinks.items.armor.JuicetaniumArmor;
@@ -17,8 +20,12 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -108,24 +115,19 @@ public class XtraDrinksItems {
     public static final RegistryObject<Item> DRINK_SOUR_JUICE = ITEMS.register("drink_sour_juice", () -> new Juice(new MobEffectInstance(MobEffects.ABSORPTION, 400,2),new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200)));
     public static final RegistryObject<Item> DRINK_TROPICAL_PUNCH_JUICE= ITEMS.register("drink_tropical_punch_juice", () -> new Juice(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200),new MobEffectInstance(MobEffects.NIGHT_VISION, 200)));
 
+    public static final RegistryObject<Item> DEHYDRATOR_ITEM = fromBlock(XtraDrinksBlocks.DEHYDRATOR);
+    public static final RegistryObject<Item> LIQUID_DEHYDRATOR_ITEM = fromBlock(XtraDrinksBlocks.LIQUID_DEHYDRATOR);
+    public static final RegistryObject<Item> GREENMAN_LURE_ITEM = fromBlock(XtraDrinksBlocks.GREENMAN_LURE);
+    public static final RegistryObject<Item> FIZZIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.FIZZIUM_BLOCK);
+    public static final RegistryObject<Item> LIQUADIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.LIQUADIUM_BLOCK);
+    public static final RegistryObject<Item> JUICETANIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.JUICETANIUM_BLOCK);
+
+    public static final RegistryObject<Item> MOLTEN_FIZZIUM_BUCKET = ITEMS.register("molten_fizzium_bucket", () -> new BucketItem(XtraDrinksFluids.MOLTEN_FIZZIUM, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> MOLTEN_LIQUADIUM_BUCKET = ITEMS.register("molten_liquadium_bucket", () -> new BucketItem(XtraDrinksFluids.MOLTEN_LIQUADIUM, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> MOLTEN_JUICETANIUM_BUCKET = ITEMS.register("molten_juicetanium_bucket", () -> new BucketItem(XtraDrinksFluids.MOLTEN_JUICETANIUM, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).tab(XtraDrinks.CREATIVE_MODE_TAB)));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {
+        return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().durability(0).stacksTo(64).tab(XtraDrinks.CREATIVE_MODE_TAB)));
+    }
 }

@@ -31,6 +31,7 @@ public class XtraDrinks {
     public XtraDrinks() {
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        XtraDrinksFluids.FLUID_TYPES.register(modbus);
         XtraDrinksFluids.FLUIDS.register(modbus);
         XtraDrinksBlocks.BLOCKS.register(modbus);
         XtraDrinksItems.ITEMS.register(modbus);

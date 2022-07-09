@@ -48,7 +48,7 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
 
             registration.addIngredientInfo(List.of(new FluidStack(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), 1000), new FluidStack(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), 1000)), ForgeTypes.FLUID_STACK,
                     Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_found").append(Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_liquid_dehydrator")));
-            registration.addIngredientInfo(List.of(new ItemStack(XtraDrinksFluids.MOLTEN_FIZZIUM_BUCKET.get()), new ItemStack(XtraDrinksFluids.MOLTEN_LIQUADIUM_BUCKET.get())), VanillaTypes.ITEM_STACK,
+            registration.addIngredientInfo(List.of(new ItemStack(XtraDrinksItems.MOLTEN_FIZZIUM_BUCKET.get()), new ItemStack(XtraDrinksItems.MOLTEN_LIQUADIUM_BUCKET.get())), VanillaTypes.ITEM_STACK,
                     Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_found").append(Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_liquid_dehydrator")));
             List<ItemStack> fruits = new ArrayList<>();
             Registry.ITEM.getTagOrEmpty(XtraDrinksTags.FRUIT).forEach(itemHolder -> fruits.add(new ItemStack(itemHolder.value())));
