@@ -3,6 +3,7 @@ package Strikeboom.xtradrinks.guis.blockentities;
 import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.OutputOnlyItemHandler;
 import Strikeboom.xtradrinks.init.XtraDrinksBlockEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksConfig;
+import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipeSerializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -15,7 +16,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -43,16 +43,11 @@ public class LiquidDehydratorBlockEntity extends BlockEntity {
             }
         };
         ITEM_STACK_HANDLER_LAZY_OPTIONAL = LazyOptional.of(() -> ITEM_STACK_HANDLER);
-        FLUID_TANK = new FluidTank(FluidAttributes.BUCKET_VOLUME * 10) {
+        FLUID_TANK = new FluidTank( 10000) {
             @Override
             protected void onContentsChanged() {
                 setChanged();
                 level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),Block.UPDATE_ALL);
-            }
-
-            @Override
-            public boolean isFluidValid(FluidStack stack) {
-                return LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(stack);
             }
         };
         FLUID_TANK_LAZY_OPTIONAL = LazyOptional.of(() -> FLUID_TANK);
@@ -149,12 +144,12 @@ public class LiquidDehydratorBlockEntity extends BlockEntity {
         delay = XtraDrinksConfig.LIQUID_DEHYDRATOR_DELAY.get();
         boolean shouldUpdate = false;
         if (
-                LiquidDehydratorRecipeHandler.doesFluidStackHaveRecipe(FLUID_TANK.getFluid())
+                LiquidDehydratorRecipeSerializer.doesFluidStackHaveRecipe(FLUID_TANK.getFluid(),level)
                         && !FLUID_TANK.isEmpty()
-                        && FLUID_TANK.getFluid().getAmount() >= LiquidDehydratorRecipeHandler.getFluidStackFromFluidStackInput(FLUID_TANK.getFluid()).getAmount()
-                        && ITEM_STACK_HANDLER.getStackInSlot(0).getCount() + LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(0).getMaxStackSize()
+                        && FLUID_TANK.getFluid().getAmount() >= LiquidDehydratorRecipeSerializer.getFluidStackFromFluidStackInput(FLUID_TANK.getFluid(),level).getAmount()
+                        && ITEM_STACK_HANDLER.getStackInSlot(0).getCount() + LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(),level).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(0).getMaxStackSize()
                         && (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()
-                        || ITEM_STACK_HANDLER.getStackInSlot(0).sameItem(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid())))) {
+                        || ITEM_STACK_HANDLER.getStackInSlot(0).sameItem(LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(),level)))) {
             cooldown++;
             shouldUpdate = true;
         } else {
@@ -166,11 +161,11 @@ public class LiquidDehydratorBlockEntity extends BlockEntity {
         if (cooldown % delay == 0 && cooldown != 0) {
             cooldown = 0;
             if (ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty()) {
-                ITEM_STACK_HANDLER.setStackInSlot(0, LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).copy());
+                ITEM_STACK_HANDLER.setStackInSlot(0, LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(), level).copy());
             } else {
-                ITEM_STACK_HANDLER.getStackInSlot(0).grow(LiquidDehydratorRecipeHandler.getItemStackFromFluidStack(FLUID_TANK.getFluid()).getCount());
+                ITEM_STACK_HANDLER.getStackInSlot(0).grow(LiquidDehydratorRecipeSerializer.getItemStackFromFluidStack(FLUID_TANK.getFluid(), level).getCount());
             }
-            FLUID_TANK.getFluid().shrink(LiquidDehydratorRecipeHandler.getFluidStackFromItemStack(ITEM_STACK_HANDLER.getStackInSlot(0)).getAmount());
+            FLUID_TANK.getFluid().shrink(LiquidDehydratorRecipeSerializer.getFluidStackFromItemStack(ITEM_STACK_HANDLER.getStackInSlot(0), level).getAmount());
         }
         if (shouldUpdate) {
             setChanged();

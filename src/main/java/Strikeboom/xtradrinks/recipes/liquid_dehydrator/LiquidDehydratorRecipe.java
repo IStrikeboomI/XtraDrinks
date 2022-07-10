@@ -28,7 +28,7 @@ public final class LiquidDehydratorRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container pInv, Level pLevel) {
-        return true;
+        return !pLevel.isClientSide;
     }
 
     @Override
