@@ -7,11 +7,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -29,11 +30,11 @@ public class ClientUtil {
             return;
         }
         Minecraft minecraft = Minecraft.getInstance();
-        FluidAttributes attributes = fluid.getAttributes();
+        IClientFluidTypeExtensions attributes = IClientFluidTypeExtensions.of(fluid);
         ResourceLocation fluidStill = attributes.getStillTexture(fluidStack);
         TextureAtlasSprite fluidStillSprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(fluidStill);
 
-        int fluidColor = attributes.getColor(fluidStack);
+        int fluidColor = attributes.getTintColor(fluidStack);
 
         int amount = fluidStack.getAmount();
         int scaledAmount = (amount * height) / size;
@@ -93,7 +94,7 @@ public class ClientUtil {
         if (fluidStack != null && fluidStack.getFluid() != null && !fluidStack.getFluid().isSame( Fluids.EMPTY)) {
             if (mouseX > xPos && mouseX < xPos + width
                     && mouseY > yPos && mouseY < yPos + height ) {
-                gui.renderTooltip(pPoseStack,new TextComponent(fluidStack.getDisplayName().getString() + " " + fluidStack.getAmount() + " mB"), mouseX, mouseY);
+                gui.renderTooltip(pPoseStack, Component.literal(fluidStack.getDisplayName().getString() + " " + fluidStack.getAmount() + " mB"), mouseX, mouseY);
             }
         }
     }

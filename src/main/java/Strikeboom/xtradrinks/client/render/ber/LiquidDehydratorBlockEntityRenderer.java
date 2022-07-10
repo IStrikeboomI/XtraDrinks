@@ -12,7 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 
@@ -33,10 +33,8 @@ public class LiquidDehydratorBlockEntityRenderer implements BlockEntityRenderer<
                 float topScale = (1.0f - TANK_THICKNESS / 2f - (TANK_THICKNESS + FLUID_HEIGHT)) * stack.getAmount() / iFluidHandler.getTankCapacity(0) + TANK_THICKNESS + FLUID_HEIGHT;
 
                 if (topScale > 0.0f) {
-                    stack.
-                    FluidAttributes attributes = stack.getFluid().getAttributes();
-
-                    ResourceLocation fluidStill = RenderPr
+                    IClientFluidTypeExtensions attributes = IClientFluidTypeExtensions.of(stack.getFluid());
+                    ResourceLocation fluidStill = attributes.getStillTexture();
 
                     TextureAtlasSprite fluidStillSprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(fluidStill);
                     if (fluidStillSprite != null) {
@@ -48,7 +46,7 @@ public class LiquidDehydratorBlockEntityRenderer implements BlockEntityRenderer<
                         float u2 = fluidStillSprite.getU1();
                         float v2 = fluidStillSprite.getV1();
 
-                        int color = attributes.getColor(stack);
+                        int color = attributes.getTintColor(stack);
                         float r = ((color >> 16) & 0xFF) / 255.0f;
                         float g = ((color >> 8) & 0xFF) / 255.0f;
                         float b = (color & 0xFF) / 255.0f;
