@@ -1,0 +1,10 @@
+{
+  "type":"xtradrinks:entity",
+  "biome":"#forge:is_plains",
+  "entity" : {
+    "type": "xtradrinks:greenman",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 1
+  }
+}

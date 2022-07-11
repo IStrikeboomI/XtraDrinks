@@ -31,14 +31,11 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -214,14 +211,6 @@ public class GreenmanEntity extends PathfinderMob {
     }
     @Mod.EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class GreenmanSpawn {
-        @SubscribeEvent
-        public static void onBiomeLoad(Biomee event) {
-            if (event.getCategory() != Biome.BiomeCategory.NETHER && event.getCategory() != Biome.BiomeCategory.THEEND) {
-                if (event.getCategory() != Biome.BiomeCategory.OCEAN && event.getCategory() != Biome.BiomeCategory.RIVER && event.getCategory() != Biome.BiomeCategory.SWAMP && event.getCategory() != Biome.BiomeCategory.BEACH) {
-                    event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(XtraDrinksEntities.GREENMAN.get(), 10, 1, 1));
-                }
-            }
-        }
         @SubscribeEvent
         public static void onSpawn(EntityJoinWorldEvent event) {
             if (!event.getWorld().isClientSide()) {
