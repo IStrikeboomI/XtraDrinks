@@ -38,7 +38,6 @@ public class XtraDrinks {
         XtraDrinksBlockEntities.BLOCK_ENTITIES.register(modbus);
         XtraDrinksMenus.MENUS.register(modbus);
         XtraDrinksEntities.ENTITIES.register(modbus);
-        XtraDrinksStructures.STRUCTURES.register(modbus);
         XtraDrinksRecipes.RECIPE_TYPES.register(modbus);
         XtraDrinksRecipes.RECIPES.register(modbus);
         XtraDrinksConfiguredFeatures.CONFIGURED_FEATURES.register(modbus);
