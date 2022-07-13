@@ -9,6 +9,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.SoundActions;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.DeferredRegister;
@@ -59,7 +60,7 @@ public class XtraDrinksFluids {
                 consumer.accept(new IClientFluidTypeExtensions() {
                     @Override
                     public int getTintColor() {
-                        return tint;
+                        return 0xFF000000 | tint;
                     }
 
                     @Override
@@ -76,6 +77,7 @@ public class XtraDrinksFluids {
                     public @Nullable ResourceLocation getOverlayTexture() {
                         return overlay;
                     }
+
                 });
             }
         });

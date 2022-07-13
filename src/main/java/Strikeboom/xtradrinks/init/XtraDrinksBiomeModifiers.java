@@ -1,9 +1,8 @@
 package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import Strikeboom.xtradrinks.worldgen.biomemodifiers.EntityBiomeModifier;
-import Strikeboom.xtradrinks.worldgen.biomemodifiers.VegetalBiomeModifier;
-import com.mojang.datafixers.kinds.App;
+import Strikeboom.xtradrinks.biomemodifiers.EntityBiomeModifier;
+import Strikeboom.xtradrinks.biomemodifiers.VegetalBiomeModifier;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.biome.Biome;

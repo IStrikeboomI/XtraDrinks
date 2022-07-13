@@ -49,7 +49,7 @@ public class LiquidDehydratorScreen extends AbstractContainerScreen<LiquidDehydr
         int relY = (this.height - this.imageHeight) / 2;
         this.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
         this.blit(pPoseStack,getGuiLeft()+49,getGuiTop()+33,176,0,this.menu.blockEntity.getCooldown() * 24 / this.menu.blockEntity.getDelay(),17);
-        ClientUtil.renderFluidBar(pPoseStack,getGuiLeft() + 8,getGuiTop() + 8,24,66,tank.getFluid(),10000);
+        ClientUtil.renderFluidBar(pPoseStack,getGuiLeft() + 8,getGuiTop() + 8,24,66,tank.getFluid(),tank.getCapacity());
     }
 
 }
