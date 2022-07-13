@@ -77,10 +77,12 @@
   "item.xtradrinks.drink_tropical_punch_juice":"Tropical Punch",
   "item.xtradrinks.molten_liquadium_bucket":"Molten Liquadium Bucket",
   "item.xtradrinks.molten_fizzium_bucket":"Molten Fizzium Bucket",
+  "item.xtradrinks.molten_juicetanium_bucket":"Molten Juicetanium Bucket",
   "item.xtradrinks.greenman_spawn_egg":"Green Man Spawn Egg",
 
   "fluid.xtradrinks.molten_liquadium":"Molten Liquadium",
   "fluid.xtradrinks.molten_fizzium":"Molten Fizzium",
+  "fluid.xtradrinks.molten_juicetanium":"Molten Juicetanium",
 
   "itemGroup.xtradrinks":"Xtra Drinks",
 

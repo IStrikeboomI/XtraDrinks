@@ -35,7 +35,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -159,7 +159,7 @@ public class GreenmanEntity extends PathfinderMob {
                         return new GreenmanMenu(windowId, GreenmanEntity.this, playerInventory);
                     }
                 };
-                NetworkHooks.openGui((ServerPlayer) pPlayer, containerProvider, getOnPos());
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, containerProvider, getOnPos());
         }
         return InteractionResult.SUCCESS;
     }
@@ -212,8 +212,8 @@ public class GreenmanEntity extends PathfinderMob {
     @Mod.EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class GreenmanSpawn {
         @SubscribeEvent
-        public static void onSpawn(EntityJoinWorldEvent event) {
-            if (!event.getWorld().isClientSide()) {
+        public static void onSpawn(EntityJoinLevelEvent event) {
+            if (!event.getLevel().isClientSide()) {
                 if (event.getEntity() instanceof GreenmanEntity entity) {
                     entity.randomizeHandler();
                 }

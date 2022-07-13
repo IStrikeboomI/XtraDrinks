@@ -66,7 +66,7 @@ public class Juice extends Item {
             }
 
         if (!list1.isEmpty()) {
-            pTooltipComponents.add(TextComponent.EMPTY);
+            pTooltipComponents.add(Component.empty());
             pTooltipComponents.add((Component.translatable("potion.whenDrank")).withStyle(ChatFormatting.DARK_PURPLE));
 
             for(Pair<Attribute, AttributeModifier> pair : list1) {

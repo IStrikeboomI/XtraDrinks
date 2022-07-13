@@ -29,7 +29,7 @@ public class DehydratorBlockEntityRenderer implements BlockEntityRenderer<Dehydr
                 pPoseStack.translate(0.5f, 0.75f, 0.5f);
                 //basically the radian to deg formula but with cooldown and delay
                 pPoseStack.mulPose(new Quaternion(90, 0, pBlockEntity.getCooldown() * (360f / pBlockEntity.getDelay()), true));
-                pPoseStack.scale(1f, 1f, 1f);
+                pPoseStack.scale(.5f, .5f, .5f);
 
                 ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
 

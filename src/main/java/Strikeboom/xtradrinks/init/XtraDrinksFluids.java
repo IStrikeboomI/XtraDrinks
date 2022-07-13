@@ -22,7 +22,7 @@ public class XtraDrinksFluids {
     public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, XtraDrinks.MOD_ID);
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, XtraDrinks.MOD_ID);
 
-    public static final RegistryObject<FluidType> MOLTEN_FIZZIUM_TYPE = registerFluidType("molten_fizzium",new ResourceLocation(XtraDrinks.MOD_ID,"block/molten_fizzium_still"),new ResourceLocation(XtraDrinks.MOD_ID,"block/molten_fizzium_flowing"),new ResourceLocation(XtraDrinks.MOD_ID,"block/molten_fizzium_flowing"),0xe39d3b);
+    public static final RegistryObject<FluidType> MOLTEN_FIZZIUM_TYPE = registerFluidType("molten_fizzium",new ResourceLocation(XtraDrinks.MOD_ID,"block/molten_fizzium_still"),new ResourceLocation(XtraDrinks.MOD_ID,"block/molten_fizzium_flowing"),new ResourceLocation(XtraDrinks.MOD_ID,"block/molten_fizzium_flowing"),0xfaaa39);
     public static final RegistryObject<Fluid> MOLTEN_FIZZIUM = FLUIDS.register("molten_fizzium",() -> new ForgeFlowingFluid.Source(fizziumProperties()));
     public static final RegistryObject<Fluid> MOLTEN_FIZZIUM_FLOWING = FLUIDS.register("molten_fizzium_flowing",() -> new ForgeFlowingFluid.Flowing(fizziumProperties()));
     

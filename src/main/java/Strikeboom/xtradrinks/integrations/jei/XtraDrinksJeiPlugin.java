@@ -76,6 +76,6 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
         IModPlugin.super.registerRecipeTransferHandlers(registration);
-        registration.addRecipeTransferHandler(DehydratorMenu.class, XtraDrinksMenus.DEHYDRATOR_MENU.get(), DEHYDRATOR,0,1,0,36);
+        registration.addRecipeTransferHandler(DehydratorMenu.class, XtraDrinksMenus.DEHYDRATOR_MENU.get(), DEHYDRATOR,0,1,2,36);
     }
 }

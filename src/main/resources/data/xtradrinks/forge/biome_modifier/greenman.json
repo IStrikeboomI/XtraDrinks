@@ -1,6 +1,6 @@
 {
   "type":"xtradrinks:entity",
-  "biome":"#forge:is_plains",
+  "biomes":"#forge:is_plains",
   "entity" : {
     "type": "xtradrinks:greenman",
     "weight": 10,

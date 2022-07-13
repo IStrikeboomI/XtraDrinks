@@ -13,10 +13,7 @@ import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.FluidStack;
-
-import java.awt.*;
 
 public class ClientUtil {
     public static void renderFluidBar(PoseStack poseStack, final int xPosition, final int yPosition, final int width, final int height, FluidStack fluidStack,int size) {

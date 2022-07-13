@@ -4,6 +4,8 @@ import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.DehydratorInsertOnl
 import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.DehydratorItemHandler;
 import Strikeboom.xtradrinks.init.XtraDrinksBlockEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksConfig;
+import Strikeboom.xtradrinks.recipes.dehydrator.DehydratorRecipeSerializer;
+import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipeSerializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -126,11 +128,12 @@ public class DehydratorBlockEntity extends BlockEntity {
         delay = XtraDrinksConfig.DEHYDRATOR_DELAY.get();
         boolean shouldUpdate = false;
         if (
+                level != null &&
                 !ITEM_STACK_HANDLER.getStackInSlot(0).isEmpty() &&
-                        DehydratorRecipeHandler.doesItemHaveRecipe(ITEM_STACK_HANDLER.getStackInSlot(0))
-                        && ITEM_STACK_HANDLER.getStackInSlot(1).getCount() + DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0)).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(1).getMaxStackSize()
+                        DehydratorRecipeSerializer.doesItemHaveRecipe(ITEM_STACK_HANDLER.getStackInSlot(0),level)
+                        && ITEM_STACK_HANDLER.getStackInSlot(1).getCount() + DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0),level).getCount() <= ITEM_STACK_HANDLER.getStackInSlot(1).getMaxStackSize()
                         && (ITEM_STACK_HANDLER.getStackInSlot(1).isEmpty()
-                        || ITEM_STACK_HANDLER.getStackInSlot(1).sameItem(DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0))))) {
+                        || ITEM_STACK_HANDLER.getStackInSlot(1).sameItem(DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0),level)))) {
             cooldown++;
             shouldUpdate = true;
         } else {
@@ -142,9 +145,9 @@ public class DehydratorBlockEntity extends BlockEntity {
         if (cooldown % this.delay == 0 && cooldown != 0) {
             cooldown = 0;
             if (ITEM_STACK_HANDLER.getStackInSlot(1).isEmpty()) {
-                ITEM_STACK_HANDLER.setStackInSlot(1,DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0)).copy());
+                ITEM_STACK_HANDLER.setStackInSlot(1,DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0),level).copy());
             } else {
-                ITEM_STACK_HANDLER.getStackInSlot(1).grow(DehydratorRecipeHandler.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0)).getCount());
+                ITEM_STACK_HANDLER.getStackInSlot(1).grow(DehydratorRecipeSerializer.getItemStackOutputFromInput(ITEM_STACK_HANDLER.getStackInSlot(0),level).getCount());
             }
             ITEM_STACK_HANDLER.getStackInSlot(0).shrink(1);
         }

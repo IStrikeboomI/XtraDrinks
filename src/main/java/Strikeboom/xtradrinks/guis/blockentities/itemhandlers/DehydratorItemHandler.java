@@ -13,13 +13,7 @@ public class DehydratorItemHandler extends ItemStackHandler {
 
     @Override
     public boolean isItemValid(int slot, @NotNull ItemStack stack) {
-        if (slot == 1) {
-            return false;
-        }
-        if (slot == 0) {
-            return DehydratorRecipeHandler.doesItemHaveRecipe(stack);
-        }
-        return false;
+        return slot == 0;
     }
 
     @Nonnull
@@ -27,13 +21,6 @@ public class DehydratorItemHandler extends ItemStackHandler {
     public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
         if (slot == 1) {
             return stack;
-        }
-        if (slot == 0) {
-            if (DehydratorRecipeHandler.doesItemHaveRecipe(stack)) {
-                return super.insertItem(slot, stack, simulate);
-            } else {
-                return stack;
-            }
         }
         return super.insertItem(slot, stack, simulate);
     }

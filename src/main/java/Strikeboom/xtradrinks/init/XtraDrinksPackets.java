@@ -15,7 +15,7 @@ public class XtraDrinksPackets {
         INSTANCE.messageBuilder(ServerboundDrainPacket.class,0, NetworkDirection.PLAY_TO_SERVER)
                 .encoder(ServerboundDrainPacket::encode)
                 .decoder(ServerboundDrainPacket::new)
-                .consumer(ServerboundDrainPacket::handle)
+                .consumerMainThread(ServerboundDrainPacket::handle)
                 .add();
     }
 }
