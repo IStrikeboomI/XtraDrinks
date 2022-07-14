@@ -2,10 +2,6 @@ package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.blocks.*;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;

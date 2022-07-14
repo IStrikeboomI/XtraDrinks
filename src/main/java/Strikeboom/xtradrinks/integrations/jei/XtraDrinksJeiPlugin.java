@@ -6,7 +6,6 @@ import Strikeboom.xtradrinks.init.*;
 import Strikeboom.xtradrinks.integrations.jei.dehydrator.DehydratorCategory;
 import Strikeboom.xtradrinks.integrations.jei.liquid_dehydrator.LiquidDehydratorCategory;
 import Strikeboom.xtradrinks.recipes.dehydrator.DehydratorRecipe;
-import Strikeboom.xtradrinks.recipes.dehydrator.DehydratorRecipeSerializer;
 import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;

@@ -5,7 +5,6 @@ import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.DehydratorItemHandl
 import Strikeboom.xtradrinks.init.XtraDrinksBlockEntities;
 import Strikeboom.xtradrinks.init.XtraDrinksConfig;
 import Strikeboom.xtradrinks.recipes.dehydrator.DehydratorRecipeSerializer;
-import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipeSerializer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

@@ -1,9 +1,6 @@
 package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import Strikeboom.xtradrinks.blocks.Dehydrator;
-import Strikeboom.xtradrinks.blocks.GreenmanLure;
-import Strikeboom.xtradrinks.blocks.LiquidDehydrator;
 import Strikeboom.xtradrinks.items.Juicer;
 import Strikeboom.xtradrinks.items.armor.FizziumArmor;
 import Strikeboom.xtradrinks.items.armor.JuicetaniumArmor;
@@ -22,10 +19,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
