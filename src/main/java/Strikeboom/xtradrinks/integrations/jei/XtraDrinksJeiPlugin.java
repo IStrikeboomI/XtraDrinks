@@ -35,7 +35,7 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
 
     @Override
     public ResourceLocation getPluginUid() {
-        return new ResourceLocation(XtraDrinks.MOD_ID,"jei_plugin");
+        return ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"jei_plugin");
     }
 
     @Override

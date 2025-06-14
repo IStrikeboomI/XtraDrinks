@@ -26,7 +26,7 @@ public class DehydratorScreen extends AbstractContainerScreen<DehydratorMenu> {
 
     @Override
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-        RenderSystem.setShaderTexture(0, new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"));
+        RenderSystem.setShaderTexture(0, ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"));
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
         this.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);

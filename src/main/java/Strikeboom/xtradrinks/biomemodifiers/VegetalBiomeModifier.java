@@ -2,13 +2,13 @@ package Strikeboom.xtradrinks.biomemodifiers;
 
 import Strikeboom.xtradrinks.init.XtraDrinksBiomeModifiers;
 import Strikeboom.xtradrinks.init.XtraDrinksConfig;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 
 public record VegetalBiomeModifier(Holder<PlacedFeature> feature) implements BiomeModifier {
     @Override
@@ -19,7 +19,7 @@ public record VegetalBiomeModifier(Holder<PlacedFeature> feature) implements Bio
     }
 
     @Override
-    public Codec<? extends BiomeModifier> codec() {
+    public MapCodec<? extends BiomeModifier> codec() {
         return XtraDrinksBiomeModifiers.VEGETAL_BIOME_MODIFIER.get();
     }
 }

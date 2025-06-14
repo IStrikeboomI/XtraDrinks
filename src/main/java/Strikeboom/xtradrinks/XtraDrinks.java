@@ -4,14 +4,14 @@ import Strikeboom.xtradrinks.client.setup.ClientSetup;
 import Strikeboom.xtradrinks.init.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,16 +21,8 @@ public class XtraDrinks {
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "xtradrinks";
 
-    public static final CreativeModeTab CREATIVE_MODE_TAB = new CreativeModeTab(MOD_ID) {
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(XtraDrinksItems.JUICETANIUM_INGOT.get());
-        }
-    };
 
-    public XtraDrinks() {
-        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public XtraDrinks(IEventBus modbus, ModContainer modContainer) {
         XtraDrinksFluids.FLUID_TYPES.register(modbus);
         XtraDrinksFluids.FLUIDS.register(modbus);
         XtraDrinksBlocks.BLOCKS.register(modbus);
@@ -43,13 +35,9 @@ public class XtraDrinks {
         XtraDrinksConfiguredFeatures.CONFIGURED_FEATURES.register(modbus);
         XtraDrinksPlacedFeatures.PLACED_FEATURES.register(modbus);
         XtraDrinksBiomeModifiers.BIOME_MODIFIERS.register(modbus);
+        XtraDrinksCreativeModeTabs.CREATIVE_MODE_TABS.register(modbus);
 
-        modbus.addListener(this::init);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, XtraDrinksConfig.COMMON);
-    }
-    private void init(FMLCommonSetupEvent event) {
-        event.enqueueWork(XtraDrinksPackets::init);
+        modContainer.registerConfig(ModConfig.Type.COMMON, XtraDrinksConfig.BUILDER.build());
     }
 }

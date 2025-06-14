@@ -5,6 +5,8 @@ import Strikeboom.xtradrinks.guis.blockentities.DehydratorBlockEntity;
 import Strikeboom.xtradrinks.guis.menus.DehydratorMenu;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,8 +19,11 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.CustomData;
+import net.minecraft.world.item.component.TooltipProvider;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -31,8 +36,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
 import java.util.List;
+import java.util.function.Consumer;
 
-public class Dehydrator extends Block implements EntityBlock {
+public class Dehydrator extends Block implements EntityBlock, TooltipProvider {
     public Dehydrator(Properties p_49795_) {
         super(p_49795_);
     }
@@ -40,15 +46,7 @@ public class Dehydrator extends Block implements EntityBlock {
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new DehydratorBlockEntity(pPos,pState);
     }
-    @Override
-    public void appendHoverText(ItemStack pStack, BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
-        if (pStack.hasTag()) {
-            if (pStack.getTag().contains("BlockEntityTag")) {
-                pTooltip.add(Component.translatable("block." + XtraDrinks.MOD_ID + ".tooltip.saved").withStyle(ChatFormatting.GREEN));
-            }
-        }
-    }
+
 
     //these 2 functions below help save the data into the item output when breaking block
     @Override
@@ -108,5 +106,12 @@ public class Dehydrator extends Block implements EntityBlock {
             }
         }
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void addToTooltip(Item.TooltipContext context, Consumer<Component> tooltipAdder, TooltipFlag flag, DataComponentGetter componentGetter) {
+        if (!componentGetter.getOrDefault(DataComponents.BLOCK_ENTITY_DATA, CustomData.EMPTY).isEmpty()) {
+            tooltipAdder.accept(Component.translatable("block." + XtraDrinks.MOD_ID + ".tooltip.saved").withStyle(ChatFormatting.GREEN));
+        }
     }
 }

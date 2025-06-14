@@ -1,86 +1,25 @@
-# XtraDrinks
-### A Minecraft Mod made with Java for Forge
 
-#### Venture into a new world with XtraDrinks, made by [IStrikeboomI](https://github.com/IStrikeboomI) and [ChauhanSai](https://github.com/ChauhanSai).  
-This mod adds new materials into the game with a new mechanic, dehydration. Dehydrate new fruits and blocks to make new foods and items. This mod adds 3 new sets of armor, each with their own effects. Explore new structures around the world. With XtraDrinks you can become the master liquidor
+Installation information
+=======
 
-Recommended with use of [JEI(Just Enough Items)](https://www.curseforge.com/minecraft/mc-mods/jei) and [Tinkers Construct](https://www.curseforge.com/minecraft/mc-mods/tinkers-construct)
-For Minecraft Java Version **1.19**
+This template repository can be directly cloned to get you started with a new
+mod. Simply create a new repository cloned from this one, by following the
+instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
-### Check out the [Bedrock Pack](https://chauhansaimc.wixsite.com/chauhan-sai-mc/post/xtradrinks-minecraft-addon-download) 
+Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
 
-![image](https://user-images.githubusercontent.com/60586926/175797251-577e1bbc-e0fa-45d3-a54c-a6edbefa63af.png)
-![image](https://user-images.githubusercontent.com/60586926/175797260-c55934e1-223d-4b61-a341-a729a25dd0f9.png)
+If at any point you are missing libraries in your IDE, or you've run into problems you can
+run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
+{this does not affect your code} and then start the process again.
 
-## New Blocks:
-### Dehydrator
-Dehydrates fruits and vegetables for better hunger saturation
+Mapping Names:
+============
+By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
+in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
+license. For the latest license text, refer to the mapping file itself, or the reference copy here:
+https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
 
-### Liquad Dehydrator
-Converts Molten Fizzium and Molten Liquadium (Found in naturally generating wells) into Fizzium and Liquadium shards
-
-## New Items:
-### Fizzium Set
-* Provides 20 armor points
-* Effects a set bonus of Speed II
-### Liquadium Set
-* Provides 20 armor points
-* Effects a set bonus of Strength II
-### Juicetanium Set
-Created by combining fizzium and liquadium ingots
-* Provides 27 armor points
-* Effects a set bonus of Speed III, Strength III, & Saturation
-
-## Fruits:
-Can generate in sky farms
-### Topical Fruits
-Growable
-* Pineapples
-* Lemons
-* Limes
-
-### Berries
-Growable
-* Cranberries
-* Blueberries
-* Blackberries
-
-### Pomegranate
-Growable
-
-### Pines, Oranges, & Coconuts
-* Pines: Can be found on spruce trees
-* Oranges: Can be found on forest trees
-* Coconuts: Can be found on jungle trees
-
-### Dehydrated Vanilla Crops
-* Dehydrated carrots, potatos, beetroots
-
-### Citric Acid
-* Made from any citric fruit and can be used to make drinks
-
-## New Drinks:
-* Apple Juice
-* Apple Cider
-* Beet Juice
-* Carrot Juice
-* Carrot Smoothie
-* Chocolate Milk
-* Cinnamon Spice
-* Coconut Water
-* Cranapple
-* Cranlemon
-* Cranlime
-* Fizzium Brew
-* Fruit Punch
-* Grape Juice
-* Lemon Juice
-* Lime Juice
-* Potato Juice
-* Sour Juice
-* Tropical Punch
-* Juicetanium Brew
-* Liquadium Brew
-
-## Greenman
-Spawns naturally with fruit filled inventories
+Additional Resources: 
+==========
+Community Documentation: https://docs.neoforged.net/  
+NeoForged Discord: https://discord.neoforged.net/

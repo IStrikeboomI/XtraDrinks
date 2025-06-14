@@ -5,8 +5,12 @@ import Strikeboom.xtradrinks.init.XtraDrinksItems;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
@@ -20,6 +24,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,8 +34,10 @@ import java.util.Map;
 
 public class ThickJuice extends Item {
     List<MobEffectInstance> effects = new ArrayList<>();
-    public ThickJuice(MobEffectInstance... effects) {
-        super(new Properties().durability(0).stacksTo(1).food(new FoodProperties.Builder().nutrition(7).saturationMod(.7f).alwaysEat().build()).tab(XtraDrinks.CREATIVE_MODE_TAB));
+    public ThickJuice(ResourceLocation loc, MobEffectInstance... effects) {
+        super(new Properties().durability(0).stacksTo(1).food(new FoodProperties.Builder().nutrition(7).saturationModifier(.7f).alwaysEdible().build())
+                .component(DataComponents.CONSUMABLE, Consumables.DEFAULT_DRINK)
+                .usingConvertsTo(XtraDrinksItems.THICK_CUP.get()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc)));
         this.effects.addAll(List.of(effects));
     }
 
@@ -89,19 +96,8 @@ public class ThickJuice extends Item {
     }
 
     @Override
-    public int getUseDuration(ItemStack pStack) {
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
         return 40;
-    }
-    public UseAnim getUseAnimation(ItemStack pStack) {
-        return UseAnim.DRINK;
-    }
-
-    public SoundEvent getDrinkingSound() {
-        return SoundEvents.GENERIC_DRINK;
-    }
-
-    public SoundEvent getEatingSound() {
-        return SoundEvents.GENERIC_DRINK;
     }
 
     @Override

@@ -1,10 +1,10 @@
 {
-  "block.xtradrinks.dehydrator":"Dehydrator",
-  "block.xtradrinks.liquid_dehydrator":"Liquid Dehydrator",
-  "block.xtradrinks.juicetanium_block":"Block of Juicetanium",
-  "block.xtradrinks.fizzium_block":"Block of Fizzium",
-  "block.xtradrinks.liquadium_block":"Block of Liquadium",
-  "block.xtradrinks.greenman_lure":"Greenman Lure",
+  "item.xtradrinks.dehydrator":"Dehydrator",
+  "item.xtradrinks.liquid_dehydrator":"Liquid Dehydrator",
+  "item.xtradrinks.juicetanium_block":"Block of Juicetanium",
+  "item.xtradrinks.fizzium_block":"Block of Fizzium",
+  "item.xtradrinks.liquadium_block":"Block of Liquadium",
+  "item.xtradrinks.greenman_lure":"Greenman Lure",
   
   "item.xtradrinks.pines":"Pines",
   "item.xtradrinks.cinnamon":"Cinnamon",
@@ -86,8 +86,6 @@
 
   "itemGroup.xtradrinks":"Xtra Drinks",
 
-  "gui.xtradrinks.drain":"Drain",
-
   "achievement.juicer":"Obtain a Juicer!",
   "achievement.juicer.desc":"Start the advancement tree by getting a Juicer!",
   "achievement.juicetanium":"Juicetanium Ingot!",
@@ -111,5 +109,21 @@
 
   "material.xtradrinks.juicetanium":"Juicetanium",
   "material.xtradrinks.fizzium":"Fizzium",
-  "material.xtradrinks.liquadium":"Liquadium"
+  "material.xtradrinks.liquadium":"Liquadium",
+
+  "cobblestonesemantics.configuration.title": "Cobblestone Semantics",
+  "cobblestonesemantics.configuration.melter": "Cobblestone Melter",
+  "cobblestonesemantics.configuration.melter.tooltip": "Control Speed And Output Amount Of the Cobblestone Melter",
+  "cobblestonesemantics.configuration.melter.delay": "Delay",
+  "cobblestonesemantics.configuration.melter.delay.tooltip": "The Time (In Ticks) It Takes For The Cobblestone Melter To Do One Cycle",
+  "cobblestonesemantics.configuration.melter.lava": "Lava Per Cobblestone",
+  "cobblestonesemantics.configuration.melter.lava.tooltip": "The Amount Of Lava (in mB) The Cobblestone Melter Outputs In One Cycle",
+  "cobblestonesemantics.configuration.melter.power": "Power Usage Per Cobblestone",
+  "cobblestonesemantics.configuration.melter.power.tooltip": "The Amount Of Power (in rf) The Cobblestone Melter Uses In One Cycle",
+  "cobblestonesemantics.configuration.generator": "Lava Generator",
+  "cobblestonesemantics.configuration.generator.tooltip": "Control Speed And Output Amount Of the Lava Generator",
+  "cobblestonesemantics.configuration.generator.delay": "Delay",
+  "cobblestonesemantics.configuration.generator.delay.tooltip": "The Time (In Ticks) It Takes For The Lava Generator To Do One Cycle",
+  "cobblestonesemantics.configuration.generator.power": "Power Per Lava Bucket",
+  "cobblestonesemantics.configuration.generator.power.tooltip": "The Amount Of Power (in rf) The Lava Generator Outputs In One Cycle"
 }

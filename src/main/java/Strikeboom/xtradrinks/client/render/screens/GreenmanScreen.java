@@ -25,7 +25,7 @@ public class GreenmanScreen extends AbstractContainerScreen<GreenmanMenu> {
 
     @Override
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-        RenderSystem.setShaderTexture(0, new ResourceLocation("minecraft", "textures/gui/container/dispenser.png"));
+        RenderSystem.setShaderTexture(0, ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/dispenser.png"));
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
         this.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);

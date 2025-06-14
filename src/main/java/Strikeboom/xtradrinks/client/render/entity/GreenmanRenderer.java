@@ -16,6 +16,6 @@ public class GreenmanRenderer extends MobRenderer<GreenmanEntity, VillagerModel<
 
     @Override
     public ResourceLocation getTextureLocation(GreenmanEntity pEntity) {
-        return new ResourceLocation(XtraDrinks.MOD_ID,"textures/entity/greenman.png");
+        return ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"textures/entity/greenman.png");
     }
 }

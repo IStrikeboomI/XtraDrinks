@@ -26,9 +26,9 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     public final IDrawable BACKGROUND;
     private final IDrawable ICON;
     public LiquidDehydratorCategory(IGuiHelper gui) {
-        final IDrawableStatic STATIC_PROGRESS_BAR = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),176,0,24,17);
+        final IDrawableStatic STATIC_PROGRESS_BAR = gui.createDrawable(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),176,0,24,17);
         ARROW = gui.createAnimatedDrawable(STATIC_PROGRESS_BAR, 50, IDrawableAnimated.StartDirection.LEFT,false);
-        BACKGROUND = gui.createDrawable(new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),4,5,125,74);
+        BACKGROUND = gui.createDrawable(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),4,5,125,74);
         ICON = gui.createDrawableIngredient(VanillaTypes.ITEM_STACK,new ItemStack(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get()));
     }
 

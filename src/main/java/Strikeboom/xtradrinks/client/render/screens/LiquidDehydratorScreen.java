@@ -3,7 +3,6 @@ package Strikeboom.xtradrinks.client.render.screens;
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.client.util.ClientUtil;
 import Strikeboom.xtradrinks.guis.menus.LiquidDehydratorMenu;
-import Strikeboom.xtradrinks.init.XtraDrinksPackets;
 import Strikeboom.xtradrinks.network.ServerboundDrainPacket;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -44,7 +43,7 @@ public class LiquidDehydratorScreen extends AbstractContainerScreen<LiquidDehydr
 
     @Override
     protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-        RenderSystem.setShaderTexture(0, new ResourceLocation(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"));
+        RenderSystem.setShaderTexture(0, ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"));
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
         this.blit(pPoseStack, relX, relY, 0, 0, this.imageWidth, this.imageHeight);
