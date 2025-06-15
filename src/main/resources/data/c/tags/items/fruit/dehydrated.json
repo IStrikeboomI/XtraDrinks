@@ -1,0 +1,18 @@
+ {
+  "replace": false,
+  "values": [
+    "xtradrinks:dehydrated_orange",
+    "xtradrinks:dehydrated_coconut",
+    "xtradrinks:dehydrated_pineapple",
+    "xtradrinks:dehydrated_lemon",
+    "xtradrinks:dehydrated_lime",
+    "xtradrinks:dehydrated_pomegranate",
+    "xtradrinks:dehydrated_grape",
+    "xtradrinks:dehydrated_cranberry",
+    "xtradrinks:dehydrated_blueberry",
+    "xtradrinks:dehydrated_blackberry",
+    "xtradrinks:dehydrated_carrot",
+    "xtradrinks:dehydrated_potato",
+    "xtradrinks:dehydrated_beetroot"
+  ]
+}

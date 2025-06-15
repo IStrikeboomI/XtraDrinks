@@ -1,0 +1,40 @@
+{
+  "values": {
+    "#c:fruit/dehydrated": {
+      "chance": 0.9
+    },
+    "xtradrinks:orange": {
+      "chance": 0.65
+    },
+    "xtradrinks:coconut": {
+      "chance": 0.65
+    },
+    "xtradrinks:pines": {
+      "chance": 0.65
+    },
+    "xtradrinks:pineapple": {
+      "chance": 0.65
+    },
+    "xtradrinks:lemon": {
+      "chance": 0.65
+    },
+    "xtradrinks:lime": {
+      "chance": 0.65
+    },
+    "xtradrinks:pomegranate": {
+      "chance": 0.65
+    },
+    "xtradrinks:grape": {
+      "chance": 0.65
+    },
+    "xtradrinks:cranberry": {
+      "chance": 0.65
+    },
+    "xtradrinks:blueberry": {
+      "chance": 0.65
+    },
+    "xtradrinks:blackberry": {
+      "chance": 0.65
+    }
+  }
+}

@@ -2,15 +2,8 @@ package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.items.Juicer;
-import Strikeboom.xtradrinks.items.armor.FizziumArmor;
-import Strikeboom.xtradrinks.items.armor.JuicetaniumArmor;
-import Strikeboom.xtradrinks.items.armor.LiquadiumArmor;
-import Strikeboom.xtradrinks.items.armor.armormaterials.FizziumArmorMaterial;
-import Strikeboom.xtradrinks.items.armor.armormaterials.JuicetaniumArmorMaterial;
-import Strikeboom.xtradrinks.items.armor.armormaterials.LiquadiumArmorMaterial;
-import Strikeboom.xtradrinks.items.fruit.DehydratedFruit;
-import Strikeboom.xtradrinks.items.fruit.HangingFruit;
-import Strikeboom.xtradrinks.items.fruit.PlantableFruit;
+import Strikeboom.xtradrinks.items.TooltipBlockItem;
+import Strikeboom.xtradrinks.items.TooltipItem;
 import Strikeboom.xtradrinks.items.juice.Juice;
 import Strikeboom.xtradrinks.items.juice.ThickJuice;
 import net.minecraft.Util;
@@ -54,10 +47,10 @@ public class XtraDrinksItems {
        armorTypeIntegerEnumMap.put(ArmorType.HELMET, 4);
        armorTypeIntegerEnumMap.put(ArmorType.BODY, 11);
     }),10, SoundEvents.ARMOR_EQUIP_GENERIC, 2.0F, 1.0f, XtraDrinksTags.INGOT_FIZZIUM, ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "fizzium")));
-    public static final DeferredHolder<Item,Item> FIZZIUM_HELMET = ITEMS.register("fizzium_helmet",(loc) -> new Item(new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.HELMET).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> FIZZIUM_CHESTPLATE = ITEMS.register("fizzium_chestplate",(loc) -> new Item(new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.CHESTPLATE).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> FIZZIUM_LEGGINGS = ITEMS.register("fizzium_leggings",(loc) -> new Item(new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.LEGGINGS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> FIZZIUM_BOOTS = ITEMS.register("fizzium_boots",(loc) -> new Item(new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.BOOTS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> FIZZIUM_HELMET = ITEMS.register("fizzium_helmet",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.fizzium_armor",new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.HELMET).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> FIZZIUM_CHESTPLATE = ITEMS.register("fizzium_chestplate",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.fizzium_armor",new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.CHESTPLATE).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> FIZZIUM_LEGGINGS = ITEMS.register("fizzium_leggings",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.fizzium_armor",new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.LEGGINGS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> FIZZIUM_BOOTS = ITEMS.register("fizzium_boots",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.fizzium_armor",new Item.Properties().humanoidArmor(FIZZIUM_ARMOR_MATERIAL,ArmorType.BOOTS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
     public static final ArmorMaterial LIQUADIUM_ARMOR_MATERIAL = new ArmorMaterial(30, Util.make(new EnumMap<>(ArmorType.class),armorTypeIntegerEnumMap -> {
         armorTypeIntegerEnumMap.put(ArmorType.BOOTS, 4);
@@ -66,10 +59,10 @@ public class XtraDrinksItems {
         armorTypeIntegerEnumMap.put(ArmorType.HELMET, 4);
         armorTypeIntegerEnumMap.put(ArmorType.BODY, 11);
     }),12, SoundEvents.ARMOR_EQUIP_GENERIC, 2.0F, 1.0f, XtraDrinksTags.INGOT_LIQUADIUM, ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "liquadium")));
-    public static final DeferredHolder<Item,Item> LIQUADIUM_HELMET = ITEMS.register("liquadium_helmet",(loc) -> new Item(new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.HELMET).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> LIQUADIUM_CHESTPLATE = ITEMS.register("liquadium_chestplate",(loc) ->new Item(new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.CHESTPLATE).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> LIQUADIUM_LEGGINGS = ITEMS.register("liquadium_leggings",(loc) ->new Item(new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.LEGGINGS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> LIQUADIUM_BOOTS = ITEMS.register("liquadium_boots",(loc) ->new Item(new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.BOOTS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> LIQUADIUM_HELMET = ITEMS.register("liquadium_helmet",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.liquadium_armor",new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.HELMET).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> LIQUADIUM_CHESTPLATE = ITEMS.register("liquadium_chestplate",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.liquadium_armor",new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.CHESTPLATE).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> LIQUADIUM_LEGGINGS = ITEMS.register("liquadium_leggings",(loc) ->new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.liquadium_armor",new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.LEGGINGS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> LIQUADIUM_BOOTS = ITEMS.register("liquadium_boots",(loc) ->new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.liquadium_armor",new Item.Properties().humanoidArmor(LIQUADIUM_ARMOR_MATERIAL,ArmorType.BOOTS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
     public static final ArmorMaterial JUICETANIUM_ARMOR_MATERIAL = new ArmorMaterial(30, Util.make(new EnumMap<>(ArmorType.class),armorTypeIntegerEnumMap -> {
         armorTypeIntegerEnumMap.put(ArmorType.BOOTS, 6);
@@ -78,42 +71,42 @@ public class XtraDrinksItems {
         armorTypeIntegerEnumMap.put(ArmorType.HELMET, 6);
         armorTypeIntegerEnumMap.put(ArmorType.BODY, 14);
     }),17, SoundEvents.ARMOR_EQUIP_GENERIC, 3.0F, 2.0f, XtraDrinksTags.INGOT_JUICETANIUM, ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "juicetanium")));
-    public static final DeferredHolder<Item,Item> JUICETANIUM_HELMET = ITEMS.register("juicetanium_helmet",(loc) -> new Item(new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.HELMET).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> JUICETANIUM_CHESTPLATE = ITEMS.register("juicetanium_chestplate",(loc) ->new Item(new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.CHESTPLATE).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> JUICETANIUM_LEGGINGS = ITEMS.register("juicetanium_leggings",(loc) ->new Item(new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.LEGGINGS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
-    public static final DeferredHolder<Item,Item> JUICETANIUM_BOOTS = ITEMS.register("juicetanium_boots",(loc) ->new Item(new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.BOOTS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> JUICETANIUM_HELMET = ITEMS.register("juicetanium_helmet",(loc) -> new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.juicetanium_armor",new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.HELMET).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> JUICETANIUM_CHESTPLATE = ITEMS.register("juicetanium_chestplate",(loc) ->new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.juicetanium_armor",new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.CHESTPLATE).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> JUICETANIUM_LEGGINGS = ITEMS.register("juicetanium_leggings",(loc) ->new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.juicetanium_armor",new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.LEGGINGS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> JUICETANIUM_BOOTS = ITEMS.register("juicetanium_boots",(loc) ->new TooltipItem("item."+XtraDrinks.MOD_ID+".tooltip.juicetanium_armor",new Item.Properties().humanoidArmor(JUICETANIUM_ARMOR_MATERIAL,ArmorType.BOOTS).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
     
-    public static final DeferredHolder<Item,Item> JUICER = ITEMS.register("juicer",(loc) -> new Juicer(new Item.Properties().stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> JUICER = ITEMS.register("juicer",(loc) -> new Juicer("item."+XtraDrinks.MOD_ID+".tooltip.juicer",new Item.Properties().stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
-    public static final DeferredHolder<Item,Item> PINEAPPLE = ITEMS.register("pineapple",(loc) -> new PlantableFruit(XtraDrinksBlocks.PINEAPPLE.get(),loc));
-    public static final DeferredHolder<Item,Item> LEMON = ITEMS.register("lemon",(loc) -> new PlantableFruit(XtraDrinksBlocks.LEMON.get(),loc));
-    public static final DeferredHolder<Item,Item> LIME = ITEMS.register("lime",(loc) -> new PlantableFruit(XtraDrinksBlocks.LIME.get(),loc));
-    public static final DeferredHolder<Item,Item> POMEGRANATE = ITEMS.register("pomegranate",(loc) -> new PlantableFruit(XtraDrinksBlocks.POMEGRANATE.get(),loc));
-    public static final DeferredHolder<Item,Item> GRAPE = ITEMS.register("grape",(loc) -> new PlantableFruit(XtraDrinksBlocks.GRAPE .get(),loc));
-    public static final DeferredHolder<Item,Item> CRANBERRY = ITEMS.register("cranberry",(loc) -> new PlantableFruit(XtraDrinksBlocks.CRANBERRY.get(),loc));
-    public static final DeferredHolder<Item,Item> BLUEBERRY = ITEMS.register("blueberry",(loc) -> new PlantableFruit(XtraDrinksBlocks.BLUEBERRY.get(),loc));
-    public static final DeferredHolder<Item,Item> BLACKBERRY = ITEMS.register("blackberry",(loc) -> new PlantableFruit(XtraDrinksBlocks.BLACKBERRY.get(),loc));
-    public static final DeferredHolder<Item,Item> ORANGE = ITEMS.register("orange",(loc) -> new HangingFruit(XtraDrinksBlocks.ORANGE.get(),loc));
-    public static final DeferredHolder<Item,Item> COCONUT = ITEMS.register("coconut",(loc) -> new HangingFruit(XtraDrinksBlocks.COCONUT.get(),loc));
-    public static final DeferredHolder<Item,Item> PINES = ITEMS.register("pines",(loc) -> new HangingFruit(XtraDrinksBlocks.PINES.get(),loc));
-    public static final DeferredHolder<Item,Item> CINNAMON = ITEMS.register("cinnamon",(loc) -> new Item(new Item.Properties().setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> PINEAPPLE = ITEMS.register("pineapple",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.PINEAPPLE.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> LEMON = ITEMS.register("lemon",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.LEMON.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> LIME = ITEMS.register("lime",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.LIME.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> POMEGRANATE = ITEMS.register("pomegranate",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.POMEGRANATE.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> GRAPE = ITEMS.register("grape",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.GRAPE .get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> CRANBERRY = ITEMS.register("cranberry",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.CRANBERRY.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> BLUEBERRY = ITEMS.register("blueberry",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.BLUEBERRY.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> BLACKBERRY = ITEMS.register("blackberry",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.crop",XtraDrinksBlocks.BLACKBERRY.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> ORANGE = ITEMS.register("orange",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.hanging_crop",XtraDrinksBlocks.ORANGE.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> COCONUT = ITEMS.register("coconut",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.hanging_crop",XtraDrinksBlocks.COCONUT.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> PINES = ITEMS.register("pines",(loc) -> new TooltipBlockItem("item."+XtraDrinks.MOD_ID+".tooltip.hanging_crop",XtraDrinksBlocks.PINES.get(),new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationModifier(.5f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> CINNAMON = ITEMS.register("cinnamon",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(.2f).build(), Consumables.defaultFood().consumeSeconds(.6f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
-    public static final DeferredHolder<Item,Item> DEHYDRATED_GRAPE = ITEMS.register("dehydrated_grape", DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_PINEAPPLE = ITEMS.register("dehydrated_pineapple",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_LEMON = ITEMS.register("dehydrated_lemon",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_LIME = ITEMS.register("dehydrated_lime",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_COCONUT = ITEMS.register("dehydrated_coconut",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_APPLE = ITEMS.register("dehydrated_apple",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_ORANGE = ITEMS.register("dehydrated_orange",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_CRANBERRY = ITEMS.register("dehydrated_cranberry",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_BLUEBERRY = ITEMS.register("dehydrated_blueberry",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_BLACKBERRY = ITEMS.register("dehydrated_blackberry",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_CARROT = ITEMS.register("dehydrated_carrot",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_POTATO = ITEMS.register("dehydrated_potato",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_BEETROOT = ITEMS.register("dehydrated_beetroot",DehydratedFruit::new);
-    public static final DeferredHolder<Item,Item> DEHYDRATED_POMEGRANATE = ITEMS.register("dehydrated_pomegranate",DehydratedFruit::new);
+    public static final DeferredHolder<Item,Item> DEHYDRATED_GRAPE = ITEMS.register("dehydrated_grape", (loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_PINEAPPLE = ITEMS.register("dehydrated_pineapple",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_LEMON = ITEMS.register("dehydrated_lemon",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_LIME = ITEMS.register("dehydrated_lime",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_COCONUT = ITEMS.register("dehydrated_coconut",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_APPLE = ITEMS.register("dehydrated_apple",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_ORANGE = ITEMS.register("dehydrated_orange",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_CRANBERRY = ITEMS.register("dehydrated_cranberry",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_BLUEBERRY = ITEMS.register("dehydrated_blueberry",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_BLACKBERRY = ITEMS.register("dehydrated_blackberry",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_CARROT = ITEMS.register("dehydrated_carrot",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_POTATO = ITEMS.register("dehydrated_potato",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_BEETROOT = ITEMS.register("dehydrated_beetroot",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> DEHYDRATED_POMEGRANATE = ITEMS.register("dehydrated_pomegranate",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationModifier(1f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
-    public static final DeferredHolder<Item,Item> CITRIC_ACID = ITEMS.register("citric_acid",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(.4f).build(), Consumables.defaultFood().consumeSeconds(.6f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> CITRIC_ACID = ITEMS.register("citric_acid",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).build(), Consumables.defaultFood().consumeSeconds(.6f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
     public static final DeferredHolder<Item,Item> DRINK_CUP = ITEMS.register("drink_cup",(loc) -> new Item(new Item.Properties()));
     public static final DeferredHolder<Item,Item> THICK_CUP = ITEMS.register("thick_cup",(loc) -> new Item(new Item.Properties()));

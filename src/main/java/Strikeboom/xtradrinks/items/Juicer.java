@@ -11,25 +11,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Juicer extends Item {
-    public Juicer(Properties pProperties) {
-        super(pProperties);
-    }
+public class Juicer extends TooltipItem {
+    public Juicer(String tooltip, Properties pProperties) {
+        super(tooltip, pProperties);
 
-    @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
-        pTooltipComponents.add(Component.translatable("item." + XtraDrinks.MOD_ID + ".tooltip.juicer").withStyle(ChatFormatting.GRAY));
     }
-
     @Override
-    public boolean hasCraftingRemainingItem(ItemStack stack) {
-        return stack.getItem() == this;
-    }
-
-    @Override
-    public ItemStack getCraftingRemainingItem(ItemStack itemStack) {
-        return new ItemStack(this);
+    public ItemStack getCraftingRemainder(ItemStack stack) {
+        return stack.getItem() == this ? stack : ItemStack.EMPTY;
     }
 
 }
