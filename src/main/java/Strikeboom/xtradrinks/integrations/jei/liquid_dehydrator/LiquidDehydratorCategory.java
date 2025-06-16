@@ -4,9 +4,7 @@ import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.init.XtraDrinksBlocks;
 import Strikeboom.xtradrinks.integrations.jei.XtraDrinksJeiPlugin;
 import Strikeboom.xtradrinks.recipes.liquid_dehydrator.LiquidDehydratorRecipe;
-import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.forge.ForgeTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
@@ -15,8 +13,9 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
-import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.types.IRecipeType;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -33,7 +32,7 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     }
 
     @Override
-    public RecipeType<LiquidDehydratorRecipe> getRecipeType() {
+    public IRecipeType<LiquidDehydratorRecipe> getRecipeType() {
         return XtraDrinksJeiPlugin.LIQUID_DEHYDRATOR;
     }
 
@@ -44,9 +43,15 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     }
 
     @Override
-    public IDrawable getBackground() {
-        return BACKGROUND;
+    public int getHeight() {
+        return BACKGROUND.getHeight();
     }
+
+    @Override
+    public int getWidth() {
+        return BACKGROUND.getWidth();
+    }
+
 
     @Override
     public IDrawable getIcon() {
@@ -54,14 +59,15 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
     }
 
     @Override
-    public void draw(LiquidDehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
-        ARROW.draw(stack,45,27);
+    public void draw(LiquidDehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
+        BACKGROUND.draw(guiGraphics);
+        ARROW.draw(guiGraphics,45,27);
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, LiquidDehydratorRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT,4,3).addIngredient(ForgeTypes.FLUID_STACK,recipe.getInput()).setFluidRenderer(1000,true,24,66);
-        builder.addSlot(RecipeIngredientRole.OUTPUT,82,28).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT,4,3).add(recipe.getInput()).setFluidRenderer(1000,true,24,66);
+        builder.addSlot(RecipeIngredientRole.OUTPUT,82,28).add(recipe.getResultItem());
     }
 }

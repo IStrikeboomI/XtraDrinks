@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "xtradrinks:liquadium"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "xtradrinks:liquadium"
+      }
+    ]
+  }
+}

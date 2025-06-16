@@ -1,7 +1,5 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "xtradrinks:lemon"
-  },
+  "ingredient": "xtradrinks:lemon",
   "result": "xtradrinks:dehydrated_lemon"
 }

@@ -1,28 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern":
-  [
+  "pattern": [
     "SSS",
     " J ",
     "III"
   ],
-  "key":
-  {
-    "J":
-    {
-      "tag":"forge:gems"
-    },
-    "S":
-    {
-      "tag":"forge:ingots/fizzium"
-    },
-    "I": {
-      "tag":"forge:ingots/liquadium"
-    }
+  "key": {
+    "J": "#c:gemss",
+    "S": "#c:ingots/fizziums",
+    "I": "#c:ingots/liquadiums"
   },
-  "result":
-  {
-    "item": "xtradrinks:juicetanium_ingot",
+  "result": {
+    "id": "xtradrinks:juicetanium_ingot",
     "count": 1
   }
 }

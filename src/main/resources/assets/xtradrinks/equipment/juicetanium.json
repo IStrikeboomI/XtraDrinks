@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "xtradrinks:juicetanium"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "xtradrinks:juicetanium"
+      }
+    ]
+  }
+}

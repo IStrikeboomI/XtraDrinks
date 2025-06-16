@@ -1,21 +1,15 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern":
-    [
-	"TTT",
-	"TTT",
-	"TTT"
-    ],
-    "key":
-    {
-        "T":
-        {
-          "tag":"forge:ingots/juicetanium"
-        }
-    },
-    "result":
-    {
-        "item": "xtradrinks:juicetanium_block",
-        "count": 1
-    }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": "#c:ingots/juicetaniums"
+  },
+  "result": {
+    "id": "xtradrinks:juicetanium_block",
+    "count": 1
+  }
 }

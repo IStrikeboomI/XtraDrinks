@@ -1,28 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern":
-  [
+  "pattern": [
     "GGG",
     "IBI",
     "III"
   ],
-  "key":
-  {
-    "I":
-    {
-      "tag": "forge:ingots/iron"
-    },
-    "G":
-    {
-      "tag": "forge:glass"
-    },
-    "B": {
-      "item": "minecraft:bucket"
-    }
+  "key": {
+    "I": "#c:ingots/irons",
+    "G": "#c:glasss",
+    "B": "minecraft:bucket"
   },
-  "result":
-  {
-    "item": "xtradrinks:liquid_dehydrator",
+  "result": {
+    "id": "xtradrinks:liquid_dehydrator",
     "count": 1
   }
 }

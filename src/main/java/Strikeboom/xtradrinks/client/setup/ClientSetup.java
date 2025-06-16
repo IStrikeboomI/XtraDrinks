@@ -20,6 +20,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
@@ -38,27 +39,11 @@ public class ClientSetup {
         event.register(XtraDrinksMenus.LIQUID_DEHYDRATOR_MENU.get(), LiquidDehydratorScreen::new);
         event.register(XtraDrinksMenus.GREENMAN_MENU.get(), GreenmanScreen::new);
     }
-    public static void init(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.PINEAPPLE.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.LEMON.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.LIME.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.POMEGRANATE.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.GRAPE.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.CRANBERRY.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.BLUEBERRY.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.BLACKBERRY.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.ORANGE.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.COCONUT.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.PINES.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.DEHYDRATOR.get(), RenderType.cutout());
-            ItemBlockRenderTypes.setRenderLayer(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get(), RenderType.cutout());
-
-            BlockEntityRenderers.register(XtraDrinksBlockEntities.DEHYDRATOR_BLOCK_ENTITY.get(), DehydratorBlockEntityRenderer::new);
-            BlockEntityRenderers.register(XtraDrinksBlockEntities.LIQUID_DEHYDRATOR_BLOCK_ENTITY.get(), LiquidDehydratorBlockEntityRenderer::new);
-            EntityRenderers.register(XtraDrinksEntities.GREENMAN.get(), GreenmanRenderer::new);
-        });
-
+    @SubscribeEvent
+    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(XtraDrinksEntities.GREENMAN.get(), GreenmanRenderer::new);
+        event.registerBlockEntityRenderer(XtraDrinksBlockEntities.DEHYDRATOR_BLOCK_ENTITY.get(), DehydratorBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(XtraDrinksBlockEntities.LIQUID_DEHYDRATOR_BLOCK_ENTITY.get(), LiquidDehydratorBlockEntityRenderer::new);
     }
     @SubscribeEvent
     private void registerFluidTextures(RegisterClientExtensionsEvent event) {

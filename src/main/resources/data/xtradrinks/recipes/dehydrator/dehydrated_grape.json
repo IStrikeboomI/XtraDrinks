@@ -1,7 +1,5 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "xtradrinks:grape"
-  },
+  "ingredient": "xtradrinks:grape",
   "result": "xtradrinks:dehydrated_grape"
 }

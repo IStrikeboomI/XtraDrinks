@@ -1,27 +1,12 @@
-     
-{ 
-    "type": "minecraft:crafting_shapeless",
- 
-    "ingredients": 
-    [
- 
-    {
-      "item": "xtradrinks:juicer"
-    },
-	{
-		"item":"minecraft:beetroot"
-	},
-	
-		{
-		"item":"xtradrinks:drink_cup"
-	}
-    
-    
-    ],
- 
-    "result": 
-    {
-        "item": "xtradrinks:drink_beet_juice",
-        "count": 1
-    }
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "xtradrinks:juicer",
+    "minecraft:beetroot",
+    "xtradrinks:drink_cup"
+  ],
+  "result": {
+    "id": "xtradrinks:drink_beet_juice",
+    "count": 1
+  }
 }

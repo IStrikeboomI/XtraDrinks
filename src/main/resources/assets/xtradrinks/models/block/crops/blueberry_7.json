@@ -1,5 +1,6 @@
 {
     "parent": "block/crop",
+    "render_type": "cutout_mipped",
     "textures": {
         "crop": "xtradrinks:block/crops/blueberry_7"
     }

@@ -1,30 +1,13 @@
-     
-{ 
-    "type": "minecraft:crafting_shapeless",
- 
-    "ingredients": 
-    [
- 
-    {
-      "item": "xtradrinks:juicer"
-    },
-	{
-		"item":"xtradrinks:citric_acid"
-	},
-		{
-          "tag": "forge:ingots/juicetanium"
-	},
-
-		{
-		"item":"xtradrinks:thick_cup"
-	}
-    
-    
-    ],
- 
-    "result": 
-    {
-        "item": "xtradrinks:drink_juicetanium_thick",
-        "count": 1
-    }
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "xtradrinks:juicer",
+    "xtradrinks:citric_acid",
+    "#c:ingots/juicetaniums",
+    "xtradrinks:thick_cup"
+  ],
+  "result": {
+    "id": "xtradrinks:drink_juicetanium_thick",
+    "count": 1
+  }
 }

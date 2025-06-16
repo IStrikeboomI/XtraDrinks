@@ -1,30 +1,13 @@
-     
-{ 
-    "type": "minecraft:crafting_shapeless",
- 
-    "ingredients": 
-    [
- 
-    {
-      "item": "xtradrinks:juicer"
-    },
-	{
-		"item":"xtradrinks:citric_acid"
-	},
-		{
-          "tag": "forge:ingots/liquadium"
-	},
-
-		{
-		"item":"xtradrinks:thick_cup"
-	}
-    
-    
-    ],
- 
-    "result": 
-    {
-        "item": "xtradrinks:drink_liquadium_thick",
-        "count": 1
-    }
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "xtradrinks:juicer",
+    "xtradrinks:citric_acid",
+    "#c:ingots/liquadiums",
+    "xtradrinks:thick_cup"
+  ],
+  "result": {
+    "id": "xtradrinks:drink_liquadium_thick",
+    "count": 1
+  }
 }

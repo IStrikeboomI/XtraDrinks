@@ -16,6 +16,8 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.types.IRecipeType;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -32,7 +34,7 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
     }
 
     @Override
-    public RecipeType<DehydratorRecipe> getRecipeType() {
+    public IRecipeType<DehydratorRecipe> getRecipeType() {
         return XtraDrinksJeiPlugin.DEHYDRATOR;
     }
 
@@ -42,9 +44,15 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
     }
 
     @Override
-    public IDrawable getBackground() {
-        return BACKGROUND;
+    public int getHeight() {
+        return BACKGROUND.getHeight();
     }
+
+    @Override
+    public int getWidth() {
+        return BACKGROUND.getWidth();
+    }
+
 
     @Override
     public IDrawable getIcon() {
@@ -52,14 +60,15 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
     }
 
     @Override
-    public void draw(DehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
-        ARROW.draw(stack,33 ,12);
+    public void draw(DehydratorRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
+        BACKGROUND.draw(guiGraphics);
+        ARROW.draw(guiGraphics,33 ,12);
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, DehydratorRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT,8,12).addItemStack(recipe.getIngredients().get(0).getItems()[0]);
-        builder.addSlot(RecipeIngredientRole.OUTPUT,69,12).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT,8,12).add(recipe.getIngredients().getFirst());
+        builder.addSlot(RecipeIngredientRole.OUTPUT,69,12).add(recipe.getResultItem());
     }
 }

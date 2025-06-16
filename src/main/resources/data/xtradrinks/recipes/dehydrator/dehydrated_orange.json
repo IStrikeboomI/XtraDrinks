@@ -1,7 +1,5 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "xtradrinks:orange"
-  },
+  "ingredient": "xtradrinks:orange",
   "result": "xtradrinks:dehydrated_orange"
 }

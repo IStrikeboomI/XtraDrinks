@@ -140,9 +140,12 @@ public class XtraDrinksItems {
     public static final DeferredHolder<Item,Item> LIQUADIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.LIQUADIUM_BLOCK);
     public static final DeferredHolder<Item,Item> JUICETANIUM_BLOCK_ITEM = fromBlock(XtraDrinksBlocks.JUICETANIUM_BLOCK);
 
-    public static final DeferredHolder<Item,Item> MOLTEN_FIZZIUM_BUCKET = ITEMS.register("molten_fizzium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-    public static final DeferredHolder<Item,Item> MOLTEN_LIQUADIUM_BUCKET = ITEMS.register("molten_liquadium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
-    public static final DeferredHolder<Item,Item> MOLTEN_JUICETANIUM_BUCKET = ITEMS.register("molten_juicetanium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_JUICETANIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+    public static final DeferredHolder<Item,Item> MOLTEN_FIZZIUM_BUCKET = ITEMS.register("molten_fizzium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> MOLTEN_LIQUADIUM_BUCKET = ITEMS.register("molten_liquadium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> MOLTEN_JUICETANIUM_BUCKET = ITEMS.register("molten_juicetanium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_JUICETANIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+
+    public static final DeferredHolder<Item,Item> GREENMAN_EGG = ITEMS.register("greenman_spawn_egg", (loc) -> new SpawnEggItem(XtraDrinksEntities.GREENMAN.get(), new Item.Properties().durability(0).stacksTo(64).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+
 
     public static <B extends Block> DeferredHolder<Item,Item> fromBlock(DeferredHolder<B,B> block) {
         return XtraDrinksItems.ITEMS.register(block.getId().getPath(), (loc) -> new BlockItem(block.get(), new Item.Properties().setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),block.getId()))) {

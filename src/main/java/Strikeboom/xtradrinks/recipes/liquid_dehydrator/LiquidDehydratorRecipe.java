@@ -1,73 +1,57 @@
 package Strikeboom.xtradrinks.recipes.liquid_dehydrator;
 
-import Strikeboom.xtradrinks.init.XtraDrinksBlocks;
 import Strikeboom.xtradrinks.init.XtraDrinksRecipes;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
-public final class LiquidDehydratorRecipe implements Recipe<Container> {
-    private final ResourceLocation ID;
-    private final FluidStack INPUT;
-    private final ItemStack OUTPUT;
+import java.util.List;
 
-    LiquidDehydratorRecipe(ResourceLocation id, FluidStack input, ItemStack output) {
-        this.ID = id;
+public final class LiquidDehydratorRecipe implements Recipe<LiquidDehydratorRecipeInput> {
+    public final FluidStack INPUT;
+    public final ItemStack OUTPUT;
+
+    LiquidDehydratorRecipe(FluidStack input, ItemStack output) {
         this.INPUT = input;
         this.OUTPUT = output;
     }
 
-    public FluidStack getInput() {
-        return INPUT;
+    @Override
+    public boolean matches(LiquidDehydratorRecipeInput input, Level level) {
+        return !level.isClientSide && input.input().is(INPUT.getFluid());
     }
 
     @Override
-    public boolean matches(Container pInv, Level pLevel) {
-        return !pLevel.isClientSide;
-    }
-
-    @Override
-    public ItemStack assemble(Container pInv) {
-        return OUTPUT;
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return true;
-    }
-
-    @Override
-    public ItemStack getResultItem() {
+    public ItemStack assemble(LiquidDehydratorRecipeInput input, HolderLookup.Provider registries) {
         return OUTPUT.copy();
     }
 
     @Override
-    public boolean isSpecial() {
-        return true;
-    }
-
-    @Override
-    public ItemStack getToastSymbol() {
-        return new ItemStack(XtraDrinksBlocks.LIQUID_DEHYDRATOR.get());
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return ID;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<LiquidDehydratorRecipeInput>> getSerializer() {
         return XtraDrinksRecipes.LIQUID_DEHYDRATOR.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<LiquidDehydratorRecipeInput>> getType() {
         return XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get();
     }
+
+    @Override
+    public PlacementInfo placementInfo() {
+        return PlacementInfo.NOT_PLACEABLE;
+    }
+
+    @Override
+    public RecipeBookCategory recipeBookCategory() {
+        return XtraDrinksRecipes.LIQUID_DEHYDRATOR_CATEGORY.get();
+    }
+    @Override
+    public List<RecipeDisplay> display() {
+        return Recipe.super.display();
+    }
+
 }

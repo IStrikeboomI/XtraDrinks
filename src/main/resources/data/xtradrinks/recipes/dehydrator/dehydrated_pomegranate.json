@@ -1,7 +1,5 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "xtradrinks:pomegranate"
-  },
+  "ingredient": "xtradrinks:pomegranate",
   "result": "xtradrinks:dehydrated_pomegranate"
 }

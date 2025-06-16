@@ -25,8 +25,8 @@ public class WalkToEntityGoal<T extends LivingEntity> extends Goal {
     }
     @Override
     public boolean canUse() {
-        List<T> entitiesOfClass = this.entity.level.getEntitiesOfClass(this.entityToWalk, this.entity.getBoundingBox().inflate(12D, 3.0D, 12D), (ent) -> true);
-        this.entity1 = this.entity.level.getNearestEntity(entitiesOfClass, entityTargeting, this.entity, this.entity.getX(), this.entity.getY(), this.entity.getZ());
+        List<T> entitiesOfClass = this.entity.level().getEntitiesOfClass(this.entityToWalk, this.entity.getBoundingBox().inflate(12D, 3.0D, 12D), (ent) -> true);
+        this.entity1 = this.entity.level().getentit(entitiesOfClass, entityTargeting, this.entity, this.entity.getX(), this.entity.getY(), this.entity.getZ());
         if (entity1 != null) {
             Vec3 vec3 = DefaultRandomPos.getPosAway(this.entity, 16, 7, this.entity1.position());
             if (vec3 != null) {

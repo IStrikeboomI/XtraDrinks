@@ -2,74 +2,59 @@ package Strikeboom.xtradrinks.recipes.dehydrator;
 
 import Strikeboom.xtradrinks.init.XtraDrinksBlocks;
 import Strikeboom.xtradrinks.init.XtraDrinksRecipes;
-import net.minecraft.core.NonNullList;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
+import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
 
-public final class DehydratorRecipe implements Recipe<Container> {
-    private final ResourceLocation ID;
-    private final Ingredient INPUT;
-    private final ItemStack OUTPUT;
+import java.util.List;
 
-    DehydratorRecipe(ResourceLocation id, Ingredient input, ItemStack output) {
-        this.ID = id;
+public final class DehydratorRecipe implements Recipe<SingleRecipeInput> {
+    public final Ingredient INPUT;
+    public final ItemStack OUTPUT;
+
+    public DehydratorRecipe(Ingredient input, ItemStack output) {
         this.INPUT = input;
         this.OUTPUT = output;
     }
 
     @Override
-    public boolean matches(Container pInv, Level pLevel) {
+    public boolean matches(SingleRecipeInput pInv, Level pLevel) {
         return !pLevel.isClientSide && INPUT.test(pInv.getItem(0));
     }
 
     @Override
-    public ItemStack assemble(Container pInv) {
+    public ItemStack assemble(SingleRecipeInput input, HolderLookup.Provider registries) {
         return OUTPUT.copy();
     }
 
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return pWidth == 1 && pHeight == 1;
-    }
 
     @Override
-    public ItemStack getResultItem() {
-        return OUTPUT.copy();
-    }
-
-    @Override
-    public NonNullList<Ingredient> getIngredients() {
-        return NonNullList.of(INPUT,INPUT);
-    }
-
-    @Override
-    public ResourceLocation getId() {
-        return ID;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<? extends Recipe<SingleRecipeInput>> getSerializer() {
         return XtraDrinksRecipes.DEHYDRATOR.get();
     }
 
     @Override
-    public RecipeType<?> getType() {
+    public RecipeType<? extends Recipe<SingleRecipeInput>> getType() {
         return XtraDrinksRecipes.DEHYDRATOR_TYPE.get();
     }
 
     @Override
-    public ItemStack getToastSymbol() {
-        return new ItemStack(XtraDrinksBlocks.DEHYDRATOR.get());
+    public PlacementInfo placementInfo() {
+        return PlacementInfo.create(INPUT);
     }
 
     @Override
-    public boolean isSpecial() {
-        return true;
+    public RecipeBookCategory recipeBookCategory() {
+        return XtraDrinksRecipes.DEHYDRATOR_CATEGORY.get();
+    }
+
+
+    @Override
+    public List<RecipeDisplay> display() {
+        return List.of(new DehydratorRecipeDisplay(INPUT.display(),new SlotDisplay.ItemStackSlotDisplay(OUTPUT)));
     }
 }

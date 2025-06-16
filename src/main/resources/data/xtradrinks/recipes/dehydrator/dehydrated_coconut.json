@@ -1,7 +1,5 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "xtradrinks:coconut"
-  },
+  "ingredient": "xtradrinks:coconut",
   "result": "xtradrinks:dehydrated_coconut"
 }

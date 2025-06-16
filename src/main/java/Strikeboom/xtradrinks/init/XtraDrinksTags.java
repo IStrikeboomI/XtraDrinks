@@ -1,7 +1,6 @@
 package Strikeboom.xtradrinks.init;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -16,9 +15,9 @@ public class XtraDrinksTags {
     public static final TagKey<Item> INGOT_JUICETANIUM = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","ingots/juicetanium"));
     public static final TagKey<Item> INGOT_LIQUADIUM = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","ingots/liquadium"));
 
-    public static final TagKey<Item> FRUIT = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit"));
-    public static final TagKey<Item> FRUIT_CITRIC = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit_citric"));
-    public static final TagKey<Item> FRUIT_TROPICAL = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit_tropical"));
+    public static final TagKey<Item> FRUITS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruits"));
+    public static final TagKey<Item> FRUIT_CITRIC = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit/citrics"));
+    public static final TagKey<Item> FRUIT_TROPICAL = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit/tropicals"));
 
     public static final TagKey<Block> ORANGE_CAN_SPAWN_ON = BlockTags.create(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"orange_can_spawn_on"));
     public static final TagKey<Block> COCONUT_CAN_SPAWN_ON = BlockTags.create(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"coconut_can_spawn_on"));

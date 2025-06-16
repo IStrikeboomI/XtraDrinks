@@ -1,7 +1,8 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "xtradrinks:blueberry"
-  },
-  "result": "xtradrinks:dehydrated_blueberry"
+  "ingredient": "xtradrinks:blueberry",
+  "result": {
+    "id": "xtradrinks:dehydrated_blueberry",
+    "count": 2
+  }
 }

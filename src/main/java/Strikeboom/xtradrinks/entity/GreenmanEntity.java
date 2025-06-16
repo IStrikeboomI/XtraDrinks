@@ -1,17 +1,18 @@
 package Strikeboom.xtradrinks.entity;
 
 import Strikeboom.xtradrinks.XtraDrinks;
-import Strikeboom.xtradrinks.guis.blockentities.itemhandlers.OutputOnlyItemHandler;
-import Strikeboom.xtradrinks.guis.menus.GreenmanMenu;
+import Strikeboom.xtradrinks.blockentities.itemhandlers.OutputOnlyItemHandler;
 import Strikeboom.xtradrinks.init.XtraDrinksConfig;
 import Strikeboom.xtradrinks.init.XtraDrinksEntities;
+import Strikeboom.xtradrinks.init.XtraDrinksItems;
 import Strikeboom.xtradrinks.init.XtraDrinksTags;
+import Strikeboom.xtradrinks.menus.GreenmanMenu;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -20,7 +21,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -31,25 +35,20 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.network.NetworkHooks;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GreenmanEntity extends PathfinderMob {
-    private final ItemStackHandler HANDLER;
-    private final LazyOptional<IItemHandler> HANDLER_LAZY_OPTIONAL;
+public class GreenmanEntity extends PathfinderMob implements MenuProvider  {
+    public final ItemStackHandler HANDLER;
     public GreenmanEntity(EntityType<? extends PathfinderMob> p_21683_,Level p_21684_) {
         super(p_21683_, p_21684_);
         HANDLER = new OutputOnlyItemHandler(9) {
@@ -58,7 +57,6 @@ public class GreenmanEntity extends PathfinderMob {
 
             }
         };
-        HANDLER_LAZY_OPTIONAL = LazyOptional.of(() -> HANDLER);
     }
 
     @Override
@@ -84,9 +82,8 @@ public class GreenmanEntity extends PathfinderMob {
     public boolean canPickUpLoot() {
         return false;
     }
-
     @Override
-    public float getEyeHeight(Pose pPose) {
+    public double getEyeY() {
         return 1.62f;
     }
 
@@ -119,8 +116,13 @@ public class GreenmanEntity extends PathfinderMob {
     }
 
     @Override
+    protected boolean canAddPassenger(Entity passenger) {
+        return false;
+    }
+
+    @Override
     public boolean save(CompoundTag pCompound) {
-        pCompound.put("ItemStackHandler", HANDLER.serializeNBT());
+        pCompound.put("ItemStackHandler", HANDLER.serializeNBT(level().registryAccess()));
         return super.save(pCompound);
     }
 
@@ -128,66 +130,58 @@ public class GreenmanEntity extends PathfinderMob {
     public void load(CompoundTag pCompound) {
         super.load(pCompound);
         if (pCompound.contains("ItemStackHandler")) {
-            HANDLER.deserializeNBT(pCompound);
+            HANDLER.deserializeNBT(level().registryAccess(), pCompound);
         }
     }
 
     @Override
-    public boolean mayInteract(Level pLevel, BlockPos pPos) {
-        return pPos.distSqr(new Vec3i(getX(),getY(),getZ())) <= 64;
+    public boolean mayInteract(ServerLevel pLevel, BlockPos pPos) {
+        return pPos.distSqr(new Vec3i(getBlockX(),getBlockY(),getBlockZ())) <= 64;
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
+        return new GreenmanMenu(containerId,playerInventory,this);
     }
 
     @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return HANDLER_LAZY_OPTIONAL.cast();
+    protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (!this.level().isClientSide && player instanceof ServerPlayer serverPlayer) {
+            serverPlayer.openMenu(this,registryFriendlyByteBuf -> registryFriendlyByteBuf.writeUUID(uuid));
         }
-        return super.getCapability(capability, facing);
-    }
 
-    @Override
-    public InteractionResult interactAt(Player pPlayer, Vec3 pVec, InteractionHand pHand) {
-        if (!level.isClientSide()) {
-                MenuProvider containerProvider = new MenuProvider() {
-                    @Override
-                    public Component getDisplayName() {
-                        return Component.translatable("entity." + XtraDrinks.MOD_ID + ".greenman");
-                    }
-
-                    @Override
-                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        return new GreenmanMenu(windowId, GreenmanEntity.this, playerInventory);
-                    }
-                };
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, containerProvider, getOnPos());
-        }
         return InteractionResult.SUCCESS;
     }
 
+    @Nullable
+    @Override
+    public ItemStack getPickResult() {
+        return XtraDrinksItems.GREENMAN_EGG.get().getDefaultInstance();
+    }
 
     public void randomizeHandler() {
-        if (!level.isClientSide()) {
+        if (!level().isClientSide()) {
             if (XtraDrinksConfig.GREENMAN_ITEMS_ENABLED.get()) {
-                getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(iItemHandler -> {
-                    List<Item> fruits = new ArrayList<>();
-                    Registry.ITEM.getTagOrEmpty(XtraDrinksTags.FRUIT).forEach(itemHolder -> fruits.add(itemHolder.value()));
-                    ItemStackHandler handler = (ItemStackHandler) iItemHandler;
-                    for (int i = 0; i < handler.getSlots(); i++) {
-                        Item fruit = fruits.get(random.nextInt(fruits.size()));
-                        if (random.nextBoolean()) {
-                            handler.setStackInSlot(i, new ItemStack(fruit, random.nextInt(XtraDrinksConfig.GREENMAN_ITEMS_MAX .get()- 3) + 3));
-                        }
+                IItemHandler iItemHandler = getCapability(Capabilities.ItemHandler.ENTITY,null);
+                List<Item> fruits = new ArrayList<>();
+                BuiltInRegistries.ITEM.getTagOrEmpty(XtraDrinksTags.FRUITS).forEach(itemHolder -> fruits.add(itemHolder.value()));
+                ItemStackHandler handler = (ItemStackHandler) iItemHandler;
+                for (int i = 0; i < handler.getSlots(); i++) {
+                    Item fruit = fruits.get(random.nextInt(fruits.size()));
+                    if (random.nextBoolean()) {
+                        handler.setStackInSlot(i, new ItemStack(fruit, random.nextInt(XtraDrinksConfig.GREENMAN_ITEMS_MAX .get()- 3) + 3));
                     }
-                });
+                }
             }
         }
     }
 
     @Override
     public void die(DamageSource pCause) {
-        if (!level.isClientSide()) {
+        if (!level().isClientSide()) {
             for (int i = 0;i<HANDLER.getSlots();i++) {
-                Containers.dropItemStack(level,getX(),getY(),getZ(),HANDLER.getStackInSlot(i));
+                Containers.dropItemStack(level(),getX(),getY(),getZ(),HANDLER.getStackInSlot(i));
             }
         }
         super.die(pCause);
@@ -198,7 +192,8 @@ public class GreenmanEntity extends PathfinderMob {
         return 1;
     }
 
-    @Mod.EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = Mod.EventBusSubscriber.Bus.MOD)
+
+    @EventBusSubscriber(modid = XtraDrinks.MOD_ID)
     public static class GreenmanEvents {
         @SubscribeEvent
         public static void onAttributeCreate(EntityAttributeCreationEvent event) {
@@ -209,7 +204,7 @@ public class GreenmanEntity extends PathfinderMob {
                     .build());
         }
     }
-    @Mod.EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = Mod.EventBusSubscriber.Bus.FORGE)
+    @EventBusSubscriber(modid = XtraDrinks.MOD_ID)
     public static class GreenmanSpawn {
         @SubscribeEvent
         public static void onSpawn(EntityJoinLevelEvent event) {

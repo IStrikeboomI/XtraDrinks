@@ -1,21 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern":
-  [
+  "pattern": [
     "   ",
     "I I",
     "III"
   ],
-  "key":
-  {
-    "I":
-    {
-      "tag": "forge:glass"
-    }
+  "key": {
+    "I": "#c:glass"
   },
-  "result":
-  {
-    "item": "xtradrinks:drink_cup",
+  "result": {
+    "id": "xtradrinks:drink_cup",
     "count": 3
   }
 }

@@ -1,21 +1,11 @@
 {
-    "type": "minecraft:crafting_shapeless",
- 
-    "ingredients": 
-    [
- 
-    {
-      "item": "xtradrinks:juicer"
-    },
-	{
-		"item":"xtradrinks:pines"
-	}
-    
-    ],
- 
-    "result": 
-    {
-        "item": "xtradrinks:cinnamon",
-        "count": 3
-    }
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "xtradrinks:juicer",
+    "xtradrinks:pines"
+  ],
+  "result": {
+    "id": "xtradrinks:cinnamon",
+    "count": 3
+  }
 }

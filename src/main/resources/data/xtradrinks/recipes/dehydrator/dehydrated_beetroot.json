@@ -1,7 +1,5 @@
 {
   "type": "xtradrinks:dehydrator",
-  "input": {
-    "item": "minecraft:beetroot"
-  },
+  "ingredient": "minecraft:beetroot",
   "result": "xtradrinks:dehydrated_beetroot"
 }

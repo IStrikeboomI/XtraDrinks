@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "xtradrinks:fizzium_shard"
   },
-  "result": "xtradrinks:fizzium_ingot",
+  "result": {"id":"xtradrinks:fizzium_ingot"},
   "experience": 0.3,
   "cookingtime": 200
 }

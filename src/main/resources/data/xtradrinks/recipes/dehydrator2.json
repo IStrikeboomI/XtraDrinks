@@ -1,22 +1,11 @@
-     
-{ 
-    "type": "minecraft:crafting_shapeless",
- 
-    "ingredients": 
-    [
- 
-    {
-      "item": "xtradrinks:liquid_dehydrator"
-    },
-	{
-      "tag": "forge:stone"
-	}
-    
-    ],
- 
-    "result": 
-    {
-        "item": "xtradrinks:dehydrator",
-        "count": 1
-    }
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "xtradrinks:liquid_dehydrator",
+    "#c:stones"
+  ],
+  "result": {
+    "id": "xtradrinks:dehydrator",
+    "count": 1
+  }
 }
