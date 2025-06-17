@@ -32,7 +32,7 @@ public class DehydratorScreen extends AbstractContainerScreen<DehydratorMenu> {
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(RenderType::guiTextured,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"), relX, relY, 0, 0, this.imageWidth, this.imageHeight,256,256);
-        guiGraphics.blit(RenderType::guiTextured,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"),getGuiLeft()+80,getGuiTop()+35,176,0,this.menu.blockEntity.getCooldown() * 24 / this.menu.blockEntity.getDelay(),17,256,256);
+        guiGraphics.blit(RenderType::guiTextured,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/dehydrator.png"),getGuiLeft()+79,getGuiTop()+34,176,0,this.menu.blockEntity.getCooldown() * 24 / this.menu.blockEntity.getDelay(),17,256,256);
     }
 
 }

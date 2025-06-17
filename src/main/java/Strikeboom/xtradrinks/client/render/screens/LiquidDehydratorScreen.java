@@ -36,7 +36,7 @@ public class LiquidDehydratorScreen extends AbstractContainerScreen<LiquidDehydr
         int relX = (this.width - this.imageWidth) / 2;
         int relY = (this.height - this.imageHeight) / 2;
         guiGraphics.blit(RenderType::guiTextured,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"), relX, relY, 0, 0, this.imageWidth, this.imageHeight,256,256);
-        guiGraphics.blit(RenderType::guiTextured,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),getGuiLeft()+49,getGuiTop()+33,176,0,this.menu.blockEntity.getCooldown() * 24 / this.menu.blockEntity.getDelay(),17,256,256);
+        guiGraphics.blit(RenderType::guiTextured,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID, "textures/gui/container/liquid_dehydrator.png"),getGuiLeft()+48,getGuiTop()+32,176,0,this.menu.blockEntity.getCooldown() * 24 / this.menu.blockEntity.getDelay(),17,256,256);
         ClientUtil.renderFluidBar(guiGraphics,getGuiLeft() + 8,getGuiTop() + 8,24,66,tank.getFluid(),tank.getCapacity());
     }
 

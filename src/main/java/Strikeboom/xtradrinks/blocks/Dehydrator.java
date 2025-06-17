@@ -108,7 +108,7 @@ public class Dehydrator extends Block implements EntityBlock, TooltipProvider {
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide) {
-            if (level.getBlockEntity(pos) instanceof DehydratorBlockEntity) {
+            if (level.getBlockEntity(pos) instanceof DehydratorBlockEntity  && !player.isSpectator()) {
                 player.openMenu(state.getMenuProvider(level,pos),pos);
             }
         }

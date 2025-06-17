@@ -1,6 +1,7 @@
 package Strikeboom.xtradrinks.items;
 
 import Strikeboom.xtradrinks.XtraDrinks;
+import Strikeboom.xtradrinks.init.XtraDrinksItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
@@ -18,7 +19,7 @@ public class Juicer extends TooltipItem {
     }
     @Override
     public ItemStack getCraftingRemainder(ItemStack stack) {
-        return stack.getItem() == this ? stack : ItemStack.EMPTY;
+        return stack.getItem() == this ? new ItemStack(this) : ItemStack.EMPTY;
     }
 
 }

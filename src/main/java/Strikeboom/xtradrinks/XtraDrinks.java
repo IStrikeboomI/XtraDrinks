@@ -34,9 +34,6 @@ public class XtraDrinks {
         XtraDrinksRecipes.RECIPES.register(modbus);
         XtraDrinksRecipes.RECIPE_DISPLAYS.register(modbus);
         XtraDrinksRecipes.RECIPE_BOOK_CATEGORIES.register(modbus);
-        XtraDrinksConfiguredFeatures.CONFIGURED_FEATURES.register(modbus);
-        XtraDrinksPlacedFeatures.PLACED_FEATURES.register(modbus);
-        XtraDrinksBiomeModifiers.BIOME_MODIFIERS.register(modbus);
         XtraDrinksCreativeModeTabs.CREATIVE_MODE_TABS.register(modbus);
 
 

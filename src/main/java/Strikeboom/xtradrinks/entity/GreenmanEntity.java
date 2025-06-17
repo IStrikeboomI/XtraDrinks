@@ -147,7 +147,7 @@ public class GreenmanEntity extends PathfinderMob implements MenuProvider  {
 
     @Override
     protected InteractionResult mobInteract(Player player, InteractionHand hand) {
-        if (!this.level().isClientSide && player instanceof ServerPlayer serverPlayer) {
+        if (!this.level().isClientSide && player instanceof ServerPlayer serverPlayer && !player.isSpectator()) {
             serverPlayer.openMenu(this,registryFriendlyByteBuf -> registryFriendlyByteBuf.writeUUID(uuid));
         }
 

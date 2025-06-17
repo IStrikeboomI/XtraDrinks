@@ -1,4 +1,38 @@
 {
   "feature": "xtradrinks:orange",
-  "placement": []
+  "placement": [
+    {
+      "type": "count",
+      "count": 256
+    },
+    {
+      "type": "in_square"
+    },
+    {
+      "type": "height_range",
+      "height": {
+        "type": "uniform",
+        "min_inclusive": {"absolute": 50},
+        "max_inclusive": {"absolute": 200}
+      }
+    },
+    {
+      "type": "block_predicate_filter",
+      "predicate": {
+        "type": "all_of",
+        "predicates": [
+          {
+            "type": "matching_block_tag",
+            "offset": [0,0,0],
+            "tag": "minecraft:air"
+          },
+          {
+            "type": "matching_block_tag",
+            "offset": [0,1,0],
+            "tag": "xtradrinks:orange_can_spawn_on"
+          }
+        ]
+      }
+    }
+  ]
 }

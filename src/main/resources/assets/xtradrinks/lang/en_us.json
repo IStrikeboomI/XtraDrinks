@@ -125,9 +125,5 @@
   "xtradrinks.configuration.dehydrator.delay.tooltip": "The Time (In Ticks) It Takes For The Dehydrator To Do One Cycle",
   "xtradrinks.configuration.liquid_dehydrator": "Liquid Dehydrator Delay",
   "xtradrinks.configuration.liquid_dehydrator.delay": "Liquid Dehydrator Delay",
-  "xtradrinks.configuration.liquid_dehydrator.delay.tooltip": "The Time (In Ticks) It Takes For The Liquid Dehydrator To Do One Cycle",
-  "xtradrinks.configuration.crops": "Crops",
-  "xtradrinks.configuration.crops.tooltip": "Controls Random Crop Generation",
-  "xtradrinks.configuration.crops.enabled": "Random Crop Generation",
-  "xtradrinks.configuration.crops.enabled.tooltip": "Controls If Crops (Oranges, Pines, Blueberries, etc.) Spawn Naturally"
+  "xtradrinks.configuration.liquid_dehydrator.delay.tooltip": "The Time (In Ticks) It Takes For The Liquid Dehydrator To Do One Cycle"
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
@@ -21,8 +22,12 @@ public class FruitCrop extends CropBlock {
 
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-
-        return List.of(Blocks.GRASS_BLOCK,Blocks.DIRT,Blocks.COARSE_DIRT,Blocks.FARMLAND).contains(pLevel.getBlockState(pPos.below()).getBlock());
+        if (pState.getValue(AGE).intValue() == 7) {
+            if (pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
+                return true;
+            }
+        }
+        return super.canSurvive(pState,pLevel,pPos);
     }
 
     @Override

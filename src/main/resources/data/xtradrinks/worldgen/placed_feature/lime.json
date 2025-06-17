@@ -1,4 +1,31 @@
 {
   "feature": "xtradrinks:lime",
-  "placement": []
+  "placement": [
+    {
+      "type": "rarity_filter",
+      "chance": 10
+    },
+    {
+      "type": "heightmap",
+      "heightmap": "WORLD_SURFACE"
+    },
+    {
+      "type": "block_predicate_filter",
+      "predicate": {
+        "type": "all_of",
+        "predicates": [
+          {
+            "type": "matching_block_tag",
+            "offset": [0,0,0],
+            "tag": "minecraft:air"
+          },
+          {
+            "type": "matching_block_tag",
+            "offset": [0,-1,0],
+            "tag": "minecraft:dirt"
+          }
+        ]
+      }
+    }
+  ]
 }

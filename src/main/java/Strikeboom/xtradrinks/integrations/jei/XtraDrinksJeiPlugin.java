@@ -21,13 +21,22 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeMap;
 import net.minecraft.world.level.Level;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.RecipesReceivedEvent;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.event.OnDatapackSyncEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
@@ -36,6 +45,7 @@ import java.util.List;
 
 @JeiPlugin
 public class XtraDrinksJeiPlugin implements IModPlugin {
+    public static RecipeMap clientSyncedRecipes = RecipeMap.EMPTY;
     public static final IRecipeType<DehydratorRecipe> DEHYDRATOR = IRecipeType.create(XtraDrinks.MOD_ID,"dehydrator",DehydratorRecipe.class);
     public static final IRecipeType<LiquidDehydratorRecipe> LIQUID_DEHYDRATOR = IRecipeType.create(XtraDrinks.MOD_ID,"liquid_dehydrator",LiquidDehydratorRecipe.class);
 
@@ -46,11 +56,9 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        if (Minecraft.getInstance().level != null) {
-            RecipeManager manager = ServerLifecycleHooks.getCurrentServer().getRecipeManager();
-            manager.getRecipes().stream().filter(recipeHolder -> recipeHolder.id() == XtraDrinksRecipes.DEHYDRATOR_TYPE);
-            registration.addRecipes(DEHYDRATOR, manager.recipeMap().byType(XtraDrinksRecipes.DEHYDRATOR_TYPE.get()).stream().map(RecipeHolder::value).toList());
-            registration.addRecipes(LIQUID_DEHYDRATOR, manager.recipeMap().byType(XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get()).stream().map(RecipeHolder::value).toList());
+        if (!clientSyncedRecipes.values().isEmpty()) {
+            registration.addRecipes(DEHYDRATOR, clientSyncedRecipes.byType(XtraDrinksRecipes.DEHYDRATOR_TYPE.get()).stream().map(RecipeHolder::value).toList());
+            registration.addRecipes(LIQUID_DEHYDRATOR, clientSyncedRecipes.byType(XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get()).stream().map(RecipeHolder::value).toList());
 
             registration.addIngredientInfo(List.of(new FluidStack(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), 1000), new FluidStack(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), 1000)), NeoForgeTypes.FLUID_STACK,
                     Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_found").append(Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_liquid_dehydrator")));
@@ -83,5 +91,19 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
         IModPlugin.super.registerRecipeTransferHandlers(registration);
         registration.addRecipeTransferHandler(DehydratorMenu.class, XtraDrinksMenus.DEHYDRATOR_MENU.get(), DEHYDRATOR,0,1,2,36);
+    }
+    @EventBusSubscriber(modid = XtraDrinks.MOD_ID,value = Dist.CLIENT,bus = EventBusSubscriber.Bus.GAME)
+    public static class ReceiveRecipes {
+        @SubscribeEvent
+        public static void onReceiveRecipes(RecipesReceivedEvent event) {
+            XtraDrinksJeiPlugin.clientSyncedRecipes = event.getRecipeMap();
+        }
+    }
+    @EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = EventBusSubscriber.Bus.GAME)
+    public static class DatapackSync {
+        @SubscribeEvent
+        public static void onDatapackSync(OnDatapackSyncEvent event) {
+            event.sendRecipes(XtraDrinksRecipes.DEHYDRATOR_TYPE.get(),XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get());
+        }
     }
 }

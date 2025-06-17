@@ -1,4 +1,6 @@
 {
-  "type":"xtradrinks:vegetal",
-  "feature":"xtradrinks:pines"
+  "type": "neoforge:add_features",
+  "biomes": "#c:is_overworld",
+  "features": "xtradrinks:pines",
+  "step": "vegetal_decoration"
 }

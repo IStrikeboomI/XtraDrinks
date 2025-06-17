@@ -8,6 +8,7 @@ import Strikeboom.xtradrinks.client.render.screens.DehydratorScreen;
 import Strikeboom.xtradrinks.client.render.screens.GreenmanScreen;
 import Strikeboom.xtradrinks.client.render.screens.LiquidDehydratorScreen;
 import Strikeboom.xtradrinks.init.*;
+import Strikeboom.xtradrinks.integrations.jei.XtraDrinksJeiPlugin;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;

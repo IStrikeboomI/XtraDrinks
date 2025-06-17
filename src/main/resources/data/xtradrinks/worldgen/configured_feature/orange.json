@@ -5,7 +5,9 @@
       "type": "minecraft:simple_state_provider",
       "state": {
         "Name": "xtradrinks:orange",
-        "age": 7
+        "Properties": {
+                  "age": "7"
+                }
       }
     }
   }

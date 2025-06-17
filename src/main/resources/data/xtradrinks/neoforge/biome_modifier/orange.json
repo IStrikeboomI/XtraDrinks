@@ -1,4 +1,6 @@
 {
-	"type":"xtradrinks:vegetal",
-    "feature":"xtradrinks:orange"
+  "type": "neoforge:add_features",
+  "biomes": "#c:is_overworld",
+  "features": "xtradrinks:orange",
+  "step": "vegetal_decoration"
 }

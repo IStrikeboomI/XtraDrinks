@@ -1,9 +1,9 @@
 {
   "type":"neoforge:add_spawns",
-  "biomes":"#c:is_plains",
+  "biomes":"#minecraft:is_overworld",
   "spawners" : [{
     "type": "xtradrinks:greenman",
-    "weight": 10,
+    "weight": 50,
     "minCount": 1,
     "maxCount": 1
   }]
