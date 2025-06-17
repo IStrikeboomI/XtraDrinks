@@ -2,7 +2,7 @@
     "pack": {
         "description": "xtradrinks resources",
         "pack_format": 9,
-        "forge:resource_pack_format": 9,
-        "forge:data_pack_format": 10
+        "neoforge:resource_pack_format": 9,
+        "neoforge:data_pack_format": 10
     }
 }

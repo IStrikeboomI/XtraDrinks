@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "xtradrinks:drink_apple_thick",
+    "xtradrinks:drink_carrot_thick",
+    "xtradrinks:drink_chocolate_milk_thick",
+    "xtradrinks:drink_cinnamon_spice_thick",
+    "xtradrinks:drink_fizzium_thick",
+    "xtradrinks:drink_juicetanium_thick",
+    "xtradrinks:drink_liquadium_thick"
+  ]
+}

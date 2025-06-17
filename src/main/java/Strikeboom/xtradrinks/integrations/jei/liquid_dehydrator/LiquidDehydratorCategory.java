@@ -39,7 +39,7 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
 
     @Override
     public Component getTitle() {
-        return Component.translatable("block."+XtraDrinks.MOD_ID+".liquid_dehydrator");
+        return Component.translatable("item."+XtraDrinks.MOD_ID+".liquid_dehydrator");
     }
 
     @Override
@@ -67,7 +67,7 @@ public class LiquidDehydratorCategory implements IRecipeCategory<LiquidDehydrato
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, LiquidDehydratorRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT,4,3).add(recipe.getInput()).setFluidRenderer(1000,true,24,66);
-        builder.addSlot(RecipeIngredientRole.OUTPUT,82,28).add(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT,4,3).add(recipe.INPUT.getFluid()).setFluidRenderer(1000,true,24,66);
+        builder.addSlot(RecipeIngredientRole.OUTPUT,82,28).add(recipe.OUTPUT);
     }
 }

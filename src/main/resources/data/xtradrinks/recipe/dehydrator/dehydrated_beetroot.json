@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "minecraft:beetroot",
+  "result": {
+    "id": "xtradrinks:dehydrated_beetroot",
+    "count": 1
+  }
+}

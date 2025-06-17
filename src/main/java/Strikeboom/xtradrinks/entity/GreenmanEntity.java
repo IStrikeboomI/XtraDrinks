@@ -16,30 +16,34 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -81,10 +85,6 @@ public class GreenmanEntity extends PathfinderMob implements MenuProvider  {
     @Override
     public boolean canPickUpLoot() {
         return false;
-    }
-    @Override
-    public double getEyeY() {
-        return 1.62f;
     }
 
     @Nullable
@@ -165,7 +165,7 @@ public class GreenmanEntity extends PathfinderMob implements MenuProvider  {
             if (XtraDrinksConfig.GREENMAN_ITEMS_ENABLED.get()) {
                 IItemHandler iItemHandler = getCapability(Capabilities.ItemHandler.ENTITY,null);
                 List<Item> fruits = new ArrayList<>();
-                BuiltInRegistries.ITEM.getTagOrEmpty(XtraDrinksTags.FRUITS).forEach(itemHolder -> fruits.add(itemHolder.value()));
+                BuiltInRegistries.ITEM.getTagOrEmpty(Tags.Items.FOODS_FRUIT).forEach(itemHolder -> fruits.add(itemHolder.value()));
                 ItemStackHandler handler = (ItemStackHandler) iItemHandler;
                 for (int i = 0; i < handler.getSlots(); i++) {
                     Item fruit = fruits.get(random.nextInt(fruits.size()));
@@ -193,7 +193,8 @@ public class GreenmanEntity extends PathfinderMob implements MenuProvider  {
     }
 
 
-    @EventBusSubscriber(modid = XtraDrinks.MOD_ID)
+
+    @EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = EventBusSubscriber.Bus.MOD)
     public static class GreenmanEvents {
         @SubscribeEvent
         public static void onAttributeCreate(EntityAttributeCreationEvent event) {
@@ -203,9 +204,24 @@ public class GreenmanEntity extends PathfinderMob implements MenuProvider  {
                             .add(Attributes.FOLLOW_RANGE,40f)
                     .build());
         }
+        @SubscribeEvent
+        public static void spawnData(RegisterSpawnPlacementsEvent event) {
+            event.register(XtraDrinksEntities.GREENMAN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GreenmanEvents::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        }
+
+        /**
+         * Taken From {@link Animal#checkAnimalSpawnRules}
+         */
+        private static boolean checkAnimalSpawnRules(
+                EntityType<?> entityType, LevelAccessor level, EntitySpawnReason spawnReason, BlockPos pos, RandomSource random
+        ) {
+            boolean flag = EntitySpawnReason.ignoresLightRequirements(spawnReason) || level.getRawBrightness(pos, 0) > 8;
+            return level.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON) && flag;
+        }
+
     }
-    @EventBusSubscriber(modid = XtraDrinks.MOD_ID)
-    public static class GreenmanSpawn {
+    @EventBusSubscriber(modid = XtraDrinks.MOD_ID,bus = EventBusSubscriber.Bus.GAME)
+    public static class GreenmanSpawns {
         @SubscribeEvent
         public static void onSpawn(EntityJoinLevelEvent event) {
             if (!event.getLevel().isClientSide()) {

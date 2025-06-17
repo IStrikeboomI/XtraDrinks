@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": "#c:ingots/liquadium"
+  },
+  "result": {
+    "id": "xtradrinks:liquadium_block",
+    "count": 1
+  }
+}

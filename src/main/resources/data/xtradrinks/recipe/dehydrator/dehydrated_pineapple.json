@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "xtradrinks:pineapple",
+  "result": {
+    "id": "xtradrinks:dehydrated_pineapple",
+    "count": 1
+  }
+}

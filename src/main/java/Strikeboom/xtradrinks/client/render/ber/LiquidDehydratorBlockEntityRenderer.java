@@ -53,27 +53,26 @@ public class LiquidDehydratorBlockEntityRenderer implements BlockEntityRenderer<
                     float g = ((color >> 8) & 0xFF) / 255.0f;
                     float b = (color & 0xFF) / 255.0f;
                     float a = ((color >> 24) & 0xFF) / 255.0f;
-
-                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v1);
-                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v2);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v2);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v1);
-                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v1);
-                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v2);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v2);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v1);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v1);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v2);
-                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v2);
-                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v1);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v1);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v2);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v2);
-                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v1);
-                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v1);
-                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS).setColor(r, g, b, a).setUv(u1, v2);
-                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v2);
-                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, 1 - TANK_THICKNESS).setColor(r, g, b, a).setUv(u2, v1);
+                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, TANK_THICKNESS)               .setColor(r, g, b, a).setUv(u1, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, 1 - TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u1, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, 1 - TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u2, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u2, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, 1 - TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u1, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u1, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS)   .setColor(r, g, b, a).setUv(u2, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, 1 - TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u2, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u1, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u1, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u2, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, TANK_THICKNESS)               .setColor(r, g, b, a).setUv(u2, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, 1 - TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u1, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS)   .setColor(r, g, b, a).setUv(u1, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u2, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, 1 - TANK_THICKNESS, topScale, TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u2, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, TANK_THICKNESS)               .setColor(r, g, b, a).setUv(u1, v1).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u1, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, FLUID_HEIGHT, 1 - TANK_THICKNESS)       .setColor(r, g, b, a).setUv(u2, v2).setLight(0xFF).setOverlay(packedOverlay);
+                    renderer.addVertex(matrix, TANK_THICKNESS, topScale, 1 - TANK_THICKNESS)           .setColor(r, g, b, a).setUv(u2, v1).setLight(0xFF).setOverlay(packedOverlay);
 
                     poseStack.popPose();
                 }

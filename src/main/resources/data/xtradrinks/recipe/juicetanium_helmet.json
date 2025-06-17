@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "WWW",
+    "W W"
+  ],
+  "key": {
+    "W": "#c:ingots/juicetanium"
+  },
+  "result": {
+    "id": "xtradrinks:juicetanium_helmet",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "xtradrinks:juicer",
+    "xtradrinks:drink_cup",
+    "#c:foods/fruit",
+    "#c:foods/fruit"
+  ],
+  "result": {
+    "id": "xtradrinks:drink_fruit_punch_juice",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "xtradrinks:grape",
+  "result": {
+    "id": "xtradrinks:dehydrated_grape",
+    "count": 1
+  }
+}

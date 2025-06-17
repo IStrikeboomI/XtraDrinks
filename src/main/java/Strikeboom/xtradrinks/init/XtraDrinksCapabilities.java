@@ -3,6 +3,7 @@ package Strikeboom.xtradrinks.init;
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.blockentities.DehydratorBlockEntity;
 import Strikeboom.xtradrinks.blockentities.LiquidDehydratorBlockEntity;
+import Strikeboom.xtradrinks.entity.GreenmanEntity;
 import net.minecraft.core.Direction;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -43,6 +44,12 @@ public class XtraDrinksCapabilities {
                     }
                 });
         event.registerEntity(Capabilities.ItemHandler.ENTITY,
-                XtraDrinksEntities.GREENMAN);
+                XtraDrinksEntities.GREENMAN.get(),
+                new ICapabilityProvider<>() {
+                    @Override
+                    public @Nullable IItemHandler getCapability(GreenmanEntity object, Void context) {
+                        return object.HANDLER;
+                    }
+                });
     }
 }

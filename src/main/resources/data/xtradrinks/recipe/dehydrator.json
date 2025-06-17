@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SGS",
+    "IBI",
+    "III"
+  ],
+  "key": {
+    "I": "#c:ingots/iron",
+    "G": "#c:glass_blocks",
+    "S": "#c:stones",
+    "B": "minecraft:bucket"
+  },
+  "result": {
+    "id": "xtradrinks:dehydrator",
+    "count": 1
+  }
+}

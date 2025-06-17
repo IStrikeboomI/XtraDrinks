@@ -15,7 +15,9 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -133,28 +135,29 @@ public class LiquidDehydratorBlockEntity extends BlockEntity {
         Optional<RecipeHolder<LiquidDehydratorRecipe>> r = world.recipeAccess().getRecipeFor(XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get(),new LiquidDehydratorRecipeInput(fluidTank.getFluid()),world);
         if (r.isPresent()) {
             LiquidDehydratorRecipe recipe = r.orElseThrow().value();
+            ItemStack result = recipe.assemble(new LiquidDehydratorRecipeInput(fluidTank.getFluid()),level.registryAccess());
             if (!fluidTank.isEmpty()
                     && fluidTank.getFluid().getAmount() >= recipe.INPUT.getAmount()
-                    && itemHandler.getStackInSlot(0).getCount() + recipe.OUTPUT.getCount() <= itemHandler.getStackInSlot(0).getMaxStackSize()
+                    && itemHandler.getStackInSlot(0).getCount() + result.getCount() <= itemHandler.getStackInSlot(0).getMaxStackSize()
                     && (itemHandler.getStackInSlot(0).isEmpty()
-                    || itemHandler.getStackInSlot(0).getItem() == recipe.OUTPUT.getItem()))
+                    || itemHandler.getStackInSlot(0).getItem() == result.getItem()))
             {
                 cooldown++;
                 shouldUpdate = true;
-            } else{
-                if (cooldown != 0) {
-                    cooldown = 0;
-                    shouldUpdate = true;
-                }
             }
             if (cooldown % delay == 0 && cooldown != 0) {
                 cooldown = 0;
                 if (itemHandler.getStackInSlot(0).isEmpty()) {
-                    itemHandler.setStackInSlot(0, recipe.OUTPUT);
+                    itemHandler.setStackInSlot(0, result);
                 } else {
-                    itemHandler.getStackInSlot(0).grow(recipe.OUTPUT.getCount());
+                    itemHandler.getStackInSlot(0).grow(result.getCount());
                 }
                 fluidTank.getFluid().shrink(recipe.INPUT.getAmount());
+            }
+        } else {
+            if (cooldown != 0) {
+                cooldown = 0;
+                shouldUpdate = true;
             }
         }
         if (shouldUpdate) {

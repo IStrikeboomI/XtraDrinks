@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "xtradrinks:drink_apple_juice",
+    "xtradrinks:drink_apple_thick",
+    "xtradrinks:drink_beet_juice",
+    "xtradrinks:drink_carrot_juice",
+    "xtradrinks:drink_carrot_thick",
+    "xtradrinks:drink_chocolate_milk_thick",
+    "xtradrinks:drink_cinnamon_spice_thick",
+    "xtradrinks:drink_coconut_juice",
+    "xtradrinks:drink_cranapple_juice",
+    "xtradrinks:drink_cranlemon_juice",
+    "xtradrinks:drink_cranlime_juice",
+    "xtradrinks:drink_fizzium_thick",
+    "xtradrinks:drink_fruit_punch_juice",
+    "xtradrinks:drink_grape_juice",
+    "xtradrinks:drink_juicetanium_thick",
+    "xtradrinks:drink_lemon_juice",
+    "xtradrinks:drink_lime_juice",
+    "xtradrinks:drink_liquadium_thick",
+    "xtradrinks:drink_potato_juice",
+    "xtradrinks:drink_sour_juice",
+    "xtradrinks:drink_tropical_punch_juice"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "minecraft:potato",
+  "result": {
+    "id": "xtradrinks:dehydrated_potato",
+    "count": 1
+  }
+}

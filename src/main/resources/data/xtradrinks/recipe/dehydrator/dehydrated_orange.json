@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "xtradrinks:orange",
+  "result": {
+    "id": "xtradrinks:dehydrated_orange",
+    "count": 1
+  }
+}

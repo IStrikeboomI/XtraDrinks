@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "xtradrinks:lime",
+  "result": {
+    "id": "xtradrinks:dehydrated_lime",
+    "count": 1
+  }
+}

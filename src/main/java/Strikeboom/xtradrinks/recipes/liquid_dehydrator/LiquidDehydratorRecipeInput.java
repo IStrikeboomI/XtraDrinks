@@ -12,6 +12,10 @@ import java.util.List;
 
 public record LiquidDehydratorRecipeInput(FluidStack input) implements RecipeInput {
 
+    @Override
+    public boolean isEmpty() {
+        return input().isEmpty();
+    }
 
     @Override
     public ItemStack getItem(int index) {

@@ -3,6 +3,7 @@ package Strikeboom.xtradrinks.init;
 import Strikeboom.xtradrinks.XtraDrinks;
 import Strikeboom.xtradrinks.blocks.*;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
@@ -28,17 +29,17 @@ public class XtraDrinksBlocks {
     public static final DeferredHolder<Block,Block> COCONUT = BLOCKS.register("coconut",HangingFruit::new);
     public static final DeferredHolder<Block,Block> PINES = BLOCKS.register("pines",HangingFruit::new);
 
-    public static final DeferredHolder<Block,Block> DEHYDRATOR = BLOCKS.register("dehydrator",() -> new Dehydrator(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).strength(3.5f).requiresCorrectToolForDrops()));
-    public static final DeferredHolder<Block,Block> LIQUID_DEHYDRATOR = BLOCKS.register("liquid_dehydrator",() -> new LiquidDehydrator(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).strength(3.5f).requiresCorrectToolForDrops()));
+    public static final DeferredHolder<Block,Block> DEHYDRATOR = BLOCKS.register("dehydrator",(loc) -> new Dehydrator(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).strength(3.5f).requiresCorrectToolForDrops().setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
+    public static final DeferredHolder<Block,Block> LIQUID_DEHYDRATOR = BLOCKS.register("liquid_dehydrator",(loc) -> new LiquidDehydrator(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).strength(3.5f).requiresCorrectToolForDrops().setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
 
-    public static final DeferredHolder<Block,Block> GREENMAN_LURE = BLOCKS.register("greenman_lure",() -> new GreenmanLure(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).sound(SoundType.GLASS).strength(3.5f).requiresCorrectToolForDrops()));
+    public static final DeferredHolder<Block,Block> GREENMAN_LURE = BLOCKS.register("greenman_lure",(loc) -> new GreenmanLure(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).sound(SoundType.GLASS).strength(3.5f).requiresCorrectToolForDrops().setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
 
-    public static final DeferredHolder<Block,Block> FIZZIUM_BLOCK = BLOCKS.register("fizzium_block",() -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
-    public static final DeferredHolder<Block,Block> LIQUADIUM_BLOCK = BLOCKS.register("liquadium_block",() -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
-    public static final DeferredHolder<Block,Block> JUICETANIUM_BLOCK = BLOCKS.register("juicetanium_block",() -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
+    public static final DeferredHolder<Block,Block> FIZZIUM_BLOCK = BLOCKS.register("fizzium_block",(loc) -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
+    public static final DeferredHolder<Block,Block> LIQUADIUM_BLOCK = BLOCKS.register("liquadium_block",(loc) -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
+    public static final DeferredHolder<Block,Block> JUICETANIUM_BLOCK = BLOCKS.register("juicetanium_block",(loc) -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
 
-    public static final DeferredHolder<Block,Block> MOLTEN_FIZZIUM_BLOCK = XtraDrinksBlocks.BLOCKS.register("molten_fizzium", () -> new LiquidBlock((FlowingFluid) XtraDrinksFluids.MOLTEN_FIZZIUM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA)));
-    public static final DeferredHolder<Block,Block> MOLTEN_LIQUADIUM_BLOCK = XtraDrinksBlocks.BLOCKS.register("molten_liquadium", () -> new LiquidBlock((FlowingFluid) XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA)));
-    public static final DeferredHolder<Block,Block> MOLTEN_JUICETANIUM_BLOCK = XtraDrinksBlocks.BLOCKS.register("molten_juicetanium", () -> new LiquidBlock((FlowingFluid)XtraDrinksFluids.MOLTEN_JUICETANIUM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA)));
+    public static final DeferredHolder<Block,Block> MOLTEN_FIZZIUM_BLOCK = XtraDrinksBlocks.BLOCKS.register("molten_fizzium", (loc) -> new LiquidBlock((FlowingFluid) XtraDrinksFluids.MOLTEN_FIZZIUM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
+    public static final DeferredHolder<Block,Block> MOLTEN_LIQUADIUM_BLOCK = XtraDrinksBlocks.BLOCKS.register("molten_liquadium", (loc) -> new LiquidBlock((FlowingFluid) XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
+    public static final DeferredHolder<Block,Block> MOLTEN_JUICETANIUM_BLOCK = XtraDrinksBlocks.BLOCKS.register("molten_juicetanium", (loc) -> new LiquidBlock((FlowingFluid)XtraDrinksFluids.MOLTEN_JUICETANIUM.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA).setId(ResourceKey.create(BuiltInRegistries.BLOCK.key(),loc))));
 
 }

@@ -40,7 +40,7 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
 
     @Override
     public Component getTitle() {
-        return Component.translatable("block."+XtraDrinks.MOD_ID+".dehydrator");
+        return Component.translatable("item."+XtraDrinks.MOD_ID+".dehydrator");
     }
 
     @Override
@@ -68,7 +68,7 @@ public class DehydratorCategory implements IRecipeCategory<DehydratorRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, DehydratorRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT,8,12).add(recipe.getIngredients().getFirst());
-        builder.addSlot(RecipeIngredientRole.OUTPUT,69,12).add(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT,8,12).add(recipe.INPUT);
+        builder.addSlot(RecipeIngredientRole.OUTPUT,69,12).add(recipe.OUTPUT);
     }
 }

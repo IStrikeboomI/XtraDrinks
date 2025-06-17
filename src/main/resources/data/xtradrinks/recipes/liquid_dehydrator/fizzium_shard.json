@@ -1,8 +1,0 @@
-{
-  "type": "xtradrinks:liquid_dehydrator",
-  "ingredients": {
-    "id": "xtradrinks:molten_fizzium",
-    "amount": 100
-  },
-  "result": "xtradrinks:fizzium_shard"
-}

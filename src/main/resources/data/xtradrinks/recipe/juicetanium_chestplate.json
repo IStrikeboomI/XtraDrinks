@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "W W",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": "#c:ingots/juicetanium"
+  },
+  "result": {
+    "id": "xtradrinks:juicetanium_chestplate",
+    "count": 1
+  }
+}

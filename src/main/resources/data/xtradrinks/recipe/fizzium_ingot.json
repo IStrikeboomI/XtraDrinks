@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": "xtradrinks:fizzium_shard",
+  "result": {"id":"xtradrinks:fizzium_ingot"},
+  "experience": 0.3,
+  "cookingtime": 200
+}

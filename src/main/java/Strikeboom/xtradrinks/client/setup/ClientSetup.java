@@ -40,7 +40,7 @@ public class ClientSetup {
         event.register(XtraDrinksMenus.GREENMAN_MENU.get(), GreenmanScreen::new);
     }
     @SubscribeEvent
-    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+    private void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(XtraDrinksEntities.GREENMAN.get(), GreenmanRenderer::new);
         event.registerBlockEntityRenderer(XtraDrinksBlockEntities.DEHYDRATOR_BLOCK_ENTITY.get(), DehydratorBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(XtraDrinksBlockEntities.LIQUID_DEHYDRATOR_BLOCK_ENTITY.get(), LiquidDehydratorBlockEntityRenderer::new);

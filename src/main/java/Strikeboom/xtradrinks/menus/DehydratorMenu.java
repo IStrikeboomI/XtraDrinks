@@ -25,7 +25,9 @@ public class DehydratorMenu extends AbstractContainerMenu {
     public DehydratorMenu(int windowId, BlockPos pos, Inventory playerInventory) {
         super(XtraDrinksMenus.DEHYDRATOR_MENU.get(), windowId);
         blockEntity = (DehydratorBlockEntity)playerInventory.player.getCommandSenderWorld().getBlockEntity(pos);
-        blockInventory = (DehydratorItemHandler) playerInventory.player.getCommandSenderWorld().getCapability(Capabilities.ItemHandler.BLOCK,pos,null);
+        blockInventory = blockEntity.itemHandler;
+        addSlot(new SlotItemHandler(blockInventory,0,55,35));
+        addSlot(new SlotItemHandler(blockInventory,1,116,35));
 
         int xPos = 8;
         int yPos = 84;

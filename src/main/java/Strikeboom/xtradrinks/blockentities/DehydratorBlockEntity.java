@@ -16,6 +16,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
@@ -126,32 +127,34 @@ public class DehydratorBlockEntity extends BlockEntity {
         Optional<RecipeHolder<DehydratorRecipe>> r = world.recipeAccess().getRecipeFor(XtraDrinksRecipes.DEHYDRATOR_TYPE.get(),new SingleRecipeInput(itemHandler.getStackInSlot(0)),world);
         if (r.isPresent()) {
             DehydratorRecipe recipe = r.orElseThrow().value();
+            ItemStack result = recipe.assemble(new SingleRecipeInput(itemHandler.getStackInSlot(0)),level.registryAccess());
             if (
                             !itemHandler.getStackInSlot(0).isEmpty()
-                            && itemHandler.getStackInSlot(1).getCount() + recipe.OUTPUT.getCount() <= itemHandler.getStackInSlot(1).getMaxStackSize()
+                            && itemHandler.getStackInSlot(1).getCount() + result.getCount() <= itemHandler.getStackInSlot(1).getMaxStackSize()
                             && (itemHandler.getStackInSlot(1).isEmpty()
-                            || itemHandler.getStackInSlot(1).getItem() == recipe.OUTPUT.getItem())) {
+                            || itemHandler.getStackInSlot(1).getItem() == result.getItem())) {
                 cooldown++;
                 shouldUpdate = true;
-            } else {
-                if (cooldown != 0) {
-                    cooldown = 0;
-                    shouldUpdate = true;
-                }
             }
             if (cooldown % this.delay == 0 && cooldown != 0) {
                 cooldown = 0;
                 if (itemHandler.getStackInSlot(1).isEmpty()) {
-                    itemHandler.setStackInSlot(1, recipe.OUTPUT);
+                    itemHandler.setStackInSlot(1, result);
                 } else {
-                    itemHandler.getStackInSlot(1).grow(recipe.OUTPUT.getCount());
+                    itemHandler.getStackInSlot(1).grow(result.getCount());
                 }
                 itemHandler.getStackInSlot(0).shrink(1);
             }
-            if (shouldUpdate) {
-                setChanged();
-                this.level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+
+        } else {
+            if (cooldown != 0) {
+                cooldown = 0;
+                shouldUpdate = true;
             }
+        }
+        if (shouldUpdate) {
+            setChanged();
+            this.level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
         }
     }
 

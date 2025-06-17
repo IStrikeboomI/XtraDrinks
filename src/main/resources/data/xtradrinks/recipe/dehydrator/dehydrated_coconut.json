@@ -1,0 +1,8 @@
+{
+  "type": "xtradrinks:dehydrator",
+  "ingredient": "xtradrinks:coconut",
+  "result": {
+    "id": "xtradrinks:dehydrated_coconut",
+    "count": 2
+  }
+}

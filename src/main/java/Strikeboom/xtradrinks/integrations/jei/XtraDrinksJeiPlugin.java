@@ -18,12 +18,18 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.registration.IRecipeTransferRegistration;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeMap;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,16 +47,17 @@ public class XtraDrinksJeiPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         if (Minecraft.getInstance().level != null) {
-            Level level = Minecraft.getInstance().level;
-            registration.addRecipes(DEHYDRATOR, level.getRecipeManager().getAllRecipesFor(XtraDrinksRecipes.DEHYDRATOR_TYPE.get()));
-            registration.addRecipes(LIQUID_DEHYDRATOR, level.getRecipeManager().getAllRecipesFor(XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get()));
+            RecipeManager manager = ServerLifecycleHooks.getCurrentServer().getRecipeManager();
+            manager.getRecipes().stream().filter(recipeHolder -> recipeHolder.id() == XtraDrinksRecipes.DEHYDRATOR_TYPE);
+            registration.addRecipes(DEHYDRATOR, manager.recipeMap().byType(XtraDrinksRecipes.DEHYDRATOR_TYPE.get()).stream().map(RecipeHolder::value).toList());
+            registration.addRecipes(LIQUID_DEHYDRATOR, manager.recipeMap().byType(XtraDrinksRecipes.LIQUID_DEHYDRATOR_TYPE.get()).stream().map(RecipeHolder::value).toList());
 
             registration.addIngredientInfo(List.of(new FluidStack(XtraDrinksFluids.MOLTEN_FIZZIUM.get(), 1000), new FluidStack(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), 1000)), NeoForgeTypes.FLUID_STACK,
                     Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_found").append(Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_liquid_dehydrator")));
             registration.addIngredientInfo(List.of(new ItemStack(XtraDrinksItems.MOLTEN_FIZZIUM_BUCKET.get()), new ItemStack(XtraDrinksItems.MOLTEN_LIQUADIUM_BUCKET.get())), VanillaTypes.ITEM_STACK,
                     Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_found").append(Component.translatable("jei." + XtraDrinks.MOD_ID + ".buckets_liquid_dehydrator")));
             List<ItemStack> fruits = new ArrayList<>();
-            BuiltInRegistries.ITEM.getTagOrEmpty(XtraDrinksTags.FRUITS).forEach(itemHolder -> fruits.add(new ItemStack(itemHolder.value())));
+            BuiltInRegistries.ITEM.getTagOrEmpty(Tags.Items.FOODS_FRUIT).forEach(itemHolder -> fruits.add(new ItemStack(itemHolder.value())));
             registration.addIngredientInfo(fruits, VanillaTypes.ITEM_STACK,
                     Component.translatable("jei." + XtraDrinks.MOD_ID + ".fruit"));
         }

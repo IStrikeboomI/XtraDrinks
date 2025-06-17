@@ -99,7 +99,7 @@ public class LiquidDehydrator extends Block implements EntityBlock, TooltipProvi
         return new MenuProvider() {
             @Override
             public Component getDisplayName() {
-                return Component.translatable("block."+ XtraDrinks.MOD_ID+".liquid_dehydrator");
+                return Component.translatable("item."+ XtraDrinks.MOD_ID+".liquid_dehydrator");
             }
 
             @Override

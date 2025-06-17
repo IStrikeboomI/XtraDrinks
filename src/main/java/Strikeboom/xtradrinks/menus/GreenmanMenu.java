@@ -24,6 +24,15 @@ public class GreenmanMenu extends AbstractContainerMenu {
         if (greenman != null) {
             entity = greenman;
             entityInventory = greenman.HANDLER;
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    addSlot(new SlotItemHandler(
+                            entityInventory
+                            , i * 3 + j
+                            , 62 + i * 18
+                            , 17 + j * 18));
+                }
+            }
         }
         int xPos = 8;
         int yPos = 84;

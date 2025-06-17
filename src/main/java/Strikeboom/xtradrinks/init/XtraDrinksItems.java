@@ -108,30 +108,30 @@ public class XtraDrinksItems {
 
     public static final DeferredHolder<Item,Item> CITRIC_ACID = ITEMS.register("citric_acid",(loc) -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(1).saturationModifier(.1f).build(), Consumables.defaultFood().consumeSeconds(.6f).build()).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
-    public static final DeferredHolder<Item,Item> DRINK_CUP = ITEMS.register("drink_cup",(loc) -> new Item(new Item.Properties()));
-    public static final DeferredHolder<Item,Item> THICK_CUP = ITEMS.register("thick_cup",(loc) -> new Item(new Item.Properties()));
+    public static final DeferredHolder<Item,Item> DRINK_CUP = ITEMS.register("drink_cup",(loc) -> new Item(new Item.Properties().setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> THICK_CUP = ITEMS.register("thick_cup",(loc) -> new Item(new Item.Properties().setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
-    public static final DeferredHolder<Item,Item> DRINK_APPLE_JUICE = ITEMS.register("drink_apple_juice",(loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED,200)));
-    public static final DeferredHolder<Item,Item> DRINK_APPLE_THICK = ITEMS.register("drink_apple_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 240, 1)));
-    public static final DeferredHolder<Item,Item> DRINK_BEET_JUICE = ITEMS.register("drink_beet_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.RESISTANCE, 200)));
-    public static final DeferredHolder<Item,Item> DRINK_CARROT_JUICE = ITEMS.register("drink_carrot_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 400)));
-    public static final DeferredHolder<Item,Item> DRINK_CARROT_THICK = ITEMS.register("drink_carrot_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 1)));
-    public static final DeferredHolder<Item,Item> DRINK_CHOCOLATE_MILK_THICK = ITEMS.register("drink_chocolate_milk_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 240, 3)));
-    public static final DeferredHolder<Item,Item> DRINK_CINNAMON_SPICE_THICK = ITEMS.register("drink_cinnamon_spice_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 240, 3)));
-    public static final DeferredHolder<Item,Item> DRINK_COCONUT_JUICE = ITEMS.register("drink_coconut_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.REGENERATION, 500, 1)));
-    public static final DeferredHolder<Item,Item> DRINK_CRANAPPLE_JUICE = ITEMS.register("drink_cranapple_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 200)));
-    public static final DeferredHolder<Item,Item> DRINK_CRANLEMON_JUICE = ITEMS.register("drink_cranlemon_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.WATER_BREATHING, 600)));
-    public static final DeferredHolder<Item,Item> DRINK_CRANLIME_JUICE = ITEMS.register("drink_cranlime_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 200)));
+    public static final DeferredHolder<Item,Item> DRINK_APPLE_JUICE = ITEMS.register("drink_apple_juice",(loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED,400)));
+    public static final DeferredHolder<Item,Item> DRINK_APPLE_THICK = ITEMS.register("drink_apple_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 440, 1)));
+    public static final DeferredHolder<Item,Item> DRINK_BEET_JUICE = ITEMS.register("drink_beet_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.RESISTANCE, 400)));
+    public static final DeferredHolder<Item,Item> DRINK_CARROT_JUICE = ITEMS.register("drink_carrot_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800)));
+    public static final DeferredHolder<Item,Item> DRINK_CARROT_THICK = ITEMS.register("drink_carrot_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1000, 1)));
+    public static final DeferredHolder<Item,Item> DRINK_CHOCOLATE_MILK_THICK = ITEMS.register("drink_chocolate_milk_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 340, 3)));
+    public static final DeferredHolder<Item,Item> DRINK_CINNAMON_SPICE_THICK = ITEMS.register("drink_cinnamon_spice_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 340, 3)));
+    public static final DeferredHolder<Item,Item> DRINK_COCONUT_JUICE = ITEMS.register("drink_coconut_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.REGENERATION, 600, 1)));
+    public static final DeferredHolder<Item,Item> DRINK_CRANAPPLE_JUICE = ITEMS.register("drink_cranapple_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 400)));
+    public static final DeferredHolder<Item,Item> DRINK_CRANLEMON_JUICE = ITEMS.register("drink_cranlemon_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.WATER_BREATHING, 1000)));
+    public static final DeferredHolder<Item,Item> DRINK_CRANLIME_JUICE = ITEMS.register("drink_cranlime_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 400)));
     public static final DeferredHolder<Item,Item> DRINK_FIZZIUM_THICK = ITEMS.register("drink_fizzium_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 600,3)));
-    public static final DeferredHolder<Item,Item> DRINK_FRUIT_PUNCH_JUICE = ITEMS.register("drink_fruit_punch_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 200)));
-    public static final DeferredHolder<Item,Item> DRINK_GRAPE_JUICE = ITEMS.register("drink_grape_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.JUMP_BOOST, 200,1)));
+    public static final DeferredHolder<Item,Item> DRINK_FRUIT_PUNCH_JUICE = ITEMS.register("drink_fruit_punch_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 1200)));
+    public static final DeferredHolder<Item,Item> DRINK_GRAPE_JUICE = ITEMS.register("drink_grape_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.JUMP_BOOST, 400,1)));
     public static final DeferredHolder<Item,Item> DRINK_JUICETANIUM_THICK = ITEMS.register("drink_juicetanium_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.SPEED, 1200,3),new MobEffectInstance(MobEffects.SATURATION, 1200),new MobEffectInstance(MobEffects.STRENGTH, 1200,3)));
-    public static final DeferredHolder<Item,Item> DRINK_LEMON_JUICE = ITEMS.register("drink_lemon_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.HASTE, 200,1)));
-    public static final DeferredHolder<Item,Item> DRINK_LIME_JUICE = ITEMS.register("drink_lime_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.HASTE, 200,1)));
+    public static final DeferredHolder<Item,Item> DRINK_LEMON_JUICE = ITEMS.register("drink_lemon_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.HASTE, 500,1)));
+    public static final DeferredHolder<Item,Item> DRINK_LIME_JUICE = ITEMS.register("drink_lime_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.HASTE, 500,1)));
     public static final DeferredHolder<Item,Item> DRINK_LIQUADIUM_THICK = ITEMS.register("drink_liquadium_thick", (loc) -> new ThickJuice(loc,new MobEffectInstance(MobEffects.STRENGTH, 600,2)));
-    public static final DeferredHolder<Item,Item> DRINK_POTATO_JUICE = ITEMS.register("drink_potato_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.STRENGTH, 200,1)));
-    public static final DeferredHolder<Item,Item> DRINK_SOUR_JUICE = ITEMS.register("drink_sour_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.ABSORPTION, 400,2),new MobEffectInstance(MobEffects.SPEED, 200)));
-    public static final DeferredHolder<Item,Item> DRINK_TROPICAL_PUNCH_JUICE= ITEMS.register("drink_tropical_punch_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 200),new MobEffectInstance(MobEffects.NIGHT_VISION, 200)));
+    public static final DeferredHolder<Item,Item> DRINK_POTATO_JUICE = ITEMS.register("drink_potato_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.STRENGTH, 400,1)));
+    public static final DeferredHolder<Item,Item> DRINK_SOUR_JUICE = ITEMS.register("drink_sour_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.ABSORPTION, 800,2),new MobEffectInstance(MobEffects.SPEED, 200)));
+    public static final DeferredHolder<Item,Item> DRINK_TROPICAL_PUNCH_JUICE= ITEMS.register("drink_tropical_punch_juice", (loc) -> new Juice(loc,new MobEffectInstance(MobEffects.SPEED, 800),new MobEffectInstance(MobEffects.NIGHT_VISION, 800)));
 
     public static final DeferredHolder<Item,Item> DEHYDRATOR_ITEM = fromBlock(XtraDrinksBlocks.DEHYDRATOR);
     public static final DeferredHolder<Item,Item> LIQUID_DEHYDRATOR_ITEM = fromBlock(XtraDrinksBlocks.LIQUID_DEHYDRATOR);
@@ -144,7 +144,7 @@ public class XtraDrinksItems {
     public static final DeferredHolder<Item,Item> MOLTEN_LIQUADIUM_BUCKET = ITEMS.register("molten_liquadium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_LIQUADIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
     public static final DeferredHolder<Item,Item> MOLTEN_JUICETANIUM_BUCKET = ITEMS.register("molten_juicetanium_bucket", (loc) -> new BucketItem(XtraDrinksFluids.MOLTEN_JUICETANIUM.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
-    public static final DeferredHolder<Item,Item> GREENMAN_EGG = ITEMS.register("greenman_spawn_egg", (loc) -> new SpawnEggItem(XtraDrinksEntities.GREENMAN.get(), new Item.Properties().durability(0).stacksTo(64).setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
+    public static final DeferredHolder<Item,Item> GREENMAN_EGG = ITEMS.register("greenman_spawn_egg", (loc) -> new SpawnEggItem(XtraDrinksEntities.GREENMAN.get(), new Item.Properties().setId(ResourceKey.create(BuiltInRegistries.ITEM.key(),loc))));
 
 
     public static <B extends Block> DeferredHolder<Item,Item> fromBlock(DeferredHolder<B,B> block) {

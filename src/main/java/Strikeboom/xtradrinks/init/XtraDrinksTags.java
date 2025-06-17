@@ -15,15 +15,8 @@ public class XtraDrinksTags {
     public static final TagKey<Item> INGOT_JUICETANIUM = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","ingots/juicetanium"));
     public static final TagKey<Item> INGOT_LIQUADIUM = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","ingots/liquadium"));
 
-    public static final TagKey<Item> FRUITS = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruits"));
-    public static final TagKey<Item> FRUIT_CITRIC = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit/citrics"));
-    public static final TagKey<Item> FRUIT_TROPICAL = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c","fruit/tropicals"));
-
     public static final TagKey<Block> ORANGE_CAN_SPAWN_ON = BlockTags.create(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"orange_can_spawn_on"));
     public static final TagKey<Block> COCONUT_CAN_SPAWN_ON = BlockTags.create(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"coconut_can_spawn_on"));
     public static final TagKey<Block> PINES_CAN_SPAWN_ON = BlockTags.create(ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"pines_can_spawn_on"));
-
-    public static final TagKey<Biome> WELL = TagKey.create(Registries.BIOME,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"has_structure/well"));
-    public static final TagKey<Biome> FARM = TagKey.create(Registries.BIOME,ResourceLocation.fromNamespaceAndPath(XtraDrinks.MOD_ID,"has_structure/farm"));
 
 }

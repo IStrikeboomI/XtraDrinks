@@ -1,8 +1,0 @@
-{
-  "type": "xtradrinks:liquid_dehydrator",
-  "ingredients": {
-    "id": "xtradrinks:molten_liquadium",
-    "amount": 100
-  },
-  "result": "xtradrinks:liquadium_shard"
-}

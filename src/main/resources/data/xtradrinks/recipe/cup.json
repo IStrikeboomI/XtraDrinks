@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "I": "#c:glass_blocks"
+  },
+  "result": {
+    "id": "xtradrinks:drink_cup",
+    "count": 3
+  }
+}

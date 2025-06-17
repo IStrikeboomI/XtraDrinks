@@ -1,10 +1,10 @@
 {
-  "type":"xtradrinks:entity",
-  "biomes":"#forge:is_plains",
-  "entity" : {
+  "type":"neoforge:add_spawns",
+  "biomes":"#c:is_plains",
+  "spawners" : [{
     "type": "xtradrinks:greenman",
     "weight": 10,
     "minCount": 1,
     "maxCount": 1
-  }
+  }]
 }

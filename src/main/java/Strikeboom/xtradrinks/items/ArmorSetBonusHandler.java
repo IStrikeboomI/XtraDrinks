@@ -19,7 +19,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 @EventBusSubscriber(modid = XtraDrinks.MOD_ID)
 public class ArmorSetBonusHandler {
     @SubscribeEvent
-    public static void onArmorTickEvent(PlayerTickEvent event) {
+    public static void onArmorTickEvent(PlayerTickEvent.Pre event) {
         Player player = event.getEntity();
         if (!player.level().isClientSide()) {
             int fizzium = 0, liquadium = 0, juicetanium = 0;

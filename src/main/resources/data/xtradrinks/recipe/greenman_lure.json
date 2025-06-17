@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "IBI",
+    "III"
+  ],
+  "key": {
+    "I": "#c:glass_blocks",
+    "S": "minecraft:green_wool",
+    "B": "#c:gems/diamond"
+  },
+  "result": {
+    "id": "xtradrinks:greenman_lure",
+    "count": 1
+  }
+}
